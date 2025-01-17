@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-12T13:59:58.400Z",
+    "end": "2025-01-12T14:00:50.441Z",
+    "duration": 52041,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c4f9acbd-aa91-42b9-b694-3da4c79802a8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\features\\MenuCobrança.feature",
+      "file": "cypress\\e2e\\features\\MenuCobrança.feature",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e5556f86-7d74-4a95-b92c-b4295ebee590",
+          "title": "Validação do menu Cobrança",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validar o acesso ao menu Cobrança",
+              "fullTitle": "Validação do menu Cobrança Validar o acesso ao menu Cobrança",
+              "timedOut": null,
+              "duration": 51855,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {
+                "message": "Error: Texto ou valor esperado não encontrado",
+                "estack": "Error: Texto ou valor esperado não encontrado\n    at Context.eval (cypress/e2e/pages/MenuPage.js:60:18)",
+                "diff": null
+              },
+              "uuid": "0693e51e-3631-410c-872a-f566f88e7975",
+              "parentUUID": "e5556f86-7d74-4a95-b92c-b4295ebee590",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0693e51e-3631-410c-872a-f566f88e7975"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 51855,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

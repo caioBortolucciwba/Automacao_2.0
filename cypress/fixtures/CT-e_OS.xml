@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cteOSProc xmlns="http://www.portalfiscal.inf.br/cte"
+           versao="3.00">
+	<CTeOS xmlns="http://www.portalfiscal.inf.br/cte"
+	       versao="3.00">
+		<infCte Id="CTe41211110919908000157670000000002451000002452"
+		        versao="3.00">
+			<ide>
+				<cUF>41</cUF>
+				<cCT>00000999</cCT>
+				<CFOP>6357</CFOP>
+				<natOp>PRESTACAO DE SERVICO DE TRANSPORTE A NAO CONTRIBUINTE</natOp>
+				<mod>67</mod>
+				<serie>0</serie>
+				<nCT>5190002</nCT>
+				<dhEmi>2024-11-21T14:46:00-03:00</dhEmi>
+				<tpImp>1</tpImp>
+				<tpEmis>1</tpEmis>
+				<cDV>2</cDV>
+				<tpAmb>1</tpAmb>
+				<tpCTe>0</tpCTe>
+				<procEmi>0</procEmi>
+				<verProc>2.00</verProc>
+				<cMunEnv>4125506</cMunEnv>
+				<xMunEnv>SAO JOSE DOS PINHAIS</xMunEnv>
+				<UFEnv>PR</UFEnv>
+				<modal>02</modal>
+				<tpServ>6</tpServ>
+				<indIEToma>1</indIEToma>
+				<cMunIni>4106902</cMunIni>
+				<xMunIni>CURITIBA</xMunIni>
+				<UFIni>PR</UFIni>
+				<cMunFim>3518800</cMunFim>
+				<xMunFim>GUARULHOS</xMunFim>
+				<UFFim>SP</UFFim>
+			</ide>
+			<compl>
+				<xObs>Retencao de valor da NF: R$ 2.068,73 conforme IN RFB971/09 art 122O valor aproximado de tributos incidentes sobre o preco deste servico e de R$ 7.867,43OPERACAO NAO SUJEITA A INCIDENCIA DO ICMS (DECISAO DO STF NA ADI 1600-8)FRETAMENTO - TRECHO: CWB X GRURETENCAO DE INSS R$ 2.068,73</xObs>
+			</compl>
+			<emit>
+				<CNPJ>77817742000139</CNPJ>
+				<IE>9051299296</IE>
+				<xNome>Cedente Integração Irec</xNome>
+				<xFant>Cedente Integração Irec</xFant>
+				<enderEmit>
+					<xLgr>RODOVIA CONTORNO LESTE BR 116</xLgr>
+					<nro>S/N</nro>
+					<xBairro>COSTEIRA</xBairro>
+					<cMun>4125506</cMun>
+					<xMun>SAO JOSE DOS PINHAIS</xMun>
+					<CEP>83015162</CEP>
+					<UF>PR</UF>
+					<fone>4131169000</fone>
+				</enderEmit>
+			</emit>
+			<toma>
+				<CNPJ>45675516000174</CNPJ>
+				<IE>9073647980</IE>
+				<xNome>Meu pequeno Teste</xNome>
+				<xFant/>
+				<fone>04121055572</fone>
+				<enderToma>
+					<xLgr>R BUENOS AIRES</xLgr>
+					<nro>1160</nro>
+					<xBairro>AGUA VERDE</xBairro>
+					<cMun>4106902</cMun>
+					<xMun>CURITIBA</xMun>
+					<CEP>80250070</CEP>
+					<UF>PR</UF>
+					<cPais>105</cPais>
+				</enderToma>
+				<email>RENATO.RABASSI@ATHLETICO.COM.BR</email>
+			</toma>
+			<vPrest>
+				<vTPrest>62688.73</vTPrest>
+				<vRec>60620.00</vRec>
+			</vPrest>
+			<imp>
+				<ICMS>
+					<ICMS45>
+						<CST>41</CST>
+					</ICMS45>
+				</ICMS>
+				<infTribFed>
+					<vPIS>1034.36</vPIS>
+					<vCOFINS>4764.34</vCOFINS>
+					<vIR>0</vIR>
+					<vINSS>2068.73</vINSS>
+					<vCSLL>0</vCSLL>
+				</infTribFed>
+			</imp>
+			<infCTeNorm>
+				<infServico>
+					<xDescServ>FRETAMENTO TIME FUTEBOL</xDescServ>
+					<infQ>
+						<qCarga>1</qCarga>
+					</infQ>
+				</infServico>
+			</infCTeNorm>
+		</infCte>
+		<infCTeSupl>
+			<qrCodCTe>http://www.fazenda.pr.gov.br/cte/qrcode?chCTe=41211110919908000157670000000002451000002452&amp;tpAmb=1</qrCodCTe>
+		</infCTeSupl>
+		<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+			<SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+				<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+				<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+				<Reference URI="#CTe41211110919908000157670000000002451000002452">
+					<Transforms>
+						<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+						<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+					</Transforms>
+					<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+					<DigestValue>kKprbEPqETNgcGPoQqGmYYY5qqk=</DigestValue>
+				</Reference>
+			</SignedInfo>
+			<SignatureValue>jIcV8s0Kt9CbyqaLbJGgK+MKnibz37wai/JFvp7yFLBUPQZB4Dz2PbXbw7+IVCvAw44FMIouYmIaM+57OImkZsW+SCDN8aOrLrWDJmnz0tpWeTP94cavDV902rBlrXutcYoZjoBQ2AWCUeHi4xW7vtejb7PuuBvE5iEuC4HXSpx2mGCIynDOyExSbioCRQ/MwhFittA+u08c2jfDf/ditOEsdSQoneFGcH7hshwzaSk933YCMl6Jj5ZwifDgJ38l24qG/JEELYsm3FjR+DpG4HTPS1qjljmkWWKNE7TaRbl9FplCGUSRGuVz/m1+W1Y1CLG05km2EOYN7Cu3UPqztg==</SignatureValue>
+			<KeyInfo>
+				<X509Data>
+					<X509Certificate>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</X509Certificate>
+				</X509Data>
+			</KeyInfo>
+		</Signature>
+	</CTeOS>
+	<protCTe versao="3.00">
+		<infProt Id="ID141210167105717">
+			<tpAmb>1</tpAmb>
+			<verAplic>PR-v3_1_33</verAplic>
+			<chCTe>41211110919908000157670000000002451000002452</chCTe>
+			<dhRecbto>2022-11-30T14:46:25-03:00</dhRecbto>
+			<nProt>141210167105717</nProt>
+			<digVal>kKprbEPqETNgcGPoQqGmYYY5qqk=</digVal>
+			<cStat>100</cStat>
+			<xMotivo>Autorizado o uso do CT-e</xMotivo>
+		</infProt>
+	</protCTe>
+</cteOSProc>

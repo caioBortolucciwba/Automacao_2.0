@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cteProc xmlns="http://www.portalfiscal.inf.br/cte" versao="3.00">
+   <CTe>
+      <infCte versao="3.00" Id="CTe42200128080584000171570010000625031001366056">
+         <ide>
+            <cUF>42</cUF>
+            <cCT>00136605</cCT>
+            <CFOP>6352</CFOP>
+            <natOp>PREST. SERV. TRANSP. A ESTABELECIMENTO INDUSTRIAL</natOp>
+            <mod>57</mod>
+            <serie>1</serie>
+            <nCT>5192</nCT>
+            <dhEmi>2024-05-27T11:59:32-03:00</dhEmi>
+            <tpImp>1</tpImp>
+            <tpEmis>1</tpEmis>
+            <cDV>6</cDV>
+            <tpAmb>1</tpAmb>
+            <tpCTe>0</tpCTe>
+            <procEmi>0</procEmi>
+            <verProc>981</verProc>
+            <cMunEnv>4209102</cMunEnv>
+            <xMunEnv>JOINVILLE</xMunEnv>
+            <UFEnv>SC</UFEnv>
+            <modal>01</modal>
+            <tpServ>0</tpServ>
+            <cMunIni>4209102</cMunIni>
+            <xMunIni>JOINVILLE</xMunIni>
+            <UFIni>SC</UFIni>
+            <cMunFim>4106902</cMunFim>
+            <xMunFim>CURITIBA</xMunFim>
+            <UFFim>PR</UFFim>
+            <retira>1</retira>
+            <indIEToma>1</indIEToma>
+            <toma3>
+               <toma>0</toma>
+            </toma3>
+         </ide>
+         <compl>
+            <xCaracAd>N</xCaracAd>
+            <xCaracSer>VENDA JOINVILLE</xCaracSer>
+            <xEmi>KAUE GUSTAVO STOLF D</xEmi>
+            <Entrega>
+               <noPeriodo>
+                  <tpPer>4</tpPer>
+                  <dIni>2024-09-27</dIni>
+                  <dFim>2024-09-29</dFim>
+               </noPeriodo>
+               <comHora>
+                  <tpHor>2</tpHor>
+                  <hProg>23:59:00</hProg>
+               </comHora>
+            </Entrega>
+            <xObs>CONHECIMENTO PARA TESTE DE ENVIO DE XML</xObs>
+            <ObsCont xCampo="xCaracAd">
+               <xTexto>N</xTexto>
+            </ObsCont>
+            <ObsCont xCampo="Obs1">
+               <xTexto>MOTORISTA: PEDRO PAULO ZIMMERMANN JUNIOR              PROPRIETARIO: PEDRO PAULO ZIMMERMANN JUNIOR</xTexto>
+            </ObsCont>
+            <ObsCont xCampo="Obs2">
+               <xTexto>VEICULO: MBG9060 / LACRE: / NOME AGREGADO: PEDRO PAULO ZIMMERMANN JUNIOR - CPF/CNPJ: 89752520600 - ANTT: 02635803 - TIPO TRANSPORTAD</xTexto>
+            </ObsCont>
+            <ObsCont xCampo="Obs3">
+               <xTexto>OR: TAC -PLACA VEICULO: MBG9060 - MARCA: MERCEDES BENZ - CIDADE: JOINVILLE/SC - RENAVAM: 545044154 - MOTORISTA: PEDRO PAULO ZIMMERMANN JUNIOR - CPF: 89752520600</xTexto>
+            </ObsCont>
+            <ObsCont xCampo="Obs4">
+               <xTexto>- REGISTRO (CNH): 1574522800 - CNH: 1165291454 - MANIFESTO: 36462 - TIPO MOVIMENTO: VENDA JOINVILLE</xTexto>
+            </ObsCont>
+         </compl>
+         <emit>
+            <CNPJ>19925296000180</CNPJ>
+            <IE>258375043</IE>
+            <xNome>Cedente Integração Irec</xNome>
+            <xFant>Cedente Integração Irec</xFant>
+            <enderEmit>
+               <xLgr>RUA DOS BOROROS</xLgr>
+               <nro>84</nro>
+               <xBairro>CENTRO (PIRABEIRABA)</xBairro>
+               <cMun>4209102</cMun>
+               <xMun>JOINVILLE</xMun>
+               <CEP>89239290</CEP>
+               <UF>SC</UF>
+               <fone>47999072768</fone>
+            </enderEmit>
+         </emit>
+         <rem>
+            <CNPJ>08862530000746</CNPJ>
+            <IE>258122625</IE>
+            <xNome>TIGRE MAT. E SOLUCAO PARA CONSTR. LTDA</xNome>
+            <fone>4734415172</fone>
+            <enderReme>
+               <xLgr>DOS BOROROS</xLgr>
+               <nro>84</nro>
+               <xBairro>PIRABEIRABA</xBairro>
+               <cMun>4209102</cMun>
+               <xMun>JOINVILLE</xMun>
+               <CEP>89239290</CEP>
+               <UF>SC</UF>
+            </enderReme>
+            <email>NFE.SAP.TIGRE@TIGRE.COM</email>
+         </rem>
+         <dest>
+            <CNPJ>75118679000117</CNPJ>
+            <IE>1012854567</IE>
+            <xNome>CASA CONEXAO DE MATS HIDRAULICOS</xNome>
+            <fone>4133322166</fone>
+            <enderDest>
+               <xLgr>R FRANCISCO NUNES 1241, TERREO</xLgr>
+               <nro>S/N</nro>
+               <xBairro>PRADO VELHO</xBairro>
+               <cMun>4106902</cMun>
+               <xMun>CURITIBA</xMun>
+               <CEP>80215000</CEP>
+               <UF>PR</UF>
+            </enderDest>
+         </dest>
+         <vPrest>
+            <vTPrest>12.31</vTPrest>
+            <vRec>12.31</vRec>
+            <Comp>
+               <xNome>FRETE_PESO</xNome>
+               <vComp>10.00</vComp>
+            </Comp>
+            <Comp>
+               <xNome>TAXAS_DIVERSAS</xNome>
+               <vComp>0.83</vComp>
+            </Comp>
+            <Comp>
+               <xNome>ICMS</xNome>
+               <vComp>1.48</vComp>
+            </Comp>
+         </vPrest>
+         <imp>
+            <ICMS>
+               <ICMS00>
+                  <CST>00</CST>
+                  <vBC>12.31</vBC>
+                  <pICMS>12.00</pICMS>
+                  <vICMS>1.48</vICMS>
+               </ICMS00>
+            </ICMS>
+         </imp>
+         <infCTeNorm>
+            <infCarga>
+               <vCarga>36259.19</vCarga>
+               <proPred>MATERIAIS HIDRAULICOS E ELETRICOS</proPred>
+               <infQ>
+                  <cUnid>01</cUnid>
+                  <tpMed>Peso_Real</tpMed>
+                  <qCarga>4907.0400</qCarga>
+               </infQ>
+               <infQ>
+                  <cUnid>01</cUnid>
+                  <tpMed>Peso_Cubado</tpMed>
+                  <qCarga>12349.0000</qCarga>
+               </infQ>
+               <infQ>
+                  <cUnid>01</cUnid>
+                  <tpMed>Peso_Taxado</tpMed>
+                  <qCarga>12349.0000</qCarga>
+               </infQ>
+               <infQ>
+                  <cUnid>01</cUnid>
+                  <tpMed>Tara_Container</tpMed>
+                  <qCarga>0.0000</qCarga>
+               </infQ>
+               <infQ>
+                  <cUnid>03</cUnid>
+                  <tpMed>Volume</tpMed>
+                  <qCarga>235.0000</qCarga>
+               </infQ>
+               <infQ>
+                  <cUnid>00</cUnid>
+                  <tpMed>Metros_Cubico</tpMed>
+                  <qCarga>41.1600</qCarga>
+               </infQ>
+            </infCarga>
+            <infDoc>
+               <infNFe>
+                  <chave>42200108862530000746550010003394671998657798</chave>
+                  <dPrev>2024-09-29</dPrev>
+               </infNFe>
+            </infDoc>
+            <infModal versaoModal="3.00">
+               <rodo>
+                  <RNTRC>50246633</RNTRC>
+               </rodo>
+            </infModal>
+         </infCTeNorm>
+         <autXML>
+            <CNPJ>04898488000177</CNPJ>
+         </autXML>
+         <autXML>
+            <CNPJ>28080584000252</CNPJ>
+         </autXML>
+         <autXML>
+            <CNPJ>28080584000333</CNPJ>
+         </autXML>
+         <autXML>
+            <CNPJ>28080584000414</CNPJ>
+         </autXML>
+      </infCte>
+      <infCTeSupl>
+         <qrCodCTe><![CDATA[https://dfe-portal.svrs.rs.gov.br/cte/qrCode?chCTe=42200128080584000171570010000625031001366056&tpAmb=1]]></qrCodCTe>
+      </infCTeSupl>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+         <SignedInfo>
+            <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+            <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+            <Reference URI="#CTe42200128080584000171570010000625031001366056">
+               <Transforms>
+                  <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                  <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+               </Transforms>
+               <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+               <DigestValue>+e/h5UtH1eSxFoVZholnZulyJqI=</DigestValue>
+            </Reference>
+         </SignedInfo>
+         <SignatureValue>qCxMQlpTD3N9PgFFDei4X2uur3BQ3jr+2HbXlMSV/NH5yDh17eYV05LepKGONFXwUl1ItR7+y7drRf45/eD5I/Z4i17a5RXF07gZMW5/JmRXEF23YuCLIsI8LgkcS0KMBD5KE9wwMDpkwPNE3G8YiDOi7XFmctmcTP7f9MGlcq2d+QBYvjgxJ1fgOXnzZZ9Df+PnuxIUHDVXmPUS8r30InPYF3i/lbZE+znAtYnPOvR3S1l1sH/T2JUEMtxjSGeMlC9qOI45MWUovvSUpt7voZGoyFKffLVbH/QxpLDqippAEtipE3E0icY3UNCgwXctocbnmZxSmJFGiEQnU1c4iw==</SignatureValue>
+         <KeyInfo>
+            <X509Data>
+               <X509Certificate>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</X509Certificate>
+            </X509Data>
+         </KeyInfo>
+      </Signature>
+   </CTe>
+   <protCTe versao="3.00">
+      <infProt Id="CTe342200008786329">
+         <tpAmb>1</tpAmb>
+         <verAplic>RS20200124142347</verAplic>
+         <chCTe>42200128080584000171570010000625031001366056</chCTe>
+         <dhRecbto>2024-09-29T11:58:55-03:00</dhRecbto>
+         <nProt>342200008786329</nProt>
+         <digVal>+e/h5UtH1eSxFoVZholnZulyJqI=</digVal>
+         <cStat>100</cStat>
+         <xMotivo>Autorizado o uso do CT-e</xMotivo>
+      </infProt>
+   </protCTe>
+</cteProc>

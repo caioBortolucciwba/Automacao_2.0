@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-16T12:07:29.920Z",
+    "end": "2025-01-16T12:09:00.048Z",
+    "duration": 90128,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "715617d0-c393-445e-ac79-d64c8882e1c7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo.feature",
+      "file": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo.feature",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f24d2957-19ba-48e8-b5d8-056011eca112",
+          "title": "Validação do menu Cobrança",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validar o acesso ao menu Cobrança",
+              "fullTitle": "Validação do menu Cobrança Validar o acesso ao menu Cobrança",
+              "timedOut": null,
+              "duration": 89918,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 50000ms: expected '<span..>' to contain '43302432.60'",
+                "estack": "AssertionError: Timed out retrying after 50000ms: expected '<span..>' to contain '43302432.60'\n    at Context.eval (cypress/e2e/pages/Cobranca_gestao_titulo.js:85:90)",
+                "diff": null
+              },
+              "uuid": "a4fdf27b-d731-4a0d-ba00-9339c2d3abc5",
+              "parentUUID": "f24d2957-19ba-48e8-b5d8-056011eca112",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a4fdf27b-d731-4a0d-ba00-9339c2d3abc5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 89918,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-16T12:16:05.877Z",
+    "end": "2025-01-16T12:17:36.104Z",
+    "duration": 90227,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c0539f99-71a9-4697-8123-2ddd1260ffd5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\features\\Operacional_Bordero_Edicao_Arq.feature",
+      "file": "cypress\\e2e\\features\\Operacional_Bordero_Edicao_Arq.feature",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "47d6ec55-850e-4b75-a19b-a77134829d50",
+          "title": "Operacional - Borderô - Edição de Arquivos anexados",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Edição de Arquivos anexados",
+              "fullTitle": "Operacional - Borderô - Edição de Arquivos anexados Edição de Arquivos anexados",
+              "timedOut": null,
+              "duration": 90011,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 50000ms: Expected to find element: `:nth-child(1) > [data-label=\"Ações\"] > [ng-reflect-ng-style=\"[object Object]\"] > .actions > [ng-reflect-message=\"Editar documento\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 50000ms: Expected to find element: `:nth-child(1) > [data-label=\"Ações\"] > [ng-reflect-ng-style=\"[object Object]\"] > .actions > [ng-reflect-message=\"Editar documento\"]`, but never found it.\n    at edicaoAnexo.editarAnexo (cypress/e2e/pages/Operacional_Bordero_Edicao_Arq.js:11:11)\n    at Context.eval (cypress/e2e/steps/Operacional_Bordero_Edicao_Arq_Step.js:33:14)\n    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:193:0)\n    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)",
+                "diff": null
+              },
+              "uuid": "471a74fe-26c1-4d89-b7cd-b62fb66267bd",
+              "parentUUID": "47d6ec55-850e-4b75-a19b-a77134829d50",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "471a74fe-26c1-4d89-b7cd-b62fb66267bd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 90011,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
