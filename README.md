@@ -19,3 +19,5 @@ import 'cypress-file-upload';
 Abrir cypress
 npm cypress open
 
+Gerar evidencia:
+npx cypress run --spec "cypress/e2e/features/Cobranca_Gestao_Titulo_Renegociacao.feature"

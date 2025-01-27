@@ -4,7 +4,11 @@ const mochawesomeMerge = require("mochawesome-merge");
 const mochawesomeReportGenerator = require("mochawesome-report-generator");
 
 module.exports = defineConfig({
+  experimentalMemoryManagement: true, 
+  numTestsKeptInMemory: 5, 
+
   e2e: {
+    video: true,
     verifyBaseUrl: false,
     defaultCommandTimeout: 50000,
     viewportWidth: 1380,
@@ -13,21 +17,20 @@ module.exports = defineConfig({
     specPattern: "cypress/e2e/features",
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
+
       // Processo para gerar o relatório único após a execução
       on("after:run", async () => {
         const reportJson = await mochawesomeMerge({
           files: ["cypress/reports/*.json"]
         });
 
-        mochawesomeReportGenerator.create(reportJson, {
+        await mochawesomeReportGenerator.create(reportJson, {
           reportDir: "cypress/reports",
           overwrite: true,
           html: true,
           json: true
         });
       });
-
-      
     },
   },
 

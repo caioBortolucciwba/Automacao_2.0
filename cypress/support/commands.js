@@ -1,58 +1,70 @@
 import 'cypress-file-upload';
 
-Cypress.Commands.add('calcularJurosEMulta', (valorBase, juros, multa) => {
-  if (!valorBase) {
-    throw new Error('O valor base está indefinido ou vazio.');
+// Cypress.Commands.add('calcularJurosEMulta', (valorBase, juros, multa, prazo) => {
+//   const valorBaseNum = parseFloat(valorBase.replace(/[^\d.-]/g, '').replace(',', '.'));
+
+//   if (isNaN(valorBaseNum)) {
+//     throw new Error(`Valor base inválido para cálculo: ${valorBase}`);
+//   }
+
+//   if (isNaN(prazo) || prazo <= 0) {
+//     throw new Error(`Prazo inválido para cálculo: ${prazo}`);
+//   }
+
+//   const jurosComPrazo = (juros * prazo) / 100;
+//   const multaComPrazo = (multa * prazo) / 100;
+
+//   const valorComJuros = valorBaseNum * (1 + jurosComPrazo / 100);
+//   const valorComMulta = valorBaseNum * (1 + multaComPrazo / 100);
+//   const valorAtualizado = valorComJuros + (valorComMulta - valorBaseNum);
+
+//   return {
+//     valorComJuros: valorComJuros.toFixed(2),
+//     valorComMulta: valorComMulta.toFixed(2),
+//     valorAtualizado: valorAtualizado.toFixed(2),
+//   };
+// });
+
+// Função para calcular o valor final
+Cypress.Commands.add('calcularValorFinal', (valor, multa, juros) => {
+  const valorFloat = parseFloat(valor.replace(/[^\d,]/g, "").replace(",", "."));
+  const multaFloat = parseFloat(multa.replace(/\D/g, ""));
+  const jurosFloat = parseFloat(juros.replace(/\D/g, ""));
+
+  // Validação básica
+  if (isNaN(valorFloat) || isNaN(multaFloat) || isNaN(jurosFloat)) {
+    return "Por favor, preencha todos os campos corretamente.";
   }
 
-  // Removendo caracteres especiais e convertendo para número
-  const valorBaseNum = parseFloat(
-    valorBase.replace('R$', '').replace(/\./g, '').replace(',', '.')
-  );
+  // Calcula o valor final
+  const valorMulta = valorFloat * (multaFloat / 100);
+  const valorJuros = valorFloat * (jurosFloat / 100);
+  const valorFinal = valorFloat + valorMulta + valorJuros;
 
-  if (isNaN(valorBaseNum)) {
-    throw new Error(`Valor base inválido para cálculo: ${valorBase}`);
-  }
-
-  console.log("Valor base numérico:", valorBaseNum);
-
-  // Calculando juros e multa
-  const jurosDecimal = juros / 100;
-  const multaDecimal = multa / 100;
-
-  const valorComJuros = valorBaseNum * jurosDecimal;
-  const valorComMulta = valorBaseNum * multaDecimal;
-  const valorAtualizado = valorBaseNum + valorComJuros + valorComMulta;
-
-  console.log("Juros calculados:", valorComJuros);
-  console.log("Multa calculada:", valorComMulta);
-  console.log("Valor atualizado calculado:", valorAtualizado);
-
-  // Retornando os valores em formato de string
   return {
-    valorComJuros: valorComJuros.toFixed(2),
-    valorComMulta: valorComMulta.toFixed(2),
-    valorAtualizado: valorAtualizado.toFixed(2),
+    valorFinal: `R$ ${valorFinal.toFixed(2)}`,
+    valorMulta: `R$ ${valorMulta.toFixed(2)}`,
+    valorJuros: `R$ ${valorJuros.toFixed(2)}`,
   };
 });
 
+
 Cypress.Commands.add('uploadFile', (selector, fileName) => {
   cy.fixture(fileName, 'binary')
-      .then(Cypress.Blob.binaryStringToBlob)
-      .then((fileContent) => {
-          const mimeType = getMimeType(fileName); // Obtém o MIME Type correto para o arquivo
-          const file = new File([fileContent], fileName, { type: mimeType });
-          const dataTransfer = new DataTransfer();
-          dataTransfer.items.add(file);
+    .then(Cypress.Blob.binaryStringToBlob)
+    .then((fileContent) => {
+      const file = new File([fileContent], fileName);
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
 
-          cy.get(selector).then((el) => {
-              const event = new Event('drop', { bubbles: true });
-              Object.defineProperty(event, 'dataTransfer', {
-                  value: dataTransfer,
-              });
-              el[0].dispatchEvent(event);
-          });
+      cy.get(selector).then((el) => {
+        const event = new Event('drop', { bubbles: true });
+        Object.defineProperty(event, 'dataTransfer', {
+          value: dataTransfer,
+        });
+        el[0].dispatchEvent(event);
       });
+    });
 });
 
 function getMimeType(nomeDoArquivo) {
