@@ -1,8 +1,8 @@
 import LoginPage from '../pages/LoginPage';
-import CadastroPFSacado from '../pages/CadastroPf_Sacado';
+import CadastroPFAssinante from '../pages/CadastroPf_Assinante';
 
 const loginPage = new LoginPage();
-const cadastroPFSacado = new CadastroPFSacado();
+const cadastroPFAssinante = new CadastroPFAssinante();
 
 Given('que o usuário acessa a página de login', () => {
   loginPage.visit();
@@ -27,14 +27,14 @@ Given('que o usuário está na página inicial', () => {
   cy.url().should('include', '/home'); // Substitua pelo caminho correto
 });
 
-When('o usuário clica no menu cadastro sacado', () => {
-  cadastroPFSacado.entrarCadastroPf();
+When('o usuário clica no menu cadastro assinante', () => {
+  cadastroPFAssinante.entrarCadastroPf();
 });
 
-Then('preencho todos os campos do cadastramento sacado', () => {
-  cadastroPFSacado.preencherCadastroPfSacado();
+Then('preencho todos os campos do cadastramento assinante', () => {
+  cadastroPFAssinante.preencherCadastroPfAssinante();
 });
 
 Then('tenho cadastramento concluido', (titulo) => {
-  cadastroPFSacado.cadastroConcluido();
+  cadastroPFAssinante.cadastroConcluido();
 });

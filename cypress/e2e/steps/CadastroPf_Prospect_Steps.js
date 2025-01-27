@@ -1,8 +1,8 @@
 import LoginPage from '../pages/LoginPage';
-import CadastroPFSacado from '../pages/CadastroPf_Sacado';
+import CadastroPFProspect from '../pages/CadastroPf_Prospect';
 
 const loginPage = new LoginPage();
-const cadastroPFSacado = new CadastroPFSacado();
+const cadastroPFProspect = new CadastroPFProspect();
 
 Given('que o usuário acessa a página de login', () => {
   loginPage.visit();
@@ -28,13 +28,13 @@ Given('que o usuário está na página inicial', () => {
 });
 
 When('o usuário clica no menu cadastro sacado', () => {
-  cadastroPFSacado.entrarCadastroPf();
+  cadastroPFProspect.entrarCadastroPf();
 });
 
 Then('preencho todos os campos do cadastramento sacado', () => {
-  cadastroPFSacado.preencherCadastroPfSacado();
+  cadastroPFProspect.preencherCadastroPfProspect();
 });
 
 Then('tenho cadastramento concluido', (titulo) => {
-  cadastroPFSacado.cadastroConcluido();
+  cadastroPFProspect.cadastroConcluido();
 });

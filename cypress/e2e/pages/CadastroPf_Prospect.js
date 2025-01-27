@@ -1,6 +1,6 @@
 import { gerarCPF, gerarCNPJ, gerarRG } from '../../support/utils';
 
-class CadastroPFSacado {
+class CadastroPFProspect {
     entrarCadastroPf(){
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1 > span').click();
@@ -8,12 +8,12 @@ class CadastroPFSacado {
         cy.get('#select-tipo-pessoa').click();
         cy.contains('li', 'PESSOA FÍSICA').click();
         cy.get('.mat-form-field-flex').click();
-        cy.get('#mat-option-15 > .mat-option-pseudo-checkbox').click();
+        cy.get('#mat-option-16 > .mat-option-pseudo-checkbox').click();
         cy.get('body').click(0, 0); 
         cy.get('#btn-salvar').click();
     }
 
-    preencherCadastroPfSacado(){
+    preencherCadastroPfProspect(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
         cy.get('#mat-input-4').type(cpf);
@@ -62,16 +62,9 @@ class CadastroPFSacado {
         cy.get('#mat-input-38').type('10102010');
         cy.get('#mat-input-39').type('2023');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
-        /////////////PARAMETROS GLOBAIS////////////////////
-        cy.get('.nav > ul > #item-menu-2').click();
-        cy.get('.d-inline-block > :nth-child(2) > :nth-child(1)').click(); 
-        cy.get('#mat-slide-toggle-3 > .mat-slide-toggle-label > .mat-slide-toggle-content').click();
-        cy.get('#input-busca-grupo-empresarial').type('teste');
-        cy.get('#mat-option-88 > .mat-option-text').click();
-        cy.get('.btn-flex-cadastro > .fa').click();
         /////////////PARAMETROS POR EMPRESA////////////////////
-        cy.get('.nav > ul > #item-menu-3').click();
-        cy.get('#btn-vincular-empresa').click();
+        cy.get('.nav > ul > #item-menu-2').click();
+        cy.get('#btn-vincular-empresa > .ng-star-inserted').click();
         cy.get('#select-empresa-carteira > .mat-icon').click();
         cy.get('#select-empresa-carteira-item-box-select > ul > li:nth-child(1)').click();
         cy.get('#btn-avancar').click();
@@ -178,5 +171,5 @@ class CadastroPFSacado {
     
   }
   
-  export default CadastroPFSacado;
+  export default CadastroPFProspect;
   
