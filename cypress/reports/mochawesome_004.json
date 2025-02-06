@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2025-01-15T19:54:58.903Z",
-    "end": "2025-01-15T19:56:24.103Z",
-    "duration": 85200,
+    "failures": 0,
+    "start": "2025-02-05T13:16:47.398Z",
+    "end": "2025-02-05T13:17:43.782Z",
+    "duration": 56384,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,53 +18,49 @@
   },
   "results": [
     {
-      "uuid": "ea8ff8d7-c812-4fc1-91d6-095e45003758",
+      "uuid": "81904493-023f-4156-b53e-c691a465128a",
       "title": "",
-      "fullFile": "cypress\\e2e\\features\\Operacional_Bordero_XML.feature",
-      "file": "cypress\\e2e\\features\\Operacional_Bordero_XML.feature",
+      "fullFile": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
+      "file": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "323e129b-fe93-415f-ac53-8007f73887a2",
-          "title": "Operacional - Borderô - Criar operação importando arquivos (XML)",
+          "uuid": "ea3794ff-2036-42bd-bf9a-5fed0ad6498c",
+          "title": "Validação do menu Cobrança",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Criar operacao importando arquivos XML",
-              "fullTitle": "Operacional - Borderô - Criar operação importando arquivos (XML) Criar operacao importando arquivos XML",
+              "title": "Validar o acesso ao menu Cobrança",
+              "fullTitle": "Validação do menu Cobrança Validar o acesso ao menu Cobrança",
               "timedOut": null,
-              "duration": 85099,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 56174,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
-              "err": {
-                "message": "TypeError: operacionalXML.importarXML is not a function",
-                "estack": "TypeError: operacionalXML.importarXML is not a function\n    at Context.eval (cypress/e2e/steps/Operacional_Bordero_XML_Step.js:32:17)\n    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:193:0)\n    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)",
-                "diff": null
-              },
-              "uuid": "ebdebaf9-1c0d-440b-8302-346321f28491",
-              "parentUUID": "323e129b-fe93-415f-ac53-8007f73887a2",
+              "err": {},
+              "uuid": "3c64cb47-b7cc-4e8f-903a-1399f74d4d6a",
+              "parentUUID": "ea3794ff-2036-42bd-bf9a-5fed0ad6498c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "ebdebaf9-1c0d-440b-8302-346321f28491"
+          "passes": [
+            "3c64cb47-b7cc-4e8f-903a-1399f74d4d6a"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 85099,
+          "duration": 56174,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

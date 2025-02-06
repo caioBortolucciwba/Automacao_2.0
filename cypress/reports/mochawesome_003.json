@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2025-01-12T14:12:34.359Z",
-    "end": "2025-01-12T14:13:25.593Z",
-    "duration": 51234,
+    "start": "2025-01-31T20:23:20.719Z",
+    "end": "2025-01-31T20:24:11.050Z",
+    "duration": 50331,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "09332aa4-e3ed-47a2-b807-00bf9c8e01cd",
+      "uuid": "8aebb94d-4163-45a7-a7c3-aa7861c23ad4",
       "title": "",
-      "fullFile": "cypress\\e2e\\features\\MenuCobrança.feature",
-      "file": "cypress\\e2e\\features\\MenuCobrança.feature",
+      "fullFile": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
+      "file": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "c244e951-5fb6-4503-b2e2-1756be924c9e",
+          "uuid": "4897747d-8d15-413f-a3c3-dcdfd5928067",
           "title": "Validação do menu Cobrança",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Validar o acesso ao menu Cobrança",
               "fullTitle": "Validação do menu Cobrança Validar o acesso ao menu Cobrança",
               "timedOut": null,
-              "duration": 51052,
+              "duration": 50111,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -47,12 +47,12 @@
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {
-                "message": "Error: Texto ou valor esperado não encontrado",
-                "estack": "Error: Texto ou valor esperado não encontrado\n    at Context.eval (cypress/e2e/pages/MenuPage.js:60:18)",
+                "message": "TypeError: Cannot read properties of undefined (reading 'then')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'then')\n    at Context.eval (cypress/e2e/steps/Cobrancao_Gestao_Titulos_Liquidacao_Step.js:40:27)\n    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:193:0)\n    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)",
                 "diff": null
               },
-              "uuid": "56f5cc54-c445-4dd4-88ea-7da1ea44bd18",
-              "parentUUID": "c244e951-5fb6-4503-b2e2-1756be924c9e",
+              "uuid": "7cca2090-40b9-4c07-a8a1-1b7c1e1465f3",
+              "parentUUID": "4897747d-8d15-413f-a3c3-dcdfd5928067",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "56f5cc54-c445-4dd4-88ea-7da1ea44bd18"
+            "7cca2090-40b9-4c07-a8a1-1b7c1e1465f3"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 51052,
+          "duration": 50111,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

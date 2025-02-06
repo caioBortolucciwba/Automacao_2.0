@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2025-01-16T12:07:29.920Z",
-    "end": "2025-01-16T12:09:00.048Z",
-    "duration": 90128,
+    "start": "2025-02-05T14:33:22.105Z",
+    "end": "2025-02-05T14:34:19.377Z",
+    "duration": 57272,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "715617d0-c393-445e-ac79-d64c8882e1c7",
+      "uuid": "a7131542-54cc-41e2-9d19-66d49892985e",
       "title": "",
-      "fullFile": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo.feature",
-      "file": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo.feature",
+      "fullFile": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
+      "file": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "f24d2957-19ba-48e8-b5d8-056011eca112",
+          "uuid": "bbba6831-f5f6-4659-8104-4e8c031c32dc",
           "title": "Validação do menu Cobrança",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Validar o acesso ao menu Cobrança",
               "fullTitle": "Validação do menu Cobrança Validar o acesso ao menu Cobrança",
               "timedOut": null,
-              "duration": 89918,
+              "duration": 57113,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -47,12 +47,12 @@
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {
-                "message": "AssertionError: Timed out retrying after 50000ms: expected '<span..>' to contain '43302432.60'",
-                "estack": "AssertionError: Timed out retrying after 50000ms: expected '<span..>' to contain '43302432.60'\n    at Context.eval (cypress/e2e/pages/Cobranca_gestao_titulo.js:85:90)",
+                "message": "CypressError: `cy.then()` failed because you are mixing up async and sync code.\n\nIn your callback function you invoked 1 or more cy commands but then returned a synchronous value.\n\nCypress commands are asynchronous and it doesn't make sense to queue cy commands and yet return a synchronous value.\n\nYou likely forgot to properly chain the cy commands using another `cy.then()`.\n\nThe value you synchronously returned was: `65`",
+                "estack": "CypressError: `cy.then()` failed because you are mixing up async and sync code.\n\nIn your callback function you invoked 1 or more cy commands but then returned a synchronous value.\n\nCypress commands are asynchronous and it doesn't make sense to queue cy commands and yet return a synchronous value.\n\nYou likely forgot to properly chain the cy commands using another `cy.then()`.\n\nThe value you synchronously returned was: `65`\n    at getRet (https://d-new.wba.com.br/__cypress/runner/cypress_runner.js:119316:70)\n    at tryCatcher (https://d-new.wba.com.br/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://d-new.wba.com.br/__cypress/runner/cypress_runner.js:4338:29)\n    at Context.thenFn (https://d-new.wba.com.br/__cypress/runner/cypress_runner.js:119325:66)\n    at Context.then (https://d-new.wba.com.br/__cypress/runner/cypress_runner.js:119576:21)\n    at wrapped (https://d-new.wba.com.br/__cypress/runner/cypress_runner.js:138092:19)\nFrom Your Spec Code:\n    at MenuPage.obterValorNumerico (cypress/e2e/pages/Cobranca_gestao_titulo_Liquidacao.js:109:7)\n    at Context.eval (cypress/e2e/pages/Cobranca_gestao_titulo_Liquidacao.js:48:24)",
                 "diff": null
               },
-              "uuid": "a4fdf27b-d731-4a0d-ba00-9339c2d3abc5",
-              "parentUUID": "f24d2957-19ba-48e8-b5d8-056011eca112",
+              "uuid": "7ca34de6-2292-4d84-8b00-65e7aa890b46",
+              "parentUUID": "bbba6831-f5f6-4659-8104-4e8c031c32dc",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "a4fdf27b-d731-4a0d-ba00-9339c2d3abc5"
+            "7ca34de6-2292-4d84-8b00-65e7aa890b46"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 89918,
+          "duration": 57113,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

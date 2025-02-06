@@ -16,7 +16,7 @@
     "step_definitions": "cypress/e2e/steps"
   },
   "devDependencies": {
-    "cypress": "13.17.0",
+    "cypress": "14.0.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
     "mochawesome": "^7.1.3",

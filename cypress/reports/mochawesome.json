@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2025-01-12T13:59:09.315Z",
-    "end": "2025-01-12T13:59:54.165Z",
-    "duration": 44850,
+    "failures": 1,
+    "start": "2025-01-31T19:44:48.591Z",
+    "end": "2025-01-31T19:45:38.774Z",
+    "duration": 50183,
     "testsRegistered": 1,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,49 +18,53 @@
   },
   "results": [
     {
-      "uuid": "0dceff10-f835-4447-921f-d3bb96e2dfa7",
+      "uuid": "8257b05a-c817-4fd9-930b-90afec611a51",
       "title": "",
-      "fullFile": "cypress\\e2e\\features\\CadastroPf.feature",
-      "file": "cypress\\e2e\\features\\CadastroPf.feature",
+      "fullFile": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
+      "file": "cypress\\e2e\\features\\Cobranca_Gestao_Titulo_Liquidacao.feature",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "e23d06b2-0e3c-4732-8e29-62b04256315d",
-          "title": "Cadastro operação PF",
+          "uuid": "aff6496a-da0f-4e1b-8f46-08b29d3977a7",
+          "title": "Validação do menu Cobrança",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Cadastrar PF campos obrigatórios",
-              "fullTitle": "Cadastro operação PF Cadastrar PF campos obrigatórios",
+              "title": "Validar o acesso ao menu Cobrança",
+              "fullTitle": "Validação do menu Cobrança Validar o acesso ao menu Cobrança",
               "timedOut": null,
-              "duration": 44757,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 50021,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
-              "err": {},
-              "uuid": "14c1504a-b608-4ae1-b9e2-ad0906cd2a1c",
-              "parentUUID": "e23d06b2-0e3c-4732-8e29-62b04256315d",
+              "err": {
+                "message": "Error: Step implementation missing for: o sistema deve esta com calculo funcionando",
+                "estack": "Error: Step implementation missing for: o sistema deve esta com calculo funcionando\n    at Context.resolveAndRunStepDefinition (node_modules/cypress-cucumber-preprocessor/lib/resolveStepDefinition.js:199:0)\n    at Context.eval (node_modules/cypress-cucumber-preprocessor/lib/createTestFromScenario.js:27:0)",
+                "diff": null
+              },
+              "uuid": "7730cd28-3f48-4f4c-81b6-ebd16a515c00",
+              "parentUUID": "aff6496a-da0f-4e1b-8f46-08b29d3977a7",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "14c1504a-b608-4ae1-b9e2-ad0906cd2a1c"
+          "passes": [],
+          "failures": [
+            "7730cd28-3f48-4f4c-81b6-ebd16a515c00"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 44757,
+          "duration": 50021,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
