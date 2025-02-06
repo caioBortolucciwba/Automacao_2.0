@@ -172,8 +172,7 @@ class CadastroPJCedente {
         //Arquivo Retorno\\
         cy.get('menu-parametros-credito > .nav > ul > :nth-child(5)').click();
         cy.get(':nth-child(3) > w-button > .btn').click();
-        cy.get('.heightEmpresaLabel > .w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
-        //cy.get('#select-tipo-juros > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow').click();
+        cy.get('.heightEmpresaLabel > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('#mat-option-106 > .mat-option-text').click();
         cy.get('#mat-input-81').type('BOLOS DA MAMÃE');
         cy.get('#mat-input-82').type('777');
@@ -199,7 +198,7 @@ class CadastroPJCedente {
         //ALERTAS E BLOQUEIOS\\
         cy.get('menu-parametros-credito > .nav > ul > :nth-child(8)').click();
         cy.get(':nth-child(2) > w-button > .btn > .ng-star-inserted').click();
-        cy.get("#mat-input-91").type('RED ALERT');
+        cy.get("#mat-input-96").type('RED ALERT');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         cy.get('.guarda-botao-voltar').click();
 

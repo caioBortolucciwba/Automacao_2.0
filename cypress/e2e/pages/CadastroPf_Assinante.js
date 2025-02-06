@@ -13,7 +13,7 @@ class CadastroPFAssinante {
         cy.get('#btn-salvar').click();
     }
 
-    preencherCadastroPfAssinante(){
+    CadastroPFAssinante(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
         cy.get('#mat-input-4').type(cpf);
@@ -108,7 +108,7 @@ class CadastroPFAssinante {
         
     }
 
-    cadastroConcluido() {
+    filtroConcluido() {
 
         cy.log('Todos os campos obrigatórios foram preenchidos. Cadastro concluído com sucesso.');
     }

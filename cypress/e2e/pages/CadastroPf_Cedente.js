@@ -91,7 +91,11 @@ class CadastroPF {
         cy.get('#mat-option-309 > .mat-option-text').click();
         cy.get('body').type('{esc}');
         cy.get('.pt50 > :nth-child(2)').click();
-        cy.get('#mat-option-317 > .mat-option-text').click();
+        //document.querySelector("#mat-option-313 > span")
+        //document.querySelector("#mat-option-316 > span")
+        cy.get('body').type('{esc}');
+        cy.get("#mat-option-316 > .mat-option-text").click();
+        cy.get("#mat-option-316 > .mat-option-text").click();
         cy.get('body').type('{esc}');
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         

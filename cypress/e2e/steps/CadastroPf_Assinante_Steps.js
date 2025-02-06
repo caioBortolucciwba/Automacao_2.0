@@ -1,8 +1,8 @@
 import LoginPage from '../pages/LoginPage';
-import CadastroPFAssinante from '../pages/CadastroPf_Assinante';
+import cadastroPf from '../pages/CadastroPf_Assinante';
 
 const loginPage = new LoginPage();
-const cadastroPFAssinante = new CadastroPFAssinante();
+const cadastroPFAssinante = new cadastroPf();
 
 Given('que o usuário acessa a página de login', () => {
   loginPage.visit();
@@ -32,7 +32,7 @@ When('o usuário clica no menu cadastro assinante', () => {
 });
 
 Then('preencho todos os campos do cadastramento assinante', () => {
-  cadastroPFAssinante.preencherCadastroPfAssinante();
+  cadastroPFAssinante.CadastroPFAssinante();
 });
 
 Then('tenho cadastramento concluido', (titulo) => {

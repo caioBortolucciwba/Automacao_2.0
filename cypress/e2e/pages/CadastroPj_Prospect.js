@@ -1,7 +1,8 @@
 import { gerarCPF, gerarCNPJ, gerarRG } from '../../support/utils';
 
+
 class CadastroPJProspect {
-    entrarCadastroPj(){
+    entrarCadastroPj() {
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1 > span').click();
         cy.get('#bt-criar-novo').click();
@@ -13,7 +14,7 @@ class CadastroPJProspect {
         cy.get('#btn-salvar').click();
     }
 
-    preencherCadastroPjProspect(){
+    preencherCadastroPjProspect() {
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
         cy.get('#mat-input-4').type(cnpj);
@@ -35,7 +36,7 @@ class CadastroPJProspect {
         cy.get('.z-index-2 > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="Médio"]').click();
         cy.get('#mat-input-23').type('Contrabando');
-        cy.get('#mat-input-5').type(' 01310-300');
+        cy.get('#mat-input-5').type('01310-300');
         cy.get('#mat-input-8').type('2250');
         cy.get('#mat-input-24').type('Francis Lopes');
         cy.get('#mat-input-25').type('CedentePJteste@wba.com');
@@ -44,7 +45,7 @@ class CadastroPJProspect {
         cy.get('#mat-input-28').type('999986745');
         cy.get('#mat-input-30').type('22');
         cy.get('#mat-input-31').type('999935434');
-        cy.get('#mat-input-32').type('testecedentePJ.com.br')
+        cy.get('#mat-input-32').type('testecedentePJ.com.br');
         cy.get('#bt-salvar').click();
        
         // /////////////INFORMAÇÕES COMPLEMENTARES////////////////////
@@ -76,7 +77,7 @@ class CadastroPJProspect {
         cy.get('#mat-input-43').type('1997');
         cy.get('.mat-checkbox-inner-container').click();
         cy.get('#mat-input-44').type('BALANÇO 2009');
-        cy.get('.new-file-upload > label > span').click
+        cy.get('.new-file-upload > label > span').click();
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-salvar').click();
         cy.get('.guarda-botao-voltar').click();
@@ -96,8 +97,8 @@ class CadastroPJProspect {
         cy.get('#input-recuperacao-judicial > .mat-slide-toggle-label').click();
         cy.get('[ng-reflect-disabled="false"] > .btn').click();
       
-        ////////////Conta Bancaria//////////////////////
-        cy.get('#item-menu-3').click();
+        //////////Conta Bancaria//////////////////////
+        cy.get('.nav > ul > #item-menu-3').click();
         cy.get('#btn-adicionar-conta').click();
         cy.get('.ng-invalid > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="000 - Banco Athena."] > .label-option').click();
@@ -106,28 +107,31 @@ class CadastroPJProspect {
         cy.get('#input-dv-conta > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0');
         cy.get('#input-favorecido > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#btn-label-sim').click();
+
         
+    
+
         //Assinantes\\
-        cy.get('#item-menu-4').click();
+        cy.get('.nav > ul > #item-menu-4').click();
         cy.get('#btn-novo-assinante > .ng-star-inserted').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste');
-        cy.get('#mat-option-208 > .mat-option-text').click();
+        cy.get('#mat-option-125 > .mat-option-text').click();
         cy.get('#select-usuarios-erp').click();
-        cy.get("#mat-checkbox-12 > label > div").click();
-        cy.get('#mat-slide-toggle-13 > .mat-slide-toggle-label').click();
-        cy.get('#mat-slide-toggle-14 > .mat-slide-toggle-label').click();
-        cy.get('#mat-slide-toggle-15 > .mat-slide-toggle-label').click();
-        cy.get('#mat-slide-toggle-16 > .mat-slide-toggle-label').click();
-        cy.get("#mat-input-135").type('1000');
+        cy.get('#mat-checkbox-7 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label').click();
+        cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label').click();
+        cy.get('#mat-slide-toggle-7 > .mat-slide-toggle-label').click();
+        cy.get('#mat-slide-toggle-8 > .mat-slide-toggle-label').click();
+        cy.get("#mat-input-87").type('1000');
         cy.get('.card-icon > span.ng-star-inserted').should('be.visible').click();
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
        
         //Grupo de Assinaturas\\
-        cy.get('#item-menu-5').click();
+        cy.get('.nav > ul > #item-menu-5').click();
         cy.get('#ui-tabpanel-0 > .pt20 > grupo-assinatura > :nth-child(1) > .d-flex > :nth-child(3) > w-button > #input-adicionar-grupo > .ng-star-inserted').click();
         cy.get('#input-sacado').type('teste');
-        cy.get("#mat-option-217 > span").click();
+        cy.get("#mat-option-134 > span").click();
         cy.get(':nth-child(3) > .ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="Conjunto"] > .label-option').click();
         //cy.get("#cdk-describedby-message-container").click();
@@ -137,7 +141,7 @@ class CadastroPJProspect {
         cy.get('#btn-salvar > .ng-star-inserted').click();
 
         //////////Patrimonio////////// 
-        cy.get('#item-menu-6').click();
+        cy.get('.nav > ul > #item-menu-6').click();
         cy.get('.btn > .ng-star-inserted').click();
         cy.get('#select-empresa > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="Imóvel"] > .label-option').click();
@@ -145,25 +149,21 @@ class CadastroPJProspect {
         cy.get('#descricao > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('apto');
         cy.get('.fr > w-button > .btn').click();
 
-        
-        
+        /////////Central de Documentos(apenas visualização)\\\\\\
+        cy.get('#item-menu-8').click();
         
         //ANOTAÇÕES\\
-        cy.get('#item-menu-12').click();
+        cy.get('#item-menu-9').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-155 > .mat-option-text').click();
-        cy.get('#mat-input-98').type('NOME LIMPO COMO O CÉU');
+        cy.get('#mat-option-148 > .mat-option-text').click();
+        cy.get('#mat-input-103').type('NOME SUJO');
         cy.get('#btn-enviar-documento > .ng-star-inserted > span').click();
-
     }
 
     cadastroConcluido() {
-
         cy.log('Todos os campos obrigatórios foram preenchidos. Cadastro concluído com sucesso.');
     }
-    
-  }
-  
-  export default CadastroPJProspect;
-  
+}
+
+export default CadastroPJProspect;

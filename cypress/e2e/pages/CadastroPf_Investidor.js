@@ -100,7 +100,8 @@ class CadastroPF {
         cy.get('.nav > ul > #item-menu-5').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-102 > .mat-option-text').click();
+        
+        cy.get("#mat-option-92 > span").click();
         cy.get('#mat-input-62').type('Teste Teste');
 
         ///////////////////Contatos//////////////////////////////
