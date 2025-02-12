@@ -33,44 +33,38 @@ class MenuPage {
 
     cy.get('#mat-input-33').clear().type('50000');
     cy.get('#mat-input-34').clear().type('100000');
+    cy.get('#mat-checkbox-23 > .mat-checkbox-layout').click();
+    cy.get('#mat-checkbox-24 > .mat-checkbox-layout').click();
+    cy.get('#mat-checkbox-25 > .mat-checkbox-layout').click();
     cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
+    cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
+    cy.get('#btn-label-sim > .ng-star-inserted > span').click();
   }
 
   calcularJuros() {
-    return this.obterValorMonetario('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(7)').then((valorPago) => {
-      if (valorPago === null) throw new Error("Erro: 'Valor Pago' não encontrado.");
-      
-      return this.obterValorPorcentagem('#mat-input-33').then((multa) => {
-        if (multa === null) throw new Error("Erro: 'Multa' não encontrada.");
-  
+    return this.obterValorMonetario('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(7) > span').then((valorPago) => {
+      return this.obterValorPorcentagem(':nth-child(3) > #input-multa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').then((multa) => {
         return this.obterValorPorcentagem('#input-juros-de-mora > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').then((juros) => {
-          if (juros === null) throw new Error("Erro: 'Juros' não encontrado.");
-  
           return this.obterValorNumerico('[data-label="Prazo"]').then((prazo) => {
-            if (prazo === null) throw new Error("Erro: 'Prazo' não encontrado.");
-  
             return this.obterValorMonetario('[data-label="Despesas"] > :nth-child(1)').then((despesas) => {
-              if (despesas === null) despesas = 0;
-  
-              return this.obterValorMonetario('[data-label="Valor Atualizado"] > span').then((valorAtualizado) => {
-                if (valorAtualizado === null) valorAtualizado = 0;
-  
+              return this.obterValorMonetario('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(13) > span').then((valorAtualizado) => {
+
+                // Cálculo correto dos valores
                 const valorMulta = valorPago * (multa / 100);
                 const valorJuros = valorPago * (juros / 100) * prazo;
                 const valorCalculado = valorPago + valorMulta + valorJuros + despesas;
-  
-                cy.log('Resultado do cálculo:', {
-                  valorPago,
-                  multa,
-                  juros,
-                  prazo,
-                  despesas,
-                  valorMulta,
-                  valorJuros,
-                  valorCalculado,
-                  valorAtualizado
-                });
-  
+
+                // Log para depuração
+                cy.log(`Valor Pago: ${valorPago}`);
+                cy.log(`Multa: ${multa}`);
+                cy.log(`Juros: ${juros}`);
+                cy.log(`Prazo: ${prazo}`);
+                cy.log(`Despesas: ${despesas}`);
+                cy.log(`Valor Multa: ${valorMulta}`);
+                cy.log(`Valor Juros: ${valorJuros}`);
+                cy.log(`Valor Calculado: ${valorCalculado}`);
+                cy.log(`Valor Atualizado: ${valorAtualizado}`);
+
                 return cy.wrap({
                   valorPago,
                   multa,
@@ -89,35 +83,20 @@ class MenuPage {
       });
     });
   }
-  
-  
+
   obterValorMonetario(seletor) {
     return cy.get(seletor).invoke('text').then((text) => {
-      cy.log(`Texto capturado (${seletor}):`, text);
-  
-      // Remove qualquer caractere que não seja número ou vírgula/ponto
-      let valorLimpo = text.replace(/[^0-9,.-]/g, '');
-  
-      // Se houver múltiplas vírgulas, remover todas, exceto a última
-      if ((valorLimpo.match(/,/g) || []).length > 1) {
-        valorLimpo = valorLimpo.replace(/,/g, '');
-      }
-  
-      // Substituir a vírgula final por ponto para conversão correta
-      valorLimpo = valorLimpo.replace(',', '.');
-  
-      cy.log(`Valor formatado (${seletor}):`, valorLimpo);
-  
-      return parseFloat(valorLimpo) || 0; // Retorna 0 se a conversão falhar
+      return parseFloat(text.replace(/[^\d,.-]/g, '').replace(',', '.'));
     });
   }
-  
 
   obterValorPorcentagem(seletor) {
-    return cy.get(seletor).invoke('text').then((text) => {
-      return parseFloat(text.replace(/[^\d,.-]/g, '').replace(',', '.')) / 100;
+    return cy.get(seletor).invoke('val').then((text) => {
+      if (!text) return 0; // Se o valor estiver vazio ou for null, retorna 0
+      return parseFloat(text.replace(/[^\d,.-]/g, '').replace(',', '.')) / 100 || 0;
     });
   }
+
 
   obterValorNumerico(seletor) {
     return cy.get(seletor).invoke('text').then((text) => {
@@ -127,12 +106,75 @@ class MenuPage {
 
   verificarValorAtualizado(valorAtualizado, valorCalculado) {
     const diferenca = Math.abs(valorAtualizado - valorCalculado);
-    
+
     cy.log(`Diferença entre os valores: ${diferenca}`);
 
     expect(diferenca).to.be.lessThan(0.01, `O Valor Atualizado exibido não está correto! Diferença: ${diferenca}`);
     cy.log('✅ O Valor Atualizado está correto.');
+
+  }
+
+  finalizarGestaoPendencia() {
+    cy.get('#menu-lateral-COBRANCA > .flex-column > .menu-click-js').click();
+    cy.get('#item-menu-1 > span').click();
+    cy.get('#btn-card-2 > .card-titulo-texto').click();
+    cy.get('#bt-filtro-em-aberto > .ng-star-inserted').click();
+    cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .mt20 > .wb-lg-12 > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
+    cy.get('#mat-option-226').click();
+    cy.get('#mat-option-227 > .mat-option-text').click();
+    cy.get('body').type('{esc}');
+    cy.get('#input-vencimento').click();
+    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-previous-button').click();
+    cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('#input-ate').click();
+    cy.get('[aria-label="28 de fevereiro de 2025"] > .mat-calendar-body-cell-content').click();
+    cy.get('#mat-chip-list-6').type('211112');
+    cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .rodape-buttons > :nth-child(2) > w-button > #bt-limpar-filtro').click();
+    cy.get(':nth-child(1) > box-informacoes > .card-box-informacoes > .btn__mostrarMais > .submenu__fechado > .iconSvg').click();
+    cy.get('.selectAll').click();
+    cy.get(':nth-child(3) > #item-2').click();
+    cy.get('#select-tipo-pessoa > .mat-icon').click();
+    cy.get('#select-tipo-pessoa-item-box-select > .check-list__unselected-list > :nth-child(1)').click();
+    cy.get('#select-acao-desejada > .mat-icon').click();
+    cy.get('#select-acao-desejada-item-box-select > .check-list__unselected-list > :nth-child(1)').click();
+    cy.get('#mat-input-53').clear().type('50000');
+    cy.get('.w-col-1 > w-button > .btn > .ng-star-inserted').click();
+ 
+    return this.obterValorMonetarioPen('.mt30 > w-table > .ng-untouched > .wba-table > tbody > :nth-child(1) > [data-label="Valor').then((valorPagoPendencia) => {
+      return this.obterValorMonetarioPen(':nth-child(1) > [data-label="Juros de mora"] > span').then((valorJurosPendencia) => {
+        return this.obterValorMonetarioPen('.mt30 > w-table > .ng-untouched > .wba-table > tbody > :nth-child(1) > [data-label="Valor').then((valorPagoPendencia) => {
+          // Cálculo correto dos valores
+          const valorCalculadoPen = valorPagoPendencia + valorJurosPendencia;
+
+          // Log para depuração
+          cy.log(`Valor Pago: ${valorPagoPendencia}`);
+          cy.log(`Juros: ${valorJurosPendencia}`);
+          cy.log(`Valor atualizado: ${valorAtualizadoPen}`);
+          return cy.wrap({
+            valorPagoPendencia,
+            valorJurosPendencia,
+            valorAtualizadoPen
+          });
+        });
+      });
+    });
+    
+  }
+
+  obterValorMonetarioPen(seletor) {
+    return cy.get(seletor).invoke('text').then((text) => {
+      return parseFloat(text.replace(/[^\d,.-]/g, '').replace(',', '.'));
+    });
+  }
+
+  verificarValorAtualizadoPen(valorAtualizadoPen, valorCalculadoPen) {
+    const diferenca = Math.abs(valorAtualizadoPen - valorCalculadoPen);
+  
+    cy.log(`Diferença entre os valores: ${diferenca}`);
+  
+    expect(diferenca).to.be.lessThan(0.01, `O Valor Atualizado exibido não está correto! Diferença: ${diferenca}`);
+    cy.log('✅ O Valor Atualizado está correto.');
   }
 }
-
 export default MenuPage;

@@ -51,3 +51,8 @@ function getMimeType(nomeDoArquivo) {
   };
   return mimeTypes[extensao] || 'application/octet-stream';
 }
+
+
+ 
+
+

@@ -40,6 +40,15 @@ Then('o sistema deve esta com calculo funcionando', () => {
     cy.log('Resultado do cálculo:', JSON.stringify(resultado));
 
     // // Força um erro ao comparar dois valores idênticos propositalmente
-    // expect(resultado.valorCalculado).to.equal(999999, 'Forçando erro no teste');
+    // expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
+  });
+});
+
+Then('Finalizar na gestao de pendencia a liquidacao', () => {
+  menuPage.finalizarGestaoPendencia().then((resultado) => {
+    cy.log('Resultado do cálculo:', JSON.stringify(resultado));
+
+    // // Força um erro ao comparar dois valores idênticos propositalmente
+    // expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
   });
 });
