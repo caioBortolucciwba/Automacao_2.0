@@ -23,7 +23,7 @@ class MenuPage {
 
     cy.get('.wb-row > :nth-child(2) > w-button > .btn > .ng-star-inserted').click();
     cy.get(':nth-child(1) > box-informacoes > .card-box-informacoes > .btn__mostrarMais > .submenu__fechado > .iconSvg').click();
-    cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+    cy.get('#mat-checkbox-6 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
     cy.get(':nth-child(7) > #item-6').click();
 
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
@@ -31,29 +31,31 @@ class MenuPage {
     cy.get('#select-tipo-forma-pagamento > .w-select > .w-select-input').click();
     cy.get('[ng-reflect-label="Dinheiro"] > .label-option').click();
 
-    cy.get('#mat-input-33').clear().type('50000');
-    cy.get('#mat-input-34').clear().type('100000');
-    cy.get('#mat-checkbox-23 > .mat-checkbox-layout').click();
-    cy.get('#mat-checkbox-24 > .mat-checkbox-layout').click();
-    cy.get('#mat-checkbox-25 > .mat-checkbox-layout').click();
+    cy.get('#mat-input-34').clear().type('50000');
+    cy.get('#mat-input-35').clear().type('100000');
+    cy.contains('label', 'Gerar como pendência').find('input[type="checkbox"]').check({ force: true });
+
+
     cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
     cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
     cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+   
   }
 
   calcularJuros() {
+    
     return this.obterValorMonetario('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(7) > span').then((valorPago) => {
       return this.obterValorPorcentagem(':nth-child(3) > #input-multa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').then((multa) => {
         return this.obterValorPorcentagem('#input-juros-de-mora > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').then((juros) => {
           return this.obterValorNumerico('[data-label="Prazo"]').then((prazo) => {
             return this.obterValorMonetario('[data-label="Despesas"] > :nth-child(1)').then((despesas) => {
               return this.obterValorMonetario('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(13) > span').then((valorAtualizado) => {
-
+               
                 // Cálculo correto dos valores
                 const valorMulta = valorPago * (multa / 100);
                 const valorJuros = valorPago * (juros / 100) * prazo;
                 const valorCalculado = valorPago + valorMulta + valorJuros + despesas;
-
+               
                 // Log para depuração
                 cy.log(`Valor Pago: ${valorPago}`);
                 cy.log(`Multa: ${multa}`);
@@ -120,8 +122,8 @@ class MenuPage {
     cy.get('#btn-card-2 > .card-titulo-texto').click();
     cy.get('#bt-filtro-em-aberto > .ng-star-inserted').click();
     cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .mt20 > .wb-lg-12 > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-    cy.get('#mat-option-226').click();
-    cy.get('#mat-option-227 > .mat-option-text').click();
+    cy.get('#select-empresa-carteira').click();
+    cy.contains('.w-option mat-option .mat-option-multiple', 'PROPRIA - Karina FAC ').click();
     cy.get('body').type('{esc}');
     cy.get('#input-vencimento').click();
     cy.get('.mat-calendar-previous-button').click();
@@ -141,12 +143,13 @@ class MenuPage {
     cy.get('#mat-input-53').clear().type('50000');
     cy.get('.w-col-1 > w-button > .btn > .ng-star-inserted').click();
  
-    return this.obterValorMonetarioPen('.mt30 > w-table > .ng-untouched > .wba-table > tbody > :nth-child(1) > [data-label="Valor').then((valorPagoPendencia) => {
+    return this.obterValorMonetarioPen('.mt30 > w-table > .ng-untouched > .wba-table > tbody > :nth-child(1) > [data-label="Valor"]').then((valorPagoPendencia) => {
       return this.obterValorMonetarioPen(':nth-child(1) > [data-label="Juros de mora"] > span').then((valorJurosPendencia) => {
-        return this.obterValorMonetarioPen('.mt30 > w-table > .ng-untouched > .wba-table > tbody > :nth-child(1) > [data-label="Valor').then((valorPagoPendencia) => {
+        return this.obterValorMonetarioPen(':nth-child(1) > [data-label="Valor atualizado"] > span').then((valorAtualizadoPen) => {
+          cy.wait(30000);
           // Cálculo correto dos valores
           const valorCalculadoPen = valorPagoPendencia + valorJurosPendencia;
-
+         
           // Log para depuração
           cy.log(`Valor Pago: ${valorPagoPendencia}`);
           cy.log(`Juros: ${valorJurosPendencia}`);
@@ -154,6 +157,7 @@ class MenuPage {
           return cy.wrap({
             valorPagoPendencia,
             valorJurosPendencia,
+            valorCalculadoPen,
             valorAtualizadoPen
           });
         });
