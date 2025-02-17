@@ -12,12 +12,34 @@ class OperacionalBordero {
             .type('47');
         cy.get('#mat-option-17 > .mat-option-text').should('be.visible').click();
         cy.get('#btn-avancar > .ng-star-inserted > span').should('be.visible').click();
-        cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
+        cy.wait(9000);
+        //cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
     }
+
+    geradorDeVencimentoValido(){
+        const vencimento = new Date();
+        vencimento.setDate(vencimento.getDate()+30);
+        const dia = vencimento.getDate();
+        const mes = vencimento.toLocaleString('default', {month: 'long'});
+        const ano = vencimento.getFullYear();
+        console.log("Dia:", dia);
+        console.log("Mês:", mes);
+        console.log("Ano:", ano);
+        const dia1 = "19"  //digitação manual
+        const mes1 = "março" //digitação manual
+        const ano1 = "2025"  //digitação manual
+
+
+        return `${dia1} de ${mes1} de ${ano1}`;
+        //return "19 de março de 2025"    
+    }
+    
 
     criandoOpdm() {
         const cnpj = gerarCNPJ();
         const cpf = gerarCPF();
+        const vencimentoGerado=this.geradorDeVencimentoValido();
+        console.log(vencimentoGerado);
         cy.log(`Criando operação DM com CNPJ: ${cnpj} e CPF: ${cpf}`);
 
         cy.get('.mega-menu > :nth-child(2)').should('be.visible').click();
@@ -40,7 +62,7 @@ class OperacionalBordero {
 
         cy.get('#input-n-documento > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
-            .type('DM1503');
+            .type('DM1504');
         cy.get('#input-valor > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
             .type('5000000');
@@ -49,7 +71,11 @@ class OperacionalBordero {
         cy.get(':nth-child(5) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button')
             .should('be.visible')
             .click();
-        cy.get('[aria-label="31 de janeiro de 2025"] > .mat-calendar-body-cell-content').click();
+        
+        cy.get('.mat-calendar-next-button').click();    
+
+        cy.get(`[aria-label="${vencimentoGerado}"] > .mat-calendar-body-cell-content`).click();
+        
 
         cy.get(':nth-child(9) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
