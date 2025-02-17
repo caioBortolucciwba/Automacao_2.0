@@ -1,4 +1,4 @@
-Feature: Cadastro operação PF Sacado
+Feature: Operação edita PF fornecedor
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,8 +6,8 @@ Feature: Cadastro operação PF Sacado
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Cadastrar PF campos obrigatórios
+  Scenario: Edita PJ campos obrigatórios
     Given que o usuário está na página inicial
-    When o usuário clica no menu cadastro Sacado
-    And preencho todos os campos do cadastramento Sacado
-    Then tenho cadastramento Sacado concluido
+    When o usuário clica no menu edita pf fornecedor
+    And edito um campo do pf fornecedor
+    Then tenho edita pf fornecedor concluido

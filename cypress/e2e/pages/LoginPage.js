@@ -1,6 +1,6 @@
 class LoginPage {
     visit() {
-      cy.visit('https://d-new.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979');
+      cy.visit('https://dnew.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979');
     }
   
     fillUsername(username) {
