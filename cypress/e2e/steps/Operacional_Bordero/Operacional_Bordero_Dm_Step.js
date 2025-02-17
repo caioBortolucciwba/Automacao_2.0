@@ -1,9 +1,9 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 import LoginPage from '../../pages/LoginPage';
-import OperacionalDM from '../../pages/Operacional_Bordero/Operacional_Bordero_Dm';
+import OperacionalBordero from '../../pages/Operacional_Bordero/Operacional_Bordero_Dm';
 
 const loginPage = new LoginPage();
-const operacionalDM = new OperacionalDM();
+const operacionalDM = new OperacionalBordero();
 
 Given('que o usuário acessa a página de login', () => {
   loginPage.visit();
@@ -28,8 +28,8 @@ Given('que o usuario precisa criar uma operacao duplicata mercantil', () => {
    operacionalDM.acessarBordero();
 });
 
-When('preencho todos os campos obrigatorios do portal', () => {
-  operacionalDM.criandoOpdm();
+When('preencho todos os campos de duplicata mercantil obrigatorios do portal', () => {
+  operacionalDM.criandoOpdm()
 });
 
 Then('tenho a operacao concluida para avancar de step', () => {
