@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import CadastroPFInstFinanceira from '../../pages/Cadastro//CadastroPf_InstFinanceira';
+import CadastroPFInstFinanceira from '../../pages/Cadastro/CadastroPf_InstFinanceira';
 
 const loginPage = new LoginPage();
 const cadastroPFInstFinanceira = new CadastroPFInstFinanceira();

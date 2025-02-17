@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import CadastroPJFornecedor from '../../pages/Cadastro//CadastroPj_Fornecedor';
+import CadastroPJFornecedor from '../../pages/Cadastro/CadastroPj_Fornecedor';
 
 const loginPage = new LoginPage();
 const cadastroPJFornecedor = new CadastroPJFornecedor();

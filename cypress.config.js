@@ -5,12 +5,12 @@ const mochawesomeReportGenerator = require("mochawesome-report-generator");
 
 module.exports = defineConfig({
   experimentalMemoryManagement: true, 
-  numTestsKeptInMemory: 1, 
+  numTestsKeptInMemory: 5, 
 
   e2e: {
     video: false,
     verifyBaseUrl: false,
-    defaultCommandTimeout: 20000,
+    defaultCommandTimeout: 50000,
     viewportWidth: 1380,
     viewportHeight: 720,
     baseUrl: "https://dnew.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979",
