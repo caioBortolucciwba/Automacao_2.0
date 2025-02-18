@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPfInvestidor from '../../pages/Cadastro//FiltroPf_Investidor';
+import FiltroPfInvestidor from '../../pages/Cadastro/FiltroPf_Investidor';
 
 const loginPage = new LoginPage();
 const filtroPfInvestidor = new FiltroPfInvestidor();

@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import CadastroPFFuncionario from '../../pages/Cadastro//CadastroPf_Funcionario';
+import CadastroPFFuncionario from '../../pages/Cadastro/CadastroPf_Funcionario';
 
 const loginPage = new LoginPage();
 const cadastroPFFuncionario = new CadastroPFFuncionario();

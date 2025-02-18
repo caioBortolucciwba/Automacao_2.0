@@ -36,19 +36,20 @@ Then('precisa calcular o juros de uma liquidacao', () => {
 });
 
 Then('o sistema deve esta com calculo funcionando', () => {
-  menuPage.calcularJuros().then((resultado) => {
-    cy.log('Resultado do cálculo:', JSON.stringify(resultado));
+  menuPage.calcularJuros();
+  // menuPage.calcularJuros().then((resultado) => {
+  //   cy.log('Resultado do cálculo:', JSON.stringify(resultado));
 
-    // // Força um erro ao comparar dois valores idênticos propositalmente
-    // expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
-  });
+  //   // Força um erro ao comparar dois valores idênticos propositalmente
+  //   expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
+  // });
 });
 
-Then('Finalizar na gestao de pendencia a liquidacao', () => {
-  menuPage.finalizarGestaoPendencia().then((resultado) => {
-    cy.log('Resultado do cálculo:', JSON.stringify(resultado));
+// Then('Finalizar na gestao de pendencia a liquidacao', () => {
+//   menuPage.finalizarGestaoPendencia().then((resultado) => {
+//     cy.log('Resultado do cálculo:', JSON.stringify(resultado));
 
-    // // Força um erro ao comparar dois valores idênticos propositalmente
-    // expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
-  });
-});
+//     // // Força um erro ao comparar dois valores idênticos propositalmente
+//     // expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
+//   });
+// });

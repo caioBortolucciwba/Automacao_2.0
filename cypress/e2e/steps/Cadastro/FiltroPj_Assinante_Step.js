@@ -1,6 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPjAssinante from '../../pages/Cadastro//FiltroPj_Assinante';
-
+import FiltroPjAssinante from '../../pages/Cadastro/FiltroPj_Assinante';
 const loginPage = new LoginPage();
 const filtroPjAssinante = new FiltroPjAssinante();
 

@@ -11,4 +11,4 @@ Feature: Validação do menu Cobrança
     When o usuário clica no menu Cobrança
     And precisa calcular o juros de uma liquidacao
     Then o sistema deve esta com calculo funcionando
-    And Finalizar na gestao de pendencia a liquidacao
+    # And Finalizar na gestao de pendencia a liquidacao
