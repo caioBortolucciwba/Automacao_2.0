@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import MenuPage from '../../pages/Cobranca_Gestao_Titulos/Cobranca_gestao_titulo_Liquidacao';
+import MenuPage from '../../pages/Cobranca_Gestao_Titulos/Cobranca_Gestao_Pendencia_Liquidacao';
 
 const loginPage = new LoginPage();
 const menuPage = new MenuPage();
@@ -31,16 +31,11 @@ When('o usuário clica no menu Cobrança', () => {
   menuPage.validateCobrançaMenu();
 });
 
-Then('precisa calcular o juros de uma liquidacao', () => {
-  menuPage.validarCamposCobranca();
+Then('faco a liquidacao de um titulo no gestao de pendencias', () => {
+  menuPage.validarPendencias();
 });
 
-Then('o sistema deve esta com calculo funcionando', () => {
-  menuPage.calcularJuros();
-  // menuPage.calcularJuros().then((resultado) => {
-  //   cy.log('Resultado do cálculo:', JSON.stringify(resultado));
-
-  //   // Força um erro ao comparar dois valores idênticos propositalmente
-  //   expect(resultado.valorCalculado).to.equal(999999, 'O valor não está correto');
-  // });
+Then('o sistema deve esta com fazer a liquidacao e calculo de juros com sucesso', () => {
+  menuPage.calcularJurosPendencias();
+  
 });
