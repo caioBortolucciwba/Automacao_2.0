@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPfSacado from '../../pages/Cadastro//FiltroPf_Sacado';
+import FiltroPfSacado from '../../pages/Cadastro/FiltroPf_Sacado';
 
 const loginPage = new LoginPage();
 const filtroPfSacado = new FiltroPfSacado();

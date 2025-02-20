@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPjEscriturador from '../../pages/Cadastro//FiltroPj_Escriturador';
+import FiltroPjEscriturador from '../../pages/Cadastro/FiltroPj_Escriturador';
 
 const loginPage = new LoginPage();
 const filtroPjEscriturador= new FiltroPjEscriturador();

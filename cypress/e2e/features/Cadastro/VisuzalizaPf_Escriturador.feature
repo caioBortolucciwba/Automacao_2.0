@@ -1,4 +1,4 @@
-Feature: Validação do menu Cobrança
+Feature: Operação visualiza PF escriturador
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,8 +6,8 @@ Feature: Validação do menu Cobrança
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Validar o acesso ao menu Cobrança Gestao de Pendencias
+  Scenario: Visualiza PF campos obrigatórios
     Given que o usuário está na página inicial
-    When o usuário clica no menu Cobrança e gestao de pendencias
-    And precisa calcular o juros de uma liquidacao
-    Then o sistema deve esta com calculo funcionando
+    When o usuário clica no menu visualiza pf escriturador
+    And preencho todos os campos do visualiza pf escriturador
+    Then tenho cadastramento concluido

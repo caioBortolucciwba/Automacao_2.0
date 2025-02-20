@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPjCedente from '../../pages/Cadastro//FiltroPj_Cedente';
+import FiltroPjCedente from '../../pages/Cadastro/FiltroPj_Cedente';
 
 const loginPage = new LoginPage();
 const filtroPjCedente = new FiltroPjCedente();

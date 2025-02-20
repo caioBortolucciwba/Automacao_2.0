@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPjInstFinanceira from '../../pages/Cadastro//FiltroPj_InstFinanceira';
+import FiltroPjInstFinanceira from '../../pages/Cadastro/FiltroPj_InstFinanceira';
 
 const loginPage = new LoginPage();
 const filtroPjInstFinanceira= new FiltroPjInstFinanceira();

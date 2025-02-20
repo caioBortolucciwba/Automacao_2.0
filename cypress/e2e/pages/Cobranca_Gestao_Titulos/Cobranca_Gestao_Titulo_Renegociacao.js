@@ -17,8 +17,10 @@ class Renegociacao {
       cy.get('.menu-right-filtro').click();
       cy.get('#input-vencimento').click();
       cy.get('.mat-calendar-previous-button').click();
+      cy.get('.mat-calendar-previous-button').click();
       cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
       cy.get('#input-ate').click();
+      cy.get('.mat-calendar-previous-button').click();
       cy.get('.mat-calendar-previous-button').click();
       cy.get('[aria-label="23 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
   
@@ -27,7 +29,7 @@ class Renegociacao {
   
       // Seleção de título e preenchimento de campos
       cy.get(':nth-child(1) > box-informacoes > .card-box-informacoes > .btn__mostrarMais > .submenu__fechado > .iconSvg').click();
-      cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+      cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > div > div.d-block > w-table > form > table > tbody > tr:nth-child(1) > td:nth-child(1) > span').click();
       cy.get(':nth-child(8) > #item-7').click();
       cy.get('.conteudo-atualizacao-de-valores > mega-menu > .mega-menu > li.ng-star-inserted > #item-0').click();
       cy.get('#input-valor > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('20000');

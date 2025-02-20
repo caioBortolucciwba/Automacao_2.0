@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import CadastroPfEscriturador from '../../pages/Cadastro//CadastroPf_Escriturador';
+import CadastroPfEscriturador from '../../pages/Cadastro/CadastroPf_Escriturador';
 
 const loginPage = new LoginPage();
 const cadastroPfEscriturador = new CadastroPfEscriturador();

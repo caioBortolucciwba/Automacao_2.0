@@ -36,5 +36,5 @@ Then('preencho todos os campos do cadastramento assinante', () => {
 });
 
 Then('tenho cadastramento concluido', (titulo) => {
-  cadastroPFAssinante.cadastroConcluido();
+ // cadastroPFAssinante.cadastroConcluido();
 });

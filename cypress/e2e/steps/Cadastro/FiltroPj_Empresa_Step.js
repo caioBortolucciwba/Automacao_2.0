@@ -1,5 +1,6 @@
 import LoginPage from '../../pages/LoginPage';
-import FiltroPjEmpresa from '../../pages/Cadastro//FiltroPj_Empresa';
+import FiltroPjEmpresa from '../../pages/Cadastro/FiltroPj_Empresa';
+
 
 const loginPage = new LoginPage();
 const filtroPjEmpresa= new FiltroPjEmpresa();
