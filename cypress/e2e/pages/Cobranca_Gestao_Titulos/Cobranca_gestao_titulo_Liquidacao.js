@@ -34,80 +34,68 @@ class MenuPage {
     cy.get('#mat-input-35').clear().type('100000');
     cy.contains('Gerar como pendência').click();
     cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
-    // cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
-    // cy.get('#btn-label-sim > .ng-star-inserted > span').click();
-
   }
 
   calcularJuros() {
     cy.wait(10000);
-    cy.get('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(7) > span')
-      .invoke('text').then((valorPagoText) => {      
-        const valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-  
-        cy.get('[data-label="Prazo"]').invoke('text').then((prazoText) => {      
-            const prazo = parseInt(prazoText) || 0;
-
-            cy.get('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(9) > span')
-              .invoke('text').then((multaText) => {      
-                const multa = parseFloat(multaText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
     
-                cy.get('#input-juros-de-mora > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
-                  .invoke('text').then((jurosText) => {      
-                    const juros = parseFloat(jurosText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-
-                    cy.get('[data-label="Despesas"] > :nth-child(1)').invoke('text').then((despesasText) => {      
-                        const despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-
-                        cy.get('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > app-gestao-lancamento > div > app-gestao-cobranca > div > app-bloco-nova-visao > div > div.container.mt-5.pt-3.modal-nova-visao-content > div > div > conteudo-liq-individual > div > div > w-table > form > table > tbody > tr > td:nth-child(13) > span')
-                          .invoke('text').then((valorAtualizadoText) => {      
-                            const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-
-                            // Capturar fator corretamente
-                            const fator = multa + juros; 
-                            const prazoMedio = prazo; 
-
-                            let valorCalculado;
-                            if (prazo > 30) {
-                                valorCalculado = (valorPago * ((fator / 100) + 1) * (prazoMedio / 30)) - valorPago;
-                            } else {
-                                valorCalculado = valorPago * ((fator / 100) * (prazoMedio / 30));
-                            }
-
-                            // Adicionar despesas
-                            valorCalculado += despesas;
-
-                            //Arredondamento para evitar problemas de precisão
-                            valorCalculado = Math.round(valorCalculado * 100) / 100;
-                            const valorAtualizadoArredondado = Math.round(valorAtualizado * 100) / 100;
-
-                            //Diferença limitada a centavos
-                            // const diferenca = Math.abs(valorAtualizadoArredondado);
-
-                            // // Função para formatar moeda
-                            // const formatarMoeda = (valor) => {
-                            //     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                            // };
-
-                            // Logs para depuração
-                            cy.log(`Valor Pago: ${valorPago}`);
-                            cy.log(`Multa: ${multa}`);
-                            cy.log(`Juros: ${juros}`);
-                            cy.log(`Prazo: ${prazo}`);
-                            cy.log(`Despesas: ${despesas}`);
-                            cy.log(`Valor Atualizado no Sistema: ${valorAtualizado}`);
-                            // cy.log(`Diferença entre os valores: ${diferenca}`);
-
-                            //Ajuste na comparação: permitir erro de até R$ 0,01 para evitar problemas de precisão
-                            // expect(diferenca).to.be.lessThan(0.02, `O Valor Atualizado exibido não está correto! Diferença: ${diferenca}`);
-                            cy.log('✅ O Valor Atualizado está correto.');
-                        });
-                    });
-                });
+    cy.get('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {      
+      const valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+      cy.get('[data-label="Multa"]').invoke('text').then((multaText) => {      
+        const multa = parseFloat(multaText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+        cy.get('[data-label="Juros de mora"]').invoke('text').then((jurosText) => {      
+          const juros = parseFloat(jurosText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+          cy.get('[data-label="Prazo"]').invoke('text').then((prazoText) => {      
+            const prazo = parseInt(prazoText) || 0;
+  
+            cy.get('[data-label="Despesas"]').invoke('text').then((despesasText) => {      
+              const despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+              cy.get('[data-label="Valor Atualizado"]').invoke('text').then((valorAtualizadoText) => {      
+                const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+                //Correção no cálculo das porcentagens
+                let multaCalculada = multa; // Multa já vem no valor correto
+                let jurosCalculado = 0;
+  
+                if (prazo > 30) {
+                  jurosCalculado = juros; // Juros já estão calculados corretamente
+                } else {
+                  jurosCalculado = juros * (prazo / 30); // Ajusta para prazos menores
+                }
+  
+                let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
+  
+                //Arredondamento correto
+                valorCalculado = Math.round(valorCalculado * 100) / 100;
+                const valorAtualizadoArredondado = Math.round(valorAtualizado * 100) / 100;
+  
+                //Logs para depuração
+                cy.log(`Valor Pago: ${valorPago}`);
+                cy.log(`Multa: ${multa} | Multa Calculada: ${multaCalculada}`);
+                cy.log(`Juros: ${juros} | Juros Calculados: ${jurosCalculado}`);
+                cy.log(`Prazo: ${prazo}`);
+                cy.log(`Despesas: ${despesas}`);
+                cy.log(`Valor Atualizado no Sistema: ${valorAtualizado}`);
+                cy.log(`Valor Calculado: ${valorCalculado}`);
+                cy.log(`Diferença: ${Math.abs(valorAtualizadoArredondado - valorCalculado)}`);
+  
+                //Validação corrigida
+                expect(Math.abs(valorAtualizadoArredondado - valorCalculado)).to.be.lessThan(0.02, 
+                  `❌ O Valor Atualizado exibido não está correto!: Esperado ${valorCalculado}, encontrado ${valorAtualizado}`);
+                cy.log('✅ O Valor Atualizado está correto.');
+              });
             });
+          });
         });
+      });
     });
+  }
+  
+  
 }
 
-}
 export default MenuPage;
