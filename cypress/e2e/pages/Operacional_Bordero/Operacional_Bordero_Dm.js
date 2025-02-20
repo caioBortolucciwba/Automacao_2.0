@@ -1,10 +1,14 @@
-import { gerarCPF, gerarCNPJ } from '../../../support/utils';
+import { gerarCPF, gerarCNPJ} from '../../../support/utils';
+import { geradorDeVencimentoValido} from '/Automação_wba_web_oficial/Automacao_2.0/cypress/support/utils';
+
 
 class OperacionalBordero {
     acessarBordero() {
         cy.log('Acessando a seção de Borderô');
+        cy.wait(9000);
         cy.get('#menu-lateral-OPERACIONAL > .texto-menu').should('be.visible').click();
         cy.screenshot('menu_operacional'); // Captura o estado do menu operacional
+        cy.wait(9000);
         cy.get('#item-menu-1 > span').should('be.visible').click();
         cy.get('#bt-bordero-operacao > .ng-star-inserted').should('be.visible').click();
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex')
@@ -15,30 +19,12 @@ class OperacionalBordero {
         cy.wait(9000);
         //cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
     }
-
-    geradorDeVencimentoValido(){
-        const vencimento = new Date();
-        vencimento.setDate(vencimento.getDate()+30);
-        const dia = vencimento.getDate();
-        const mes = vencimento.toLocaleString('default', {month: 'long'});
-        const ano = vencimento.getFullYear();
-        console.log("Dia:", dia);
-        console.log("Mês:", mes);
-        console.log("Ano:", ano);
-        const dia1 = "19"  //digitação manual
-        const mes1 = "março" //digitação manual
-        const ano1 = "2025"  //digitação manual
-
-
-        return `${dia1} de ${mes1} de ${ano1}`;
-        //return "19 de março de 2025"    
-    }
     
-
     criandoOpdm() {
         const cnpj = gerarCNPJ();
         const cpf = gerarCPF();
-        const vencimentoGerado=this.geradorDeVencimentoValido();
+        //const vencimentoGerado=this.geradorDeVencimentoValido();
+        const vencimentoGerado= geradorDeVencimentoValido();
         console.log(vencimentoGerado);
         cy.log(`Criando operação DM com CNPJ: ${cnpj} e CPF: ${cpf}`);
 
@@ -89,13 +75,36 @@ class OperacionalBordero {
             .type('Fernando Abel');
 
         cy.get('#btn-salvar > .ng-star-inserted').should('be.visible').click();
-        cy.contains('Operação salva com sucesso').should('be.visible'); // Valida mensagem de sucesso
+        cy.contains('Sacado salvo com sucesso!').should('be.visible'); // Valida mensagem de sucesso
         cy.screenshot('operacao_salva'); // Captura após salvar a operação
 
         cy.get('#btn-incluir-alterar > .ng-star-inserted').should('be.visible').click();
         cy.get('#btn-finalizar').should('be.visible').click();
-        cy.contains('Operação finalizada com sucesso').should('be.visible'); // Valida mensagem de finalização
-        cy.screenshot('operacao_finalizada'); // Captura após finalizar a operação
+        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero').as('endPointTitulosGrig');
+        
+        cy.wait('@endPointTitulosGrig').then((interception)=> {
+            expect(interception.response.statusCode).to.eq(200)
+            const quantidadeTitulosGridBordero = interception.response.body.qtdeTotal;
+            
+            if(quantidadeTitulosGridBordero > 0 ){
+                cy.log('O teste passou: A quantidade de títulos é maior que 0');
+        assert.isTrue(true, 'Títulos Salvos com Sucesso no Grid');
+    } else {
+        // Teste não passou
+        cy.log('O teste não passou: A quantidade de títulos é 0 ou menor');
+        assert.isTrue(false, 'Erro no Salvamento do título no Grid');
+
+            }
+        })
+        cy.get('#bt-avancar').click();
+        cy.get('#select-agregado > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        cy.get('#select-agregado > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        cy.get('#mat-input-37').click().clear().type(1000);
+        
+
+        //cy.screenshot('operacao_finalizada'); // Captura após finalizar a operação
+
+        
     }
 
     concluindoOpDm() {

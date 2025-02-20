@@ -62,3 +62,20 @@ export function gerarRG() {
   const digito = calcularDigitoRG(base);
   return base + digito;
 }
+
+export function geradorDeVencimentoValido(){
+  const vencimento = new Date();
+
+  vencimento.setDate(vencimento.getDate()+30);
+  const dia = vencimento.getDate().toString();
+  const mes = vencimento.toLocaleString('default', {month: 'long'});
+  const ano = vencimento.getFullYear().toString();
+  console.log("Dia:", dia);
+  console.log("Mês:", mes);
+  console.log("Ano:", ano);
+  //const dia1 = "19";    //digitação manual
+  //const mes1 = "março"; //digitação manual
+  //const ano1 = "2025";  //digitação manual
+
+  return `${dia} de ${mes} de ${ano}`;    
+}
