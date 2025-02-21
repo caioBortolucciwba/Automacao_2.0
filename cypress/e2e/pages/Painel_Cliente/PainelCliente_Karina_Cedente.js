@@ -29,10 +29,11 @@ class PainelCliente{
         cy.get('#select-perdil-sacado0 > .mat-select-trigger > .mat-select-value').click();
         cy.get('#mat-option-80 > .mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
+        cy.contains('Usuário criado com sucesso!').should('be.visible');
 
 
 
-
+        // teste
 
         //steps da página principal de cadastro do novo cliente em configurações.
 
