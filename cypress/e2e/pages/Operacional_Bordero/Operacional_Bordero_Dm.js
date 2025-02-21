@@ -1,5 +1,5 @@
 import { gerarCPF, gerarCNPJ} from '../../../support/utils';
-import { geradorDeVencimentoValido} from '/Automação_wba_web_oficial/Automacao_2.0/cypress/support/utils';
+import { geradorDeVencimentoValido} from '../../../support/utils';
 
 
 class OperacionalBordero {

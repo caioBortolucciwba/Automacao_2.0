@@ -32,7 +32,9 @@ class MenuPage {
 
     cy.get('#mat-input-34').clear().type('50000');
     cy.get('#mat-input-35').clear().type('100000');
-    cy.contains('Gerar como pendência').click();
+    cy.get('#check-multa').click();
+    cy.get('#check-juros-de-mora').click();
+    cy.get('#check-tarifa-liq').click();
     cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
   }
 
