@@ -8,6 +8,6 @@ Feature: Painel do cliente Karina Cedente
 
   Scenario: Painel do cliente Cedente
     Given que o usuário está na página inicial
-    When o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente karina
-    And acessa Painel do Cliente com os dados karina cedente
+    When  o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente karina
+    And   acessa Painel do Cliente com os dados karina cedente
     Then tenho cadastramento cedente concluido
