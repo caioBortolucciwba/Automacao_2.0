@@ -54,10 +54,15 @@ class PainelCliente {
             cy.fixture('cpf.json').then((data) => {
                 cy.get('#inputCpf2').type(data.cpf);
                 cy.get('#password').type(data.cpf);
-                cy.get('.btn > .ng-star-inserted > span').click();
+                cy.get('.bt-default').click();
+                 
+                cy.wait(1000);
 
-
-                //cy.get('#login-button').click();
+                cy.get('.password-new').type(data.cpf);
+                cy.get('body').type('{esc}'); 
+                cy.get('#password-confirm').type(data.cpf);
+                cy.get('.bt-default').click();
+                
             });
 
             cy.url().should('include', '/dashboard'); // Validação pós-login
