@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import PainelClienteKarinaSacado from '../../pages/Painel_Cliente/PainelCliente_Karina_Cedente';
+import PainelClienteKarinaSacado from '../../pages/Painel_Cliente/PainelCliente_Karina_Sacado';
 
 const loginPage = new LoginPage();
 const painelClienteKarinaS = new PainelClienteKarinaSacado();
@@ -27,14 +27,14 @@ Given('que o usuário está na página inicial', () => {
   cy.url().should('include', '/home'); // Substitua pelo caminho correto
 });
 
-When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente karina', () => {
+When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente sacado karina', () => {
   painelClienteKarinaS.painelClienteKarinaSacado();
 });
 
-And('acessa Painel do Cliente com os dados karina cedente', () => {
+And('acessa Painel do Cliente com os dados karina sacado', () => {
   painelClienteKarinaS.PaginaPainelCLiente();
 });
 
-Then('tenho cadastramento cedente concluido', (titulo) => {
+Then('tenho cadastramento sacado concluido', (titulo) => {
   painelClienteKarinaS.CadastroConcluido();
 });
