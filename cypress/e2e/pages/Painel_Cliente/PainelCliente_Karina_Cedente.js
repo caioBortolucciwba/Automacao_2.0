@@ -57,6 +57,7 @@ class PainelCliente {
                 cy.get('.bt-default', { timeout: 30000 }).should('be.enabled').click();
             });
 
+            /////
            
             cy.wait(15000);
 
