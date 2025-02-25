@@ -43,7 +43,7 @@ class PainelCliente {
 
         Cypress.on('uncaught:exception', (err, runnable) => {
             console.error('Erro capturado:', err.message);
-            return false; // Evita que o Cypress falhe automaticamente
+            return false; 
         });
 
         cy.origin('https://tportal.wba.com.br:8445', () => {
