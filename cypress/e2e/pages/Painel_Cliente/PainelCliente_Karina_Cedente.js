@@ -57,7 +57,7 @@ class PainelCliente {
                 cy.get('.bt-default', { timeout: 30000 }).should('be.enabled').click();
             });
 
-            /////
+            /////merge
            
             cy.wait(15000);
 
