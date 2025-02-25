@@ -9,4 +9,4 @@ Background: Usuário realiza login no sistema
 Scenario: Criacao operacao duplicata mercantil
     Given que o usuario precisa criar uma operacao duplicata mercantil
     When preencho todos os campos de duplicata mercantil obrigatorios do portal
-    Then tenho a operacao concluida para avancar de step
+    Then tenho a operacao dm concluida para avancar de step

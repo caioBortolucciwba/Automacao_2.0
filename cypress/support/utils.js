@@ -1,5 +1,5 @@
 // Função para gerar um número aleatório
-function gerarNumeroAleatorio(tamanho) {
+export function gerarNumeroAleatorio(tamanho) {
   let num = '';
   for (let i = 0; i < tamanho; i++) {
     num += Math.floor(Math.random() * 10).toString();
@@ -64,18 +64,18 @@ export function gerarRG() {
 }
 
 export function geradorDeVencimentoValido(){
-  const vencimento = new Date();
+  const vencimento = new Date(); // Gera a data de vencimento atual
 
-  vencimento.setDate(vencimento.getDate()+30);
-  const dia = vencimento.getDate().toString();
-  const mes = vencimento.toLocaleString('default', {month: 'long'});
-  const ano = vencimento.getFullYear().toString();
+  vencimento.setDate(vencimento.getDate()+30);  // acrescenta 30 dias a mais no vencimento atual
+  const dia = vencimento.getDate().toString();  // preenhe a variável com o dia
+  const mes = vencimento.toLocaleString('default', {month: 'long'}); // preenche a variável com o mês
+  const ano = vencimento.getFullYear().toString(); // preenche a variável ano com o ano
   console.log("Dia:", dia);
   console.log("Mês:", mes);
   console.log("Ano:", ano);
-  //const dia1 = "19";    //digitação manual
-  //const mes1 = "março"; //digitação manual
-  //const ano1 = "2025";  //digitação manual
+  //const dia1 = "19";    //Digitação manual - Substituir o dia no return
+  //const mes1 = "março"; //digitação manual - Substituir o mes no return
+  //const ano1 = "2025";  //digitação manual - Substituir o ano no return
 
   return `${dia} de ${mes} de ${ano}`;    
 }
