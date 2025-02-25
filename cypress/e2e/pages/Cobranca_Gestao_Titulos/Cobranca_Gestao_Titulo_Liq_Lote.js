@@ -31,8 +31,8 @@ class LiquidacaoLote {
       cy.get('[ng-reflect-label="02 - Itaú Unibanco S.A. - 341 "] > .label-option').click();
       cy.get('#select-tipo-forma-pagamento > .w-select > .w-select-input').click();
       cy.get('[ng-reflect-label="Dinheiro"] > .label-option').click();
-      cy.get('.marginTop15 > :nth-child(2) > #input-multa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').clear().type('50000');
-      cy.get('#input-juros-de-mora > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').clear().type('100000');
+      cy.get('#mat-input-36').clear().type('50000');
+      cy.get('#mat-input-37').clear().type('100000');
       cy.get('#check-multa').click();
       cy.get('#check-juros-de-mora').click();
       cy.get('#check-tarifa-liq').click();

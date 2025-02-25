@@ -32,6 +32,6 @@ When('preencho todos os campos de duplicata mercantil obrigatorios do portal', (
   operacionalDM.criandoOpdm()
 });
 
-Then('tenho a operacao concluida para avancar de step', () => {
+Then('tenho a operacao dm concluida para avancar de step', () => {
   operacionalDM.concluindoOpDm();
 });

@@ -57,7 +57,7 @@ class PainelCliente {
                 cy.get('.bt-default').click();
                  
                 cy.wait(1000);
-
+                
                 cy.get('.password-new').type(data.cpf);
                 cy.get('body').type('{esc}'); 
                 cy.get('#password-confirm').type(data.cpf);
