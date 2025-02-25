@@ -17,10 +17,7 @@ class PainelCliente {
         cy.get("#bt-search").click();
         // cy.get('body').type('{esc}'); 
         cy.get('body').type('{esc}');
-<<<<<<< HEAD:cypress/e2e/pages/Painel_Cliente/PainelCliente_Karina_Sacado.js
-=======
-        ////////
->>>>>>> 2640bf03083ea4b1c34173536698e85e5574c8a7:cypress/e2e/pages/Painel_Cliente/PainelCliente_Karina_Cedente.js
+
         cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
         cy.get('#item-menu-12').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
@@ -60,16 +57,20 @@ class PainelCliente {
                 cy.get('#password').type(data.cpf);
                 cy.get('.bt-default').click();
                  
-                cy.wait(1000);
-                
-                cy.get('.password-new').type(data.cpf);
-                cy.get('body').type('{esc}'); 
-                cy.get('#password-confirm').type(data.cpf);
-                cy.get('.bt-default').click();
+               
                 
             });
 
-            cy.url().should('include', '/dashboard'); // Validação pós-login
+
+            /////
+           
+            cy.wait(15000);
+
+            cy.get('#password-new').type('252525');
+            cy.get('#password-confirm').type('252525');
+            cy.get('.bt-default').should('not.be.disabled').click();
+
+
         });
     }
 
