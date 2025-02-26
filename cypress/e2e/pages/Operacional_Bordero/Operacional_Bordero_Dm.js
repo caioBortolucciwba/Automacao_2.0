@@ -176,7 +176,21 @@ class OperacionalBordero {
             console.log("NUMERO BORDERO LIBERADO", numero);
         });
         cy.get('.wb-row > :nth-child(2) > w-button > .btn').click();
+        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/buscar/lancamentos/agrupados').as('endPointGestaoCobrancaLancamentos');
+        cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button').click();
+        cy.wait('@endPointGestaoCobrancaLancamentos').then((interception)=>{
+            const quantidadeTitulosGestaoCobranca = interception.response.body.length;
+            console.log("endpoint QUANTIDADE LANÇAMENTOS",quantidadeTitulosGestaoCobranca);
+            
+            cy.get('@quantidadeTitulosBorderoLiberado').then((numero) => {
+                if (numero == quantidadeTitulosGestaoCobranca ){
+                    assert.isTrue(true, 'Todos os títulos do borderô chegaram no Gestão de lançamentos');  
+                    } else {
+                        assert.isTrue(false, 'Não chegaram todos os títulos da operação no Gestão de lançamentos');
+                    }               
+            });
 
+        })
         //cy.log('Todos os campos obrigatórios foram preenchidos. Cadastro concluído com sucesso.');
         
         //cy.screenshot('conclusao_operacao'); // Captura no final do processo
