@@ -1,7 +1,7 @@
 import { gerarCPF, gerarCNPJ, gerarRG } from '../../../support/utils';
 
 class PainelCliente {
-    painelClienteKarinaCedente() {
+    painelClienteRenanFidicCedente() {
         const cpf = gerarCPF();
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
