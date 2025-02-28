@@ -8,7 +8,7 @@ class LiquidacaoLote {
 
   validarLote() {
     cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="PROPRIA - Karina FAC"] > .check-multiple').click();
+    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
     cy.get('.menu-right-filtro').click();
     cy.get('#input-vencimento').click();
     cy.get('.mat-calendar-previous-button').click().click();
@@ -23,11 +23,11 @@ class LiquidacaoLote {
     cy.get(':nth-child(7) > #item-6').click();
   
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="02 - Itaú Unibanco S.A. - 341 "] > .label-option').click();
+    cy.get('[ng-reflect-label="09 - Banco Bradesco S.A. - 237"] > .label-option').click();
     cy.get('#select-tipo-forma-pagamento > .w-select > .w-select-input').click();
     cy.get('[ng-reflect-label="Dinheiro"] > .label-option').click();
-    cy.get('#mat-input-36').type('50000');
-    cy.get('#mat-input-37').clear().type('100000');
+    cy.get('#mat-input-53').clear().type('50000');
+    cy.get('#mat-input-54').clear().type('100000');
     cy.get('#check-multa').click();
     cy.get('#check-juros-de-mora').click();
     cy.get('#check-tarifa-liq').click();
@@ -36,7 +36,7 @@ class LiquidacaoLote {
 
   calcularJurosLote() {
     cy.wait(10000);
-
+  
     let valores = {
       valorPagoTotal: 0,
       multaTotal: 0,
@@ -44,29 +44,48 @@ class LiquidacaoLote {
       despesasTotal: 0,
       valorAtualizadoTotal: 0
     };
-
-    const capturarValor = (seletor, campo) => {
-      cy.get(seletor).then(($elements) => {
-        let soma = 0;
-        $elements.each((index, el) => {
-          const valor = parseFloat(el.innerText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-          soma += valor;
+  
+    cy.get('[data-row]').each(($row) => {
+      let valorPago = 0, multa = 0, juros = 0, prazo = 0, despesas = 0, valorAtualizado = 0;
+  
+      cy.wrap($row).find('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {
+        valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+        
+        cy.wrap($row).find('[data-label="Multa"]').invoke('text').then((multaText) => {
+          multa = parseFloat(multaText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+          cy.wrap($row).find('[data-label="Juros de mora"]').invoke('text').then((jurosText) => {
+            juros = parseFloat(jurosText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+            cy.wrap($row).find('[data-label="Prazo"]').invoke('text').then((prazoText) => {
+              prazo = parseInt(prazoText) || 0;
+  
+              cy.wrap($row).find('[data-label="Despesas"]').invoke('text').then((despesasText) => {
+                despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+                cy.wrap($row).find('[data-label="Valor atualizado"]').invoke('text').then((valorAtualizadoText) => {
+                  valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+  
+                  let multaCalculada = multa;
+                  let jurosCalculado = prazo > 30 ? juros : juros * (prazo / 30);
+                  let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
+  
+                  valores.valorPagoTotal += valorPago;
+                  valores.multaTotal += multaCalculada;
+                  valores.jurosTotal += jurosCalculado;
+                  valores.despesasTotal += despesas;
+                  valores.valorAtualizadoTotal += valorAtualizado;
+                });
+              });
+            });
+          });
         });
-        valores[campo] = soma;
       });
-    };
-
-    capturarValor('[data-label="Valor"]', 'valorPagoTotal');
-    capturarValor('[data-label="Multa"]', 'multaTotal');
-    capturarValor('[data-label="Juros de mora"]', 'jurosTotal');
-    capturarValor('[data-label="Despesas adicionais"]', 'despesasTotal');
-    capturarValor('[data-label="Valor atualizado"]', 'valorAtualizadoTotal');
-
-    cy.then(() => {
-      const valorCalculado = valores.valorPagoTotal + valores.multaTotal + valores.jurosTotal + valores.despesasTotal;
+    }).then(() => {
+      const valorCalculadoTotal = valores.valorPagoTotal + valores.multaTotal + valores.jurosTotal + valores.despesasTotal;
       const valorAtualizadoArredondado = Number(valores.valorAtualizadoTotal.toFixed(2));
-      const valorCalculadoArredondado = Number(valorCalculado.toFixed(2));
-      
+      const valorCalculadoArredondado = Number(valorCalculadoTotal.toFixed(2));
+  
       cy.log(`✅ Valor Pago Total: ${valores.valorPagoTotal}`);
       cy.log(`✅ Multa Total: ${valores.multaTotal}`);
       cy.log(`✅ Juros Total: ${valores.jurosTotal}`);
@@ -77,11 +96,11 @@ class LiquidacaoLote {
   
       expect(Math.abs(valorAtualizadoArredondado - valorCalculadoArredondado)).to.be.at.most(0.02,
         `❌ O Valor Atualizado exibido não está correto!: Esperado ${valorCalculadoArredondado}, encontrado ${valorAtualizadoArredondado}`);
-      
-      cy.log('✅ O Valor Atualizado está correto.');
-  });
   
+      cy.log('✅ O Valor Atualizado está correto.');
+    });
   }
+  
 }
 
 export default LiquidacaoLote;
