@@ -1,7 +1,7 @@
 import LoginPage from '../../pages/LoginPage';
-import painelClienteRenanFidicCedente from '../../pages/Painel_Cliente/PainelCliente_Renan_Fidic_Cedente';
+import painelClienteRenanFidicSacado from '../../pages/Painel_Cliente/PainelCliente_Renan_Fidic_Sacado';
 const loginPage = new LoginPage();
-const painelClienteRenanFidc = new painelClienteRenanFidicCedente();
+const painelClienteRenanFidc = new painelClienteRenanFidicSacado();
 
 
 
@@ -29,7 +29,7 @@ Given('que o usuário está na página inicial', () => {
 });
 
 When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente renan fidic', () => {
-  painelClienteRenanFidc.painelClienteRenanFidicCedente();
+  painelClienteRenanFidc.painelClienteRenanFidicSacado();
 });
 
 And('acessa Painel do Cliente com os dados renan fidic cedente', () => {

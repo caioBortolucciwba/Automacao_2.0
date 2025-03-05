@@ -1,7 +1,7 @@
 import { gerarCPF, gerarCNPJ, gerarRG } from '../../../support/utils';
 
 class PainelCliente {
-    painelClienteRenanFidicCedente() {
+    painelClienteRenanFidicSacado() {
         const cpf = gerarCPF();
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
@@ -10,7 +10,7 @@ class PainelCliente {
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_CEDENTE').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-        cy.get("#mat-input-2").type('Teste RENAN FIDIC CEDENTE');
+        cy.get("#mat-input-2").type('Teste RENAN FIDIC SACADO');
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1 > span').click();
