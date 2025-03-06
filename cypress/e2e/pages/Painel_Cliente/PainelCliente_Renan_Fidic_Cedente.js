@@ -6,11 +6,11 @@ class PainelCliente {
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
         cy.get('.link-configuracoes > .icon').click();
-        cy.get('#card-menu-1 > .card-titulo-texto > .header').click();
+        cy.get('#card-menu-0 > .card-titulo-texto > .header').click();
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_CEDENTE').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-        cy.get("#mat-input-2").type('Teste Karina CEDENTE');
+        cy.get("#mat-input-2").type('Teste RENAN FIDIC CEDENTE');
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1 > span').click();
@@ -54,9 +54,9 @@ class PainelCliente {
                 
             });
 
-            /////
+            
            
-            cy.wait(15000);
+            cy.wait(10000);
 
             cy.get('#password-new').type('252525');
             cy.get('#password-confirm').type('252525');

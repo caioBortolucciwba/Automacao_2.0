@@ -1,11 +1,7 @@
 import LoginPage from '../../pages/LoginPage';
-//import painelClienteRenanFidicCedente from '../../pages/Painel_Cliente/PainelCliente_Renan_Fidic_Cedente';
+import painelClienteRenanFidicCedente from '../../pages/Painel_Cliente/PainelCliente_Renan_Fidic_Cedente';
 const loginPage = new LoginPage();
-//const painelClienteRenanFidc = new painelClienteRenanFidicCedente();
-
-
-import PainelClienteRenanFidicCedente from '../../pages/Painel_Cliente/PainelCliente_Renan_Fidic_Cedente';
-const painelClienteRenanFidc = new PainelClienteRenanFidicCedente();
+const painelClienteRenanFidc = new painelClienteRenanFidicCedente();
 
 
 
@@ -32,7 +28,7 @@ Given('que o usuário está na página inicial', () => {
   cy.url().should('include', '/home'); 
 });
 
-When(' o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente renan fidic', () => {
+When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente renan fidic', () => {
   painelClienteRenanFidc.painelClienteRenanFidicCedente();
 });
 
