@@ -15,8 +15,10 @@ class MenuPage {
     cy.get('#input-vencimento').click();
     cy.get('.mat-calendar-previous-button').click();
     cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-previous-button').click();
     cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('#input-ate').click();
+    cy.get('.mat-calendar-previous-button').click();
     cy.get('.mat-calendar-previous-button').click();
     cy.get('[aria-label="31 de janeiro de 2025"] > .mat-calendar-body-cell-content').click();
 
