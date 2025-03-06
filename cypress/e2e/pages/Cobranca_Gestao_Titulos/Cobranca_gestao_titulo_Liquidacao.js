@@ -39,6 +39,45 @@ class MenuPage {
   }
 
   calcularJuros() {
+
+    //FORÇANDO ENDPOINT GERAR UM JUROS/MULTA/TARIFA INVALIDADA.
+    /*
+    cy.intercept('POST', 'https://dnew-api.wba.com.br:30082/api/v1/private/calculos/encargos/liquidacao', (req) => {
+      req.reply((res) => {
+        console.log('Resposta da API: body', res.body);
+        
+         const valorJurosAntigoRetornado = res.body.lancamentos[0].juros; //SALVANDO NA VARIÁVEL O JUROS CORRETO RETORNADO PELA ENDPOINT LIQUIDAÇÃO
+         console.log('Resposta da API- juros Antigo:', valorJurosAntigoRetornado); 
+
+        res.body.lancamentos[0].juros = 200; //FORÇANDO O ENDPOINT LIQUIDAÇÃO DEVOLVER UM JUROS INVALIDO.
+        const valorJurosAtualRetornado =  res.body.lancamentos[0].juros; //SALVANDO O JUROS ERRADO FORÇADO NO ENDPOINT.
+        console.log('Resposta da API- juros Atual:', valorJurosAtualRetornado); 
+        
+        console.log('Resposta da API- valor atualizado:', res.body.lancamentos[0].valorAtualizado);
+        
+        const totalmulta = res.body.lancamentos[0].multa
+        console.log('Resposta da API - multa:', totalmulta);
+        
+        const totaltarifa = res.body.lancamentos[0].tarifaLiquidacao
+        console.log('Resposta da API - tarifa:', totaltarifa);
+        
+        const valortitulo = res.body.lancamentos[0].valorAtualizado - valorJurosAntigoRetornado - totalmulta - totaltarifa;
+        console.log('Resposta da API - titulo:', valortitulo);
+        
+        res.body.lancamentos[0].valorAtualizado =  res.body.lancamentos[0].valorAtualizado - valorJurosAntigoRetornado + valorJurosAtualRetornado;
+        console.log('Resposta da API - atualizadoAtual:', res.body.lancamentos[0].valorAtualizado);  
+
+      });
+
+    }).as('calculoJuros');
+
+      cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
+      cy.wait(10000);
+      cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
+      cy.wait(10000);
+
+    // FIM DO GERADOR DE MULTA/JUROS/DESPESA INVALIDA.*/
+
     cy.wait(10000);
 
     cy.get('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {
@@ -58,6 +97,19 @@ class MenuPage {
 
               cy.get('[data-label="Valor Atualizado"]').invoke('text').then((valorAtualizadoText) => {
                 const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+
+                 /*VALIDA SE O JUROS RETORNADO PELO ENDPOINT LIQUIDAÇÃO GEROU O JUROS CORRETO :
+                const calculoCorretoJuros = valorPago *((10/100+1)**(prazo/30)-1);
+
+                if(juros == calculoCorretoJuros ){
+
+                  assert.isTrue(true, 'Cálculo de juros retornado pelo backend está correto');  
+                    } else {
+                        assert.isTrue(false, 'Cálculo de juros retornado pelo backend está incorreto');
+                    };
+                
+                  console.log("CALCULO CORRETO GERADO PELO SISTEMA",calculoCorretoJuros);
+                //FIM DA VALIDAÇÃO DO JUROS RETORNO PELO ENDPOINT.*/
 
                 let multaCalculada = multa;
                 let jurosCalculado = prazo > 30 ? juros : juros * (prazo / 30);
