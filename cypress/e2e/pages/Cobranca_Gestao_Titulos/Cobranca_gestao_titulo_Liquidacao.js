@@ -21,6 +21,9 @@ class MenuPage {
     cy.get('.mat-calendar-previous-button').click();
     cy.get('.mat-calendar-previous-button').click();
     cy.get('[aria-label="31 de janeiro de 2025"] > .mat-calendar-body-cell-content').click();
+    cy.get('#mat-chip-list-1').click().type("06.911.774/0001-50");
+    cy.get('.mat-option-text').click();
+
 
     cy.get('.wb-row > :nth-child(2) > w-button > .btn > .ng-star-inserted').click();
     cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button').click();
@@ -43,7 +46,7 @@ class MenuPage {
   calcularJuros() {
 
     //FORÇANDO ENDPOINT GERAR UM JUROS/MULTA/TARIFA INVALIDADA.
-    /*
+    ///*
     cy.intercept('POST', 'https://dnew-api.wba.com.br:30082/api/v1/private/calculos/encargos/liquidacao', (req) => {
       req.reply((res) => {
         console.log('Resposta da API: body', res.body);
@@ -100,18 +103,24 @@ class MenuPage {
               cy.get('[data-label="Valor Atualizado"]').invoke('text').then((valorAtualizadoText) => {
                 const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-                 /*VALIDA SE O JUROS RETORNADO PELO ENDPOINT LIQUIDAÇÃO GEROU O JUROS CORRETO :
-                const calculoCorretoJuros = valorPago *((10/100+1)**(prazo/30)-1);
+                // VALIDA SE O JUROS RETORNADO PELO ENDPOINT LIQUIDAÇÃO GEROU O JUROS CORRETO
 
-                if(juros == calculoCorretoJuros ){
+                const calculoCorretoJuros = valorPago *((10/100+1)**(prazo/30)-1);
+                const calculoCorretoJurosFormatado = calculoCorretoJuros.toFixed(2);
+                const ResultadoCalculoJurosCorreto = parseFloat(calculoCorretoJurosFormatado);
+
+                console.log("CALCULO - SISTEMA: ", juros)
+                console.log("CALCULO CORRETO - MEU CALCULO: ", ResultadoCalculoJurosCorreto)
+
+                if(juros == ResultadoCalculoJurosCorreto ){
 
                   assert.isTrue(true, 'Cálculo de juros retornado pelo backend está correto');  
                     } else {
                         assert.isTrue(false, 'Cálculo de juros retornado pelo backend está incorreto');
                     };
                 
-                  console.log("CALCULO CORRETO GERADO PELO SISTEMA",calculoCorretoJuros);
-                //FIM DA VALIDAÇÃO DO JUROS RETORNO PELO ENDPOINT.*/
+                  
+                //FIM DA VALIDAÇÃO DO JUROS RETORNO PELO ENDPOINT.
 
                 let multaCalculada = multa;
                 let jurosCalculado = prazo > 30 ? juros : juros * (prazo / 30);
