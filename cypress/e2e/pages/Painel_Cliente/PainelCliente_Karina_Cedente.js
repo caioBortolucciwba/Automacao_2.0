@@ -28,9 +28,9 @@ class PainelCliente {
         cy.get('#mat-input-34').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa > :nth-child(2)').click();
         cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.contains('PROPRIA - KARINA FACTORING').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-87 > .mat-option-text').click();
+        cy.get('#mat-option-52 > .mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         cy.contains('Usuário criado com sucesso!').should('be.visible');
     }

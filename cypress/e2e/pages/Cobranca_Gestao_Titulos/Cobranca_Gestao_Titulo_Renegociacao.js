@@ -11,15 +11,17 @@ class Renegociacao {
   
       // Seleção de empresa/carteira
       cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-      cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
+      cy.get('#select-empresa-carteira > .w-select > .overlay > .w-select-list > :nth-child(5) > .label-option').click();
   
       // Aplicação de filtros de data
       cy.get('.menu-right-filtro').click();
       cy.get('#input-vencimento').click();
       cy.get('.mat-calendar-previous-button').click();
       cy.get('.mat-calendar-previous-button').click();
+      cy.get('.mat-calendar-previous-button').click();
       cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
       cy.get('#input-ate').click();
+      cy.get('.mat-calendar-previous-button').click();
       cy.get('.mat-calendar-previous-button').click();
       cy.get('.mat-calendar-previous-button').click();
       cy.get('[aria-label="23 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
@@ -36,10 +38,10 @@ class Renegociacao {
       cy.get('#input-nome > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Testando QA');
       cy.get('#btn-adicionar > .ng-star-inserted').click();
       cy.get('#btn-voltar > .ng-star-inserted').click();  
-      cy.get('#input-taxa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').clear();
-      cy.get('#input-taxa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('100000');
-      cy.get('#input-multa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').clear();
-      cy.get('#input-multa > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('50000');
+      cy.get('#mat-input-14').clear();
+      cy.get('#mat-input-14').type('100000');
+     cy.get('#mat-input-15').clear();
+     cy.get('#mat-input-15').type('50000');
       cy.get(':nth-child(3) > #input-valorPresente > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').clear();
       cy.get(':nth-child(3) > #input-valorPresente > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('33400');
       cy.get('.mt20 > .ui-g-4 > #input-valorPresente > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').clear();

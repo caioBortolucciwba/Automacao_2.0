@@ -11,7 +11,7 @@ class Edicao {
   
       // Seleção de empresa/carteira
       cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-      cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
+      cy.get('#select-empresa-carteira > .w-select > .overlay > .w-select-list > :nth-child(5) > .label-option').click();
   
       // Aplicação de filtros de data
       cy.get('.menu-right-filtro').click();
