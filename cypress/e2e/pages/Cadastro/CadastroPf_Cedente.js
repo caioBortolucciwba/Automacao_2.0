@@ -33,7 +33,8 @@ class CadastroPF {
         cy.get('#item-menu-4').click();
         cy.get('#btn-adicionar-conta').click();
         cy.get('.ng-invalid > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="000 - Banco Athena."] > .label-option').click();
+        cy.get('.ng-invalid > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
+       // cy.get('[ng-reflect-label="000 - Banco Athena."] > .label-option').click();
         cy.get('#input-agencia > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0258');
         cy.get('#input-conta-corrente > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('15789');
         cy.get('#input-dv-conta > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0');
@@ -53,7 +54,8 @@ class CadastroPF {
         cy.get('#item-menu-7').click();
         cy.get('.btn > .ng-star-inserted').click();
         cy.get('#select-empresa > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="Imóvel"] > .label-option').click();
+        cy.get('#select-empresa > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
+        //cy.get('[ng-reflect-label="Imóvel"] > .label-option').click();
         cy.get('#valor > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('12500000');
         cy.get('#descricao > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('apto');
         cy.get('.fr > w-button > .btn').click();
@@ -68,9 +70,10 @@ class CadastroPF {
         ////////////Integracao////////////////////////////////////
         cy.get('#item-menu-11').click();
         cy.get('.ui-g-4 > .ng-invalid > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="Enviar para SINGULARE"] > .label-option').click();
+        cy.get(':nth-child(3) > .label-option').click();
+        //cy.get('[ng-reflect-label="Enviar para SINGULARE"] > .label-option').click();
         cy.get('.ng-untouched > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="FIDC - Karina FAC"] > .check-multiple').click();
+        cy.get('[ng-reflect-label="FIDC - KARINA FACTORING"] > .label-option').click();
         cy.get('#btn-enviar-cadastro > .ng-star-inserted').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         ///////////////////Contatos//////////////////////////////
@@ -91,13 +94,14 @@ class CadastroPF {
         cy.get('#mat-option-309 > .mat-option-text').click();
         cy.get('body').type('{esc}');
         cy.get('.pt50 > :nth-child(2)').click();
-        //document.querySelector("#mat-option-313 > span")
+        // document.querySelector("#mat-option-313 > span")
         //document.querySelector("#mat-option-316 > span")
-        cy.get('body').type('{esc}');
+        //cy.get('body').type('{esc}');
         cy.get("#mat-option-316 > .mat-option-text").click();
-        cy.get("#mat-option-316 > .mat-option-text").click();
         cy.get('body').type('{esc}');
-        cy.get('.ml30 > .btn > .ng-star-inserted').click();
+        cy.get('.ml30 > .btn').click();
+        //cy.get('.ml30 > .btn > .ng-star-inserted').click();
+        
         
     }
 

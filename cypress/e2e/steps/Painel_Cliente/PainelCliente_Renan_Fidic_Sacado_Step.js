@@ -28,14 +28,14 @@ Given('que o usuário está na página inicial', () => {
   cy.url().should('include', '/home'); 
 });
 
-When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente renan fidic', () => {
+When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente sacado renan fidic', () => {
   painelClienteRenanFidc.painelClienteRenanFidicSacado();
 });
 
-And('acessa Painel do Cliente com os dados renan fidic cedente', () => {
+And('acessa Painel do Cliente com os dados renan fidic sacado', () => {
   painelClienteRenanFidc.PaginaPainelCLiente();
 });
 
-Then('tenho cadastramento renan fidic cedente concluido', (titulo) => {
+Then('tenho cadastramento renan fidic sacado concluido', (titulo) => {
   painelClienteRenanFidc.CadastroConcluido();
 });

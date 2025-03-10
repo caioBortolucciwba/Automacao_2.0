@@ -6,7 +6,7 @@ class PainelCliente {
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
         cy.get('.link-configuracoes > .icon').click();
-        cy.get('#card-menu-1 > .card-titulo-texto > .header').click();
+        cy.contains('KARINA').click();
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_CEDENTE').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
@@ -21,11 +21,11 @@ class PainelCliente {
         cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
         cy.get('#item-menu-14').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
-        cy.get("#mat-input-33").click();
-        cy.get('#mat-input-33').type(cpf);
+        cy.get("#mat-input-32").click();
+        cy.get('#mat-input-32').type(cpf);
         cy.writeFile('cypress/fixtures/cpf.json', { cpf: cpfsemformatacao });
-        cy.get('#mat-input-34').click().type('Teste Karina CEDENTE Painel');
-        cy.get('#mat-input-35').click().type('daniel.souza@wba.com.br');
+        cy.get('#mat-input-33').click().type('Teste Karina CEDENTE Painel');
+        cy.get('#mat-input-34').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa > :nth-child(2)').click();
         cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
         cy.contains('PROPRIA - KARINA FACTORING').click();
