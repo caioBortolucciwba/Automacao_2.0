@@ -8,14 +8,18 @@ class LiquidacaoLote {
 
   validarLote() {
     cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
+    cy.get('#select-empresa-carteira > .w-select > .overlay > .w-select-list > :nth-child(5) > .label-option').click();
     cy.get('.menu-right-filtro').click();
     cy.get('#input-vencimento').click();
-    cy.get('.mat-calendar-previous-button').click().click();
+    cy.get('.mat-calendar-period-button').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('#input-ate').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('[aria-label="31 de janeiro de 2025"] > .mat-calendar-body-cell-content').click();
+    cy.get('.mat-calendar-period-button').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="31 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('.wb-row > :nth-child(2) > w-button > .btn > .ng-star-inserted').click();
 
     cy.get(':nth-child(2) > box-informacoes > .card-box-informacoes > .btn__mostrarMais > .submenu__fechado > .iconSvg').click();
@@ -23,9 +27,9 @@ class LiquidacaoLote {
     cy.get(':nth-child(7) > #item-6').click();
   
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="09 - Banco Bradesco S.A. - 237"] > .label-option').click();
+    cy.get('#select-tipo-pessoa > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
     cy.get('#select-tipo-forma-pagamento > .w-select > .w-select-input').click();
-    cy.get('[ng-reflect-label="Dinheiro"] > .label-option').click();
+    cy.get('#select-tipo-forma-pagamento > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
     cy.get('#mat-input-53').clear().type('50000');
     cy.get('#mat-input-54').clear().type('100000');
     cy.get('#check-multa').click();

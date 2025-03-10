@@ -10,3 +10,4 @@ Scenario: Criando formulas de remuneracao
     Given que o usuario precisa criar formulas de remuneracao de uma debentrures
     When acessa uma secutizadora propria e preenche as formulas
     Then formulas de remuneracao deve ser exibir como libera no painel
+    And  fazemos a criacao da escritura da debentures

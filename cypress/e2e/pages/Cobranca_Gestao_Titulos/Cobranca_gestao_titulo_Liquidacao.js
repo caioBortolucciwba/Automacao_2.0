@@ -9,7 +9,7 @@ class MenuPage {
     cy.get('#bt-filtrar-titulos').click();
 
     cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
+    cy.get('#select-empresa-carteira > .w-select > .overlay > .w-select-list > :nth-child(5) > .label-option').click();
 
     cy.get('.menu-right-filtro').click();
     cy.get('#input-vencimento').click();
@@ -28,9 +28,9 @@ class MenuPage {
     cy.get(':nth-child(7) > #item-6').click();
 
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="12 - Grafeno - 274 AG 0001 C/C"] > .label-option').click();
+    cy.get('#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(3) > span').click();
     cy.get('#select-tipo-forma-pagamento > .w-select > .w-select-input').click();
-    cy.get('[ng-reflect-label="Dinheiro"] > .label-option').click();
+    cy.get('#select-tipo-forma-pagamento > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
 
     cy.get('#mat-input-34').clear().type('50000');
     cy.get('#mat-input-35').clear().type('100000');
