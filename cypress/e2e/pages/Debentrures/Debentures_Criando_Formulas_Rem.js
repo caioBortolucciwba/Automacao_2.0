@@ -6,7 +6,7 @@ class formulasRem{
     }
 
     criandoFormulasRm() {
-        cy.get('#card-menu-0 > .card-icon').click();
+       cy.contains('Geral').click();
         cy.get(':nth-child(2) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('#mat-option-8 > .mat-option-text').click();
         cy.get('#btn-salvar > .ng-star-inserted').click();
@@ -33,7 +33,7 @@ class formulasRem{
     
     criandoEscritura() {
         cy.get('#ESCRITURACAO').click();
-        cy.get('#btn-novo > .ng-star-inserted').click();
+        cy.get('.btn > .ng-star-inserted').click();
         cy.get('#mat-input-31').type('CDI aut');
         cy.get('#mat-input-32').type('1000000');
         cy.get('#mat-input-33').type('100000000000');
@@ -59,15 +59,39 @@ class formulasRem{
         cy.get('[aria-label="6 de julho de 2024"] > .mat-calendar-body-cell-content').click();
         cy.get('#input-data-registro-publico').click();
         cy.get('[aria-label="6 de março de 2025"] > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-18').type('2323');
-        cy.get('#mat-input-19').type('151515');
-        cy.get('#mat-input-20').type('Teste QA');
+        cy.get('#mat-input-35').type('2323');
+        cy.get('#mat-input-36').type('151515');
+        cy.get('#mat-input-37').type('Teste QA');
         cy.get('.fr.mr16 > w-button > #btn-label-sim > .ng-star-inserted').click();
-        cy.get('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > empresa-panel > div.full-row.fl.mt20.ng-star-inserted > w-panel-menu > section > section > section > db-escrituracao > mat-paginator > div > div > div.mat-paginator-page-size.ng-star-inserted > mat-form-field').click();
-        cy.get('#mat-option-9 > .mat-option-text').click();
-        cy.contains('CDI aut').click();
-        cy.get('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > empresa-panel > div.full-row.fl.mt20.ng-star-inserted > w-panel-menu > section > section > section > db-escrituracao > w-table > form > table > tbody > tr:nth-child(27) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg').click();
-    }
+        cy.get('#mat-select-5').click();
+        cy.contains('50').click();
+        cy.contains('CDI aut').parent().siblings('[data-label="Ações"]').find('.iconSvg.btn-click-mega-menu-js').first().click();
+
+        // cy.get(':nth-child(1) > .semBefore > [ng-reflect-ng-style="[object Object]"] > .actions > :nth-child(1)').click();
+        cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+        cy.get('#mat-input-58').type('Documento teste');
+        cy.get('#mat-input-59').type('Arquivo teste');
+        cy.get('.input > w-button.ng-star-inserted > .btn > .ng-star-inserted').should('be.visible').click(); 
+        cy.get('input[type="file"]').attachFile('cenarios.txt'); 
+        cy.get('#btn-salvar-arquivo').click();
+        cy.wait(2000);
+      // Validação: Se aparecer a mensagem de erro, o teste falha
+      cy.get('body').then(($body) => {
+        if ($body.text().includes('Você não possui arquivos inseridos')) {
+            throw new Error('Teste falhou: Nenhum arquivo foi anexado.');
+        } else {
+            cy.log('Arquivo anexado com sucesso!');
+        }
+    });
+    cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+    cy.get('#mat-input-48').type('3574');
+    cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
+   cy.contains('CDI Aut').click();
+   cy.get('#mat-input-60').clear().type('10000');
+   cy.get('.mat-checkbox-inner-container').click();
+   cy.get('#btn-salvar-serie > .ng-star-inserted').click();
+   cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+}
 }
 
 export default formulasRem;
