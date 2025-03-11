@@ -1,4 +1,9 @@
+let porcentagemJuros = 10;
+let porcentagemMulta = 5;
+let ValorDespesa = 14;
+
 class MenuPage {
+
   validateCobrançaMenu() {
     cy.get('#menu-lateral-COBRANCA > .texto-menu').click();
   }
@@ -24,7 +29,6 @@ class MenuPage {
     cy.get('#mat-chip-list-1').click().type("06.911.774/0001-50");
     cy.get('.mat-option-text').click();
 
-
     cy.get('.wb-row > :nth-child(2) > w-button > .btn > .ng-star-inserted').click();
     cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button').click();
     cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
@@ -37,6 +41,7 @@ class MenuPage {
 
     cy.get('#mat-input-34').clear().type('50000');
     cy.get('#mat-input-35').clear().type('100000');
+    cy.get('#mat-input-36').clear().type('1400');
     cy.get('#check-multa').click();
     cy.get('#check-juros-de-mora').click();
     cy.get('#check-tarifa-liq').click();
@@ -46,7 +51,7 @@ class MenuPage {
   calcularJuros() {
 
     //FORÇANDO ENDPOINT GERAR UM JUROS/MULTA/TARIFA INVALIDADA.
-    ///*
+    /*
     cy.intercept('POST', 'https://dnew-api.wba.com.br:30082/api/v1/private/calculos/encargos/liquidacao', (req) => {
       req.reply((res) => {
         console.log('Resposta da API: body', res.body);
@@ -96,6 +101,7 @@ class MenuPage {
 
           cy.get('[data-label="Prazo"]').invoke('text').then((prazoText) => {
             const prazo = parseInt(prazoText) || 0;
+            const prazoPositivo = Math.abs(prazo);
 
             cy.get('[data-label="Despesas"]').invoke('text').then((despesasText) => {
               const despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
@@ -103,27 +109,46 @@ class MenuPage {
               cy.get('[data-label="Valor Atualizado"]').invoke('text').then((valorAtualizadoText) => {
                 const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-                // VALIDA SE O JUROS RETORNADO PELO ENDPOINT LIQUIDAÇÃO GEROU O JUROS CORRETO
-
-                const calculoCorretoJuros = valorPago *((10/100+1)**(prazo/30)-1);
+                // VALIDA JUROS RETORNADA NO ENDPOINT LIQUIDACAO
+                const calculoCorretoJuros = valorPago *((porcentagemJuros/100+1)**(prazoPositivo/30)-1);
                 const calculoCorretoJurosFormatado = calculoCorretoJuros.toFixed(2);
                 const ResultadoCalculoJurosCorreto = parseFloat(calculoCorretoJurosFormatado);
-
-                console.log("CALCULO - SISTEMA: ", juros)
-                console.log("CALCULO CORRETO - MEU CALCULO: ", ResultadoCalculoJurosCorreto)
+                console.log("Calculo de juros gerado pelo Sistema:", juros)
+                console.log("Calculo de juros gerado pela automação: ", ResultadoCalculoJurosCorreto)
 
                 if(juros == ResultadoCalculoJurosCorreto ){
 
-                  assert.isTrue(true, 'Cálculo de juros retornado pelo backend está correto');  
+                  assert.isTrue(true, 'Cálculo do Juros retornado pelo backend está correto');  
                     } else {
-                        assert.isTrue(false, 'Cálculo de juros retornado pelo backend está incorreto');
+                        assert.isTrue(false, 'Cálculo do Juros retornado pelo backend está incorreto');
+                    };
+
+                // VALIDA MULTA RETORNADA NO ENDPOINT LIQUIDACAO
+                const calculoCorretoMulta =  (porcentagemMulta/100)* valorPago ;
+                const calculoCorretoMultaFormatado = calculoCorretoMulta.toFixed(2);
+                const ResultadoCalculoMultaCorreto = parseFloat(calculoCorretoMultaFormatado);
+                console.log("Calculo de Multa gerado pelo Sistema: ", multa);
+                console.log("Calculo de Multa gerado pela automação ", ResultadoCalculoMultaCorreto);
+                
+                if(multa == ResultadoCalculoMultaCorreto ){
+
+                  assert.isTrue(true, 'Cálculo da Multa retornado pelo backend está correto');  
+                    } else {
+                        assert.isTrue(false, 'Cálculo da Multa retornado pelo backend está incorreto');
+                    };
+
+                 // VALIDA DESPESA RETORNADA NO ENDPOINT LIQUIDACAO
+                 if(despesas == ValorDespesa ){
+
+                  assert.isTrue(true, 'Cálculo da Despesa retornado pelo backend está correto');  
+                    } else {
+                        assert.isTrue(false, 'Cálculo da Despesa retornado pelo backend está incorreto');
                     };
                 
-                  
-                //FIM DA VALIDAÇÃO DO JUROS RETORNO PELO ENDPOINT.
+                  //VALIDAÇÃO VALOR ATUALIZADO
 
                 let multaCalculada = multa;
-                let jurosCalculado = prazo > 30 ? juros : juros * (prazo / 30);
+                let jurosCalculado = prazoPositivo > 30 ? juros : juros * (prazoPositivo / 30);
                 let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
 
                 valorCalculado = Math.round((valorCalculado + Number.EPSILON) * 100) / 100;
@@ -133,7 +158,7 @@ class MenuPage {
                 cy.log(`Valor Pago: ${valorPago}`);
                 cy.log(`Multa: ${multa} | Multa Calculada: ${multaCalculada}`);
                 cy.log(`Juros: ${juros} | Juros Calculados: ${jurosCalculado}`);
-                cy.log(`Prazo: ${prazo}`);
+                cy.log(`Prazo: ${prazoPositivo}`);
                 cy.log(`Despesas: ${despesas}`);
                 cy.log(`Valor Atualizado no Sistema: ${valorAtualizadoArredondado}`);
                 cy.log(`Valor Calculado: ${valorCalculado}`);
@@ -155,6 +180,11 @@ class MenuPage {
       });
     });
   }
+             ConcluirLiquidacao(){
+
+             }
+
+
 }
 
 export default MenuPage;
