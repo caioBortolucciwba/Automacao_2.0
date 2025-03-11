@@ -21,16 +21,18 @@ class PainelCliente {
         cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
         cy.get('#item-menu-14').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
-        cy.get("#mat-input-33").click();
-        cy.get('#mat-input-33').type(cpf);
+        cy.get("#mat-input-32").click();
+        cy.get('#mat-input-32').type(cpf);
         cy.writeFile('cypress/fixtures/cpf.json', { cpf: cpfsemformatacao });
-        cy.get('#mat-input-34').click().type('Teste Karina CEDENTE Painel');
-        cy.get('#mat-input-35').click().type('daniel.souza@wba.com.br');
+        cy.get('#mat-input-33').click().type('Teste RENAN FIDIC Painel');
+        cy.get('#mat-input-34').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa > :nth-child(2)').click();
         cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.contains('PROPRIA - KARINA FACTORING').click();
+        //cy.contains('RENAN FIDIC').click();
+        cy.get('#mat-option-53 > .mat-option-text').click();
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-87 > .mat-option-text').click();
+        cy.contains('RENAN FIDIC').click();
+        //cy.get('#mat-option-83 > .mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         cy.contains('Usuário criado com sucesso!').should('be.visible');
     }
