@@ -90,6 +90,10 @@ class MenuPage {
 
     cy.wait(10000);
 
+  cy.get('[data-label="Valor Pago"]').invoke('text').then((documentoText) => {
+      const numeroDocumento = documentoText.replace(/[^\d,]/g, '').replace(',', '.') || 0;
+      console.log("documento : ", numeroDocumento)
+
     cy.get('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {
       const valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
@@ -149,6 +153,7 @@ class MenuPage {
 
                 let multaCalculada = multa;
                 let jurosCalculado = prazoPositivo > 30 ? juros : juros * (prazoPositivo / 30);
+                console.log("juros calculado caio : jurosCalculado",jurosCalculado);
                 let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
 
                 valorCalculado = Math.round((valorCalculado + Number.EPSILON) * 100) / 100;
@@ -179,11 +184,9 @@ class MenuPage {
         });
       });
     });
+  });
   }
-             ConcluirLiquidacao(){
-
-             }
-
+            
 
 }
 
