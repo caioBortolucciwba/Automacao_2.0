@@ -18,25 +18,16 @@ class formulasRem{
         cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('CDI Aut');
         cy.get('#remuneracao-cdi > .mat-slide-toggle-label').click();
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.get('#mat-option-20 > .mat-option-text').click();
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
-        cy.get('#FORMULAS_REMUNERACAO').click();
-        cy.get('#btn-novo').click();
-        cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Juros simples Aut');
-        cy.get('#juros-simples > .mat-slide-toggle-label').click();
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
-        cy.get('#btn-novo').click();
-        cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Juros composto Aut');
-        cy.get('#juros-compostos > .mat-slide-toggle-label').click();
+        cy.contains('252').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
     }
     
     criandoEscritura() {
         cy.get('#ESCRITURACAO').click();
         cy.get('.btn > .ng-star-inserted').click();
-        cy.get('#mat-input-31').type('CDI aut');
-        cy.get('#mat-input-32').type('1000000');
-        cy.get('#mat-input-33').type('100000000000');
+        cy.get('#mat-input-29').type('Escritura Simples CDI');
+        cy.get('#mat-input-30').type('1000000');
+        cy.get('#mat-input-31').type('100000000000');
         cy.get(':nth-child(1) > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
         cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
         cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
@@ -59,22 +50,24 @@ class formulasRem{
         cy.get('[aria-label="6 de julho de 2024"] > .mat-calendar-body-cell-content').click();
         cy.get('#input-data-registro-publico').click();
         cy.get('[aria-label="6 de março de 2025"] > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-35').type('2323');
-        cy.get('#mat-input-36').type('151515');
-        cy.get('#mat-input-37').type('Teste QA');
+        cy.get('#mat-input-33').type('2323');
+        cy.get('#mat-input-34').type('151515');
+        cy.get('#mat-input-35').type('Teste QA');
         cy.get('.fr.mr16 > w-button > #btn-label-sim > .ng-star-inserted').click();
         cy.get('#mat-select-5').click();
         cy.contains('50').click();
-        cy.contains('CDI aut').parent().siblings('[data-label="Ações"]').find('.iconSvg.btn-click-mega-menu-js').first().click();
+        cy.contains('Escritura Simples CDI').parent().siblings('[data-label="Ações"]').find('.iconSvg.btn-click-mega-menu-js').first().click();
+      }
 
-        // cy.get(':nth-child(1) > .semBefore > [ng-reflect-ng-style="[object Object]"] > .actions > :nth-child(1)').click();
+    finalizandoEscritura(){
+
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-        cy.get('#mat-input-58').type('Documento teste');
-        cy.get('#mat-input-59').type('Arquivo teste');
+        cy.get('#mat-input-56').type('Documento teste');
+        cy.get('#mat-input-57').type('Arquivo teste');
         cy.get('.input > w-button.ng-star-inserted > .btn > .ng-star-inserted').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('cenarios.txt'); 
         cy.get('#btn-salvar-arquivo').click();
-        cy.wait(2000);
+        cy.wait(3000);
       // Validação: Se aparecer a mensagem de erro, o teste falha
       cy.get('body').then(($body) => {
         if ($body.text().includes('Você não possui arquivos inseridos')) {
@@ -83,15 +76,15 @@ class formulasRem{
             cy.log('Arquivo anexado com sucesso!');
         }
     });
-    cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-    cy.get('#mat-input-48').type('3574');
-    cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-   cy.contains('CDI Aut').click();
-   cy.get('#mat-input-60').clear().type('10000');
-   cy.get('.mat-checkbox-inner-container').click();
-   cy.get('#btn-salvar-serie > .ng-star-inserted').click();
-   cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-}
+            cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+            cy.get('#mat-input-46').type('CDI 100% Simples');
+            cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
+        cy.contains('CDI Aut').click();
+        cy.get('#mat-input-58').clear().type('10000');
+        
+        cy.get('#btn-salvar-serie > .ng-star-inserted').click();
+        cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+    }
 }
 
 export default formulasRem;
