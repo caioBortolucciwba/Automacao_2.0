@@ -4,7 +4,7 @@ class PainelCliente {
     painelClienteExportarKarinaCedente() {
         const cpf = gerarCPF();
         const cpfsemformatacao = cpf.replace(/\D/g, '');
-
+        
         cy.get('.link-configuracoes > .icon').click();
         cy.contains('KARINA').click();
         cy.get('#card-menu-9 > .card-icon').click();
