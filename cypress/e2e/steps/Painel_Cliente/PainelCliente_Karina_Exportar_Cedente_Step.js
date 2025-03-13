@@ -1,5 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Exportar_Karina_Cedente';
+import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Karina_Exportar_Cedente';
 
 
 const loginPage = new LoginPage();
