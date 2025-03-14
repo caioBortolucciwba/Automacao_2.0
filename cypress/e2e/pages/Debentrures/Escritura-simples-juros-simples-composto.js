@@ -15,12 +15,12 @@ class jurosSimples{
         cy.get('#card-menu-10 > .card-icon').click();
         cy.get('#FORMULAS_REMUNERACAO').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-       cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Juros Simples');
+        cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Juros Simples');
         cy.get('#juros-simples > .mat-slide-toggle-label').click();
         cy.get('#btn-label-sim').click();
         cy.get('#FORMULAS_REMUNERACAO').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-       cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Juros Composto');
+        cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Juros Composto');
         cy.get('#juros-compostos > .mat-slide-toggle-label').click();
         cy.get('#btn-label-sim').click();
     }
@@ -65,8 +65,8 @@ class jurosSimples{
     finalizandoEscrituraJuros(){
 
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-        cy.get('#mat-input-47').type('Documento teste');
-        cy.get('#mat-input-48').type('Arquivo teste');
+        cy.get('#mat-input-57').type('Documento teste');
+        cy.get('#mat-input-58').type('Arquivo teste');
         cy.get('.input > w-button.ng-star-inserted > .btn > .ng-star-inserted').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('cenarios.txt'); 
         cy.get('#btn-salvar-arquivo').click();
@@ -80,10 +80,10 @@ class jurosSimples{
         }
     });
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-        cy.get('#mat-input-46').type('Juros Simples 100%');
+        cy.get('#mat-input-47').type('Juros Simples 100%');
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.contains('CDI Aut').click();
-        cy.get('#mat-input-58').clear().type('10000');
+        cy.contains('Juros simples Aut').click();
+        cy.get('#mat-input-59').clear().type('10000');
         
         cy.get('#btn-salvar-serie > .ng-star-inserted').click();
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
