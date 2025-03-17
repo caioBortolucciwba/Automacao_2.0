@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Cypress Tests
 
 on:
   push:
@@ -9,17 +9,20 @@ on:
       - main
 
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v2
       with:
-        java-version: '11'
+        node-version: '20.17.0' # Use a versão do Node.js que seu projeto precisa
 
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Cypress tests
+      run: npx cypress run
