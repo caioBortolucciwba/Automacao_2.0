@@ -1,11 +1,12 @@
 const { defineConfig } = require("cypress");
-const cucumber = require("cypress-cucumber-preprocessor").default;
+const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 const mochawesomeMerge = require("mochawesome-merge");
 const mochawesomeReportGenerator = require("mochawesome-report-generator");
 
 module.exports = defineConfig({
-  experimentalMemoryManagement: true, 
-  numTestsKeptInMemory: 5, 
+  experimentalMemoryManagement: true,
+  numTestsKeptInMemory: 5,
 
   e2e: {
     video: true,
@@ -14,29 +15,36 @@ module.exports = defineConfig({
     viewportWidth: 1380,
     viewportHeight: 720,
     baseUrl: "https://dnew.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979",
-    specPattern: "cypress/e2e/features/**",
+    specPattern: "cypress/e2e/features/**/*.feature",
+
     setupNodeEvents(on, config) {
-      on("file:preprocessor", cucumber());
-
-      // Processo para gerar o relatório único após a execução
+      // Adiciona o plugin do Cucumber
+      preprocessor.addCucumberPreprocessorPlugin(on, config);
+    
+      // Configura o pré-processador para arquivos .feature
+      on("file:preprocessor", createEsbuildPlugin(config));
+    
+      // Configura o relatório após a execução
       on("after:run", async () => {
-        const reportJson = await mochawesomeMerge({
-          files: ["cypress/reports/*.json"]
+        const mergedReport = await mochawesomeMerge({
+          files: ["cypress/reports/*.json"],
         });
-
-        await mochawesomeReportGenerator.create(reportJson, {
+        await mochawesomeReportGenerator.create(mergedReport, {
           reportDir: "cypress/reports",
           overwrite: true,
           html: true,
-          json: true
+          json: true,
         });
       });
+    
+      // Retorna a configuração atualizada
+      return config;
     },
   },
 
-  reporter: 'mochawesome',
+  reporter: "mochawesome",
   reporterOptions: {
-    reportDir: 'cypress/reports',
+    reportDir: "cypress/reports",
     overwrite: false,
     html: true,
     json: true,
