@@ -21,6 +21,9 @@ jobs:
       with:
         node-version: '20.17.0' # Use a versão do Node.js que seu projeto precisa
 
+    - name: Clear npm cache
+      run: npm cache clean --force
+
     - name: Cache Cypress binary
       uses: actions/cache@v3
       id: cypress-cache
@@ -32,6 +35,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+
+    - name: Set permissions for node_modules
+      run: chmod -R 755 ./node_modules
 
     - name: Install Cypress binary (if not cached)
       if: steps.cypress-cache.outputs.cache-hit != 'true'
