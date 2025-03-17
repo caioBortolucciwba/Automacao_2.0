@@ -27,14 +27,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Set Cypress permissions
-      run: chmod -R 755 ./node_modules/cypress
+    - name: Install Cypress
+      run: npm install cypress --save-dev
+
+    - name: Set permissions for node_modules
+      run: chmod -R 755 ./node_modules
 
     - name: Verify Cypress installation
       run: npx cypress verify
-
-    - name: List files in node_modules/.bin
-      run: ls -la ./node_modules/.bin
 
     - name: Run Cypress tests
       run: npx cypress run
