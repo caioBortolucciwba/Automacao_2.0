@@ -21,8 +21,20 @@ jobs:
       with:
         node-version: '20.17.0' # Use a versão do Node.js que seu projeto precisa
 
+    - name: Clear npm cache
+      run: npm cache clean --force
+
     - name: Install dependencies
       run: npm install
+
+    - name: Set Cypress permissions
+      run: chmod -R 755 ./node_modules/cypress
+
+    - name: Verify Cypress installation
+      run: npx cypress verify
+
+    - name: List files in node_modules/.bin
+      run: ls -la ./node_modules/.bin
 
     - name: Run Cypress tests
       run: npx cypress run
