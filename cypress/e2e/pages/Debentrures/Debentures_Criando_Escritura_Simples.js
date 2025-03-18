@@ -25,7 +25,7 @@ class formulasRem{
     criandoEscritura() {
         cy.get('#ESCRITURACAO').click();
         cy.get('.btn > .ng-star-inserted').click();
-        cy.get('#mat-input-29').type('Escritura Simples CDI');
+        cy.get('#mat-input-69').type('Escritura Simples CDI');
         cy.get('#mat-input-30').type('1000000');
         cy.get('#mat-input-31').type('100000000000');
         cy.get(':nth-child(1) > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
