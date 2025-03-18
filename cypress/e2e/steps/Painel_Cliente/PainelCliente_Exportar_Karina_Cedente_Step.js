@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import LoginPainel from '../../pages/LoginPainelClientePage';
 import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Exportar_Karina_Cedente';
 
@@ -21,9 +22,15 @@ When('clica no botão para fazer login', () => {
 Then('o usuário é redirecionado para a página inicial do painel do cliente', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
+=======
+import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Exportar_Karina_Cedente';
+
+const painelClienteExportarK = new painelClienteExportarKarinaCedente();
+
+>>>>>>> Stashed changes
 
 Given('que o usuário está na página inicial', () => {
-  cy.url().should('include', '/home'); // Substitua pelo caminho correto
+  painelClienteExportarK.painelClienteExportarKarinaCedente();
 });
 
 When('o usuário Painel do Cliente com os dados karina cedente exportar', () => {
