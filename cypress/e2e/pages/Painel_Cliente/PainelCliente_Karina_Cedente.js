@@ -30,7 +30,7 @@ class PainelCliente {
         cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
         cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-52 > .mat-option-text').click();
+        cy.get('#mat-option-58 > .mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         cy.contains('Usuário criado com sucesso!').should('be.visible');
     }
