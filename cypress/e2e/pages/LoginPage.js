@@ -10,7 +10,7 @@ class LoginPage {
   fillPassword(password) {
     cy.get('#mat-input-1').type(password); 
   }
-
+//teste
   submit() {
     cy.get('.btn > .ng-star-inserted > span').click(); 
   }
