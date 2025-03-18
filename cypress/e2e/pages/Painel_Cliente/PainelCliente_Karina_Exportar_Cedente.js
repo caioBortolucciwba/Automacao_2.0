@@ -10,7 +10,7 @@ class PainelCliente {
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_CEDENTE').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-        cy.get("#mat-input-2").type('Teste Karina CEDENTE');
+        cy.get("#mat-input-2").type('Teste Karina EXPORTAR CEDENTE');
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1 > span').click();
@@ -30,9 +30,13 @@ class PainelCliente {
         cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
         cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-52 > .mat-option-text').click();
+        cy.get('#mat-option-60 > .mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         cy.contains('Usuário criado com sucesso!').should('be.visible');
+
+        //cy.get('#menu-lateral-OPERACIONAL > .flex-column > .menu-click-js').click();
+        //cy.get('#item-menu-1 > span').click();
+
     }
 
     PaginaPainelCLiente() {
@@ -56,14 +60,21 @@ class PainelCliente {
 
             /////
            
-            cy.wait(15000);
+            cy.wait(1000);
 
             cy.get('#password-new').type('252525');
             cy.get('#password-confirm').type('252525');
             cy.get('.bt-default').should('not.be.disabled').click();
-            cy.get('#item-menu-lancamentos > span').click();
+            // cy.contains('lancamentos').should('be.visible').click();
+            cy.get('#item-menu-lancamentos').should('be.visible').click();
+            
 
 
+            cy.get('#mat-checkbox-86 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+            cy.get(':nth-child(5) > #item-4').click();
+            cy.get('#mat-input-45').type('daniel.souza@wba.com.br').click();
+            cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+            cy.contains('E-mail enviado com sucesso!').should('be.visible');
         });
 
     }

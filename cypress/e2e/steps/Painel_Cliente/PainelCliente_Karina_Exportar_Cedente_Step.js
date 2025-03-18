@@ -1,6 +1,5 @@
 import LoginPage from '../../pages/LoginPage';
-import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Exportar_Karina_Cedente';
-
+import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Karina_Exportar_Cedente';
 
 const loginPage = new LoginPage();
 const painelClienteKarinaC = new painelClienteExportarKarinaCedente();
@@ -29,7 +28,7 @@ Given('que o usuário está na página inicial', () => {
 });
 
 When('o usuário clica em configurações e preenche todos os campos do cadastramento de cliente cedente karina exportar', () => {
-  painelClienteKarinaC.painelClienteKarinaCedente();
+  painelClienteKarinaC.painelClienteExportarKarinaCedente();
 });
 
 And('acessa Painel do Cliente com os dados karina cedente exportar', () => {
