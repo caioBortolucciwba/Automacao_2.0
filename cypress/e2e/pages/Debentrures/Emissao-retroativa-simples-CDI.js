@@ -18,20 +18,20 @@ class emissaoSimples{
     }
 
     emissaLiberada() {
-        cy.get('#mat-input-5').type('2');
+        cy.get('#mat-input-54').type('2');
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="dezembro 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="31 de dezembro de 2025"] > .mat-calendar-body-cell-content').click();
-        cy.get(':nth-child(3) > w-button > #btn-label-sim').click();
-        cy.get('.mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
-        cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
-        cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('[aria-label="dezembro 2025"] > .mat-calendar-body-cell-content').click();
-        cy.get('[aria-label="31 de dezembro de 2025"] > .mat-calendar-body-cell-content').click();
-        cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
-        cy.get('#mat-option-34 > .mat-option-text').click();
+        // cy.get(':nth-child(3) > w-button > #btn-label-sim').click();
+        // cy.get('.mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
+        // cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+        // cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
+        // cy.get('[aria-label="dezembro 2025"] > .mat-calendar-body-cell-content').click();
+        // cy.get('[aria-label="31 de dezembro de 2025"] > .mat-calendar-body-cell-content').click();
+        // cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
+        // cy.get('#mat-option-34 > .mat-option-text').click();
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
     }
