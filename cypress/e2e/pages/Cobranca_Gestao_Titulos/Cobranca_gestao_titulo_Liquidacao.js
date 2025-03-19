@@ -4,11 +4,12 @@ let ValorDespesa = 14;
 
 class MenuPage {
 
-  validateCobrançaMenu() {
-    cy.get('#menu-lateral-COBRANCA > .texto-menu').click();
+  criarTituloPrazoMaior30Dias(){
+    
+    cy.get('#menu-lateral-COBRANCA > .texto-menu').click();// Paliativo, necessário criar o título >30 dias.
   }
 
-  validarCamposCobranca() {
+    filtrarLancamentoTelaLiquidacao() {
     cy.get('#item-menu-1 > span').click();
     cy.get('#btn-card-1 > .card-titulo-texto').click();
     cy.get('#bt-filtrar-titulos').click();
@@ -33,6 +34,9 @@ class MenuPage {
     cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button').click();
     cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
     cy.get(':nth-child(7) > #item-6').click();
+    }
+
+    PreencherDadosObrigatorios(){
 
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
     cy.get('#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(3) > span').click();
@@ -46,9 +50,10 @@ class MenuPage {
     cy.get('#check-juros-de-mora').click();
     cy.get('#check-tarifa-liq').click();
     cy.get('.w-col-liq-linha-2 > w-button > .btn').click();
+
   }
 
-  calcularJuros() {
+  ValicaoCalculosLiquidacao() {
 
     //FORÇANDO ENDPOINT GERAR UM JUROS/MULTA/TARIFA INVALIDADA.
     /*
@@ -186,6 +191,15 @@ class MenuPage {
     });
   });
   }
+    finalizarOperacao(){
+      cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
+      cy.get('#btn-label-sim').click();
+      cy.get('.header > titulo-pagina > .d-inline-block > .f-24').should('be.visible');
+      cy.get("#mat-tab-content-1-1 > div > conteudo-titulos-liquidados > div.pb100.ng-star-inserted > div > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button > fa-icon > svg").click();
+      
+      
+      
+    }
             
 
 }
