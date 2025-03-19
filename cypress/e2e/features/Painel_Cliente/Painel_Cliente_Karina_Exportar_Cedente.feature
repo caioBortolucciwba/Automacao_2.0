@@ -1,12 +1,14 @@
 Feature: Painel do cliente exportar Karina Cedente
 
   Background: Usuário realiza login no sistema do Painel do Cliente
-    Given que o usuário acessa a página de login do Painel do Cliente
-    When o usuário insere o "usuário1" e a "senha1"
-    And clica no botão de login
+    Given precisa fazer o login dentro do painel do cliente
+    When insere as informacoes de login e senha
+    And clica no botão para fazer login
     Then o usuário é redirecionado para a página inicial do painel do cliente
 
   Scenario: Painel do cliente Cedente
+
+  Scenario: Painel do cliente exportar Karina Cedente
     Given que o usuário está na página inicial
     When o usuário Painel do Cliente com os dados karina cedente exportar
     And acessa a página de Lançamentos

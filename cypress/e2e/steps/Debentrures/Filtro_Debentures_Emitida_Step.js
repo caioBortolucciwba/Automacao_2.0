@@ -1,8 +1,8 @@
 import LoginPage from '../../pages/LoginPage';
-import Formulas from '../../pages/Debentrures/Debentures_Criando_Formulas_Rem';
+import Filtro from '../../pages/Debentrures/Filtro_Debentures_Emitida';
 
 const loginPage = new LoginPage();
-const formulas = new Formulas();
+const filtro = new Filtro();
 
 Given('que o usuário acessa a página de login', () => {
     loginPage.visit();
@@ -23,18 +23,17 @@ Given('que o usuário acessa a página de login', () => {
     cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
   });
   
-  Given('que o usuario precisa criar formulas de remuneracao de uma debentrures', () => {
+  Given('que o usuário precisa filtrar uma debentures emitida', () => {
     cy.url().should('include', '/home'); // Substitua pelo caminho correto
   });
   
-  When('acessa uma secutizadora propria e preenche as formulas', () => {
-    formulas.AcessandoDebentrures();
+  When('dentro do filtro coloca as informacoes para o sistema buscar', () => {
+    filtro.acessarFiltro();
   });
   
-  Then('formulas de remuneracao deve ser exibir como libera no painel', () => {
-    formulas.criandoFormulasRm();
+  Then('o sistema deve exibir as informacoes conforme a busca', () => {
+    filtro.resultadoFiltro();
   });
 
-  Then('fazemos a criacao da escritura da debentures', () => {
-    formulas.criandoEscritura();
-  });
+
+ 
