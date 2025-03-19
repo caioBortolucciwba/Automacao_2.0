@@ -5,23 +5,30 @@ import {gerarNumeroAleatorio} from '../../../support/utils'
 
 class OperacionalBordero {
     acessarBordero() {
+        //Acessa o borderô e Escolhe Cedente - Tela Inicial da operação
+
         cy.log('Acessando a seção de Borderô');
         cy.wait(9000);
-        cy.get('#menu-lateral-OPERACIONAL > .texto-menu').should('be.visible').click();
+        cy.get('#menu-lateral-OPERACIONAL > .texto-menu')
+            .should('be.visible').click();
         cy.screenshot('menu_operacional'); // Captura o estado do menu operacional
         cy.wait(9000);
         cy.get('#item-menu-1 > span').should('be.visible').click();
-        cy.get('#bt-bordero-operacao > .ng-star-inserted').should('be.visible').click();
+        cy.get('#bt-bordero-operacao > .ng-star-inserted')
+            .should('be.visible').click();
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex')
             .should('be.visible')
             .type('47');
-        cy.get('#mat-option-17 > .mat-option-text').should('be.visible').click();
-        cy.get('#btn-avancar > .ng-star-inserted > span').should('be.visible').click();
+        cy.get('#mat-option-17 > .mat-option-text')
+            .should('be.visible').click();
+        cy.get('#btn-avancar > .ng-star-inserted > span')
+            .should('be.visible').click();
         cy.wait(9000);
-        //cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
+        cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
     }
     
     criandoOpdm() {
+        //Step 1 - Digita título DM preenchendo campos obrigatórios e criando um sacado novo
         const cnpj = gerarCNPJ();
         const cpf = gerarCPF();
         const numeroDocumentoGerado = gerarNumeroAleatorio(5);
@@ -44,7 +51,7 @@ class OperacionalBordero {
             .click();
 
         cy.get('#select-sub-tipo-recebivel > .w-select > .w-select-input').click();
-        cy.get('#select-sub-tipo-recebivel > .w-select > .overlay > .w-select-list > wba-option.ng-star-inserted')
+        cy.get('[ng-reflect-label="82 - sub sanity 01"]')
             .should('be.visible')
             .click();
 
@@ -54,16 +61,22 @@ class OperacionalBordero {
         cy.get('#input-valor > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
             .type('5000000');
-        cy.screenshot('campos_preenchidos'); // Captura após preenchimento dos campos principais
 
         cy.get(':nth-child(5) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button')
             .should('be.visible')
             .click();
         
         cy.get('.mat-calendar-next-button').click();    
-
-        cy.get(`[aria-label="${vencimentoGerado}"] > .mat-calendar-body-cell-content`).click();
+        cy.get(`[aria-label="${vencimentoGerado}"] > .mat-calendar-body-cell-content`).click()
         
+    //Quando o vencimento cair em dia não util, o código clica em "Sim" no modal para alterar para um dia ultil.
+        cy.contains("Alterar vencimento").then(($el) =>{
+            if($el.length > 0){
+                cy.get('#btn-label-sim').click();
+            }
+        }
+    ) 
+        cy.screenshot('campos_preenchidos'); // Captura após preenchimento dos campos principais
 
         cy.get(':nth-child(9) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
@@ -78,18 +91,17 @@ class OperacionalBordero {
 
         cy.get('#btn-salvar > .ng-star-inserted').should('be.visible').click();
         cy.contains('Sacado salvo com sucesso!').should('be.visible'); // Valida mensagem de sucesso
-        cy.screenshot('operacao_salva'); // Captura após salvar a operação
+        cy.screenshot('Sacado_salvo_Com_Sucesso'); // Captura sacado sendo salvo com sucesso na digitação do título.
 
+        //Step1 -Valide se os títulos foram salvos com sucesso no grid do borderô
         cy.get('#btn-incluir-alterar > .ng-star-inserted').should('be.visible').click();
         cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero').as('endPointTitulosGrig');
         cy.get('#btn-finalizar').should('be.visible').click();
         
-        
         cy.wait('@endPointTitulosGrig').then((interception)=> {
             expect(interception.response.statusCode).to.eq(200)
             const quantidadeTitulosGridBordero = interception.response.body.qtdeTotal;
-            
-            
+                     
             if(quantidadeTitulosGridBordero > 0 ){
                 cy.log('O teste passou: A quantidade de títulos é maior que 0');
         assert.isTrue(true, 'Títulos Salvos com Sucesso no Grid');
@@ -100,15 +112,20 @@ class OperacionalBordero {
 
             }
         })
+        cy.wait(3000);
+        cy.screenshot('Título_salvo_Com_Sucesso_Grid_Borderô_Step1'); // Valida título salvo no grid do borderô
         cy.get('#bt-avancar').click();
-        cy.wait(4000);
+        cy.wait(6000);
 
-        cy.get('#mat-input-37').type(3000);
+        cy.get('#mat-input-33').click().clear().type(70000);
         cy.get('#mat-input-37').click().clear().type(1000);
         cy.wait(5000);
 
         cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/calcular/operacao').as('endPointRecalculo');
-        cy.get('#bt-recalcular').click();
+        cy.get('#bt-recalcular')
+        .should('be.visible')
+        .should('be.enabled')
+        .click();
         cy.wait('@endPointRecalculo').then((interception) =>{
             const statusCode = interception.response.statusCode;
             console.log("Status code",statusCode);
