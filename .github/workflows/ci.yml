@@ -13,37 +13,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Cache Cypress binary
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/Cypress
-        key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          cypress-${{ runner.os }}-
+      - name: Cache do Cypress
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-
 
-    - name: Install dependencies
-      run: npm ci  # Melhor que 'npm install' para CI/CD
+      - name: Instalar dependências
+        run: npm ci  # Melhor que 'npm install' para CI/CD
 
-    - name: List project files (debug)
-      run: ls -R
+      - name: Verificar estrutura do projeto (debug)
+        run: ls -R  # Mostra os arquivos e pastas para debug
 
-    - name: Verify Cypress installation
-      run: npx cypress verify
+      - name: Instalar Cypress manualmente
+        run: npx cypress install
 
-    - name: Run Cypress tests
-      run: npm run cypress:run || echo "Cypress tests failed"
+      - name: Verificar instalação do Cypress
+        run: npx cypress verify
 
-    - name: Upload Cypress test results
-      if: always()  # Garante upload mesmo se os testes falharem
-      uses: actions/upload-artifact@v4
-      with:
-        name: cypress-results
-        path: cypress/screenshots
+      - name: Rodar testes do Cypress (headless)
+        run: npx cypress run --headless
+
+      - name: Upload de screenshots e vídeos
+        if: always()  # Sempre fazer upload, mesmo se falhar
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-results
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/results
