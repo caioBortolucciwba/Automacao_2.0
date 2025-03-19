@@ -9,7 +9,7 @@ Feature: Painel do cliente exportar Karina Cedente
   Scenario: Painel do cliente Cedente
 
   Scenario: Painel do cliente exportar Karina Cedente
-    Given que o usuário está na página inicial
+    Given que o usuário está na página inicial do painel do cliente
     When o usuário Painel do Cliente com os dados karina cedente exportar
     And acessa a página de Lançamentos
     And seleciona o boleto que quer exportar

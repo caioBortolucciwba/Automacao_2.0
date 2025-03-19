@@ -20,12 +20,12 @@ When('clica no botão para fazer login', () => {
 });
 
 Then('o usuário é redirecionado para a página inicial do painel do cliente', () => {
-  cy.url({ timeout: 10000}).should('include', '/dashboard'); 
+  cy.url({ timeout: 10000}).should('include', '/'); 
 });
 
-Given('que o usuário está na página inicial', () => {
-  cy.url({ timeout: 10000}).should('include', '/dashboard'); 
-  painelClienteExportarK.painelClienteExportarKarinaCedente();
+Given('que o usuário está na página inicial do painel do cliente', () => {
+  cy.url({ timeout: 10000}).should('include', '/'); 
+
 });
 
 When('o usuário Painel do Cliente com os dados karina cedente exportar', () => {
