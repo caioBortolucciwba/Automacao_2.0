@@ -32,12 +32,8 @@ When('o usuário Painel do Cliente com os dados karina cedente exportar', () => 
   painelClienteExportarK.painelClienteExportarKarinaCedente();
 });
 
-And('acessa a página de Lançamentos', () => {
-  painelClienteExportarK.painelClienteExportarKarinaCedente();
-});
-
-And('seleciona o boleto que quer exportar', () => {
-  painelClienteExportarK.painelClienteExportarKarinaCedente();
+And('acessa a página de Lançamentos, seleciona o boleto que quer exportar', () => {
+  painelClienteExportarK.painelClienteExportarBoletoKarinaCedente();
 });
 
 Then('tenho o boleto exportado concluido', (titulo) => {
