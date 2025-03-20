@@ -9,6 +9,7 @@ module.exports = defineConfig({
 
   e2e: {
     video: false,
+    screenshotOnRunFailure: true,
     verifyBaseUrl: false,
     defaultCommandTimeout: 50000,
     viewportWidth: 1380,
