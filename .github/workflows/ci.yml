@@ -37,7 +37,8 @@ jobs:
         run: npx cypress verify
 
       - name: Rodar testes do Cypress (headless)
-        run: npx cypress run --headless || echo "Cypress tests failed"
+        run: npx cypress run --headless --browser chrome --reporter mochawesome --reporter-options "reportDir=cypress/reports,json=true,html=true" || echo "Cypress tests failed"
+
 
       - name: Upload de relatórios do Cypress (Mochawesome)
         if: always()
