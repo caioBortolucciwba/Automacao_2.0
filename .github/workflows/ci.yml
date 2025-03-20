@@ -21,37 +21,35 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Limpar cache de dependências (garante instalação limpa)
-        run: rm -rf node_modules package-lock.json ~/.cache/Cypress
+      - name: Cache do Cypress
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-
 
       - name: Instalar dependências
         run: npm ci  # Melhor que 'npm install' para CI/CD
 
       - name: Verificar estrutura do projeto (debug)
-        run: ls -R cypress/e2e
+        run: ls -R  # Mostra os arquivos e pastas para debug
 
-      - name: Instalar Cypress
+      - name: Instalar Cypress manualmente
         run: npx cypress install
 
       - name: Verificar instalação do Cypress
         run: npx cypress verify
 
       - name: Rodar testes do Cypress (headless)
-        run: npx cypress run --headless --browser chrome --reporter mochawesome --reporter-options "reportDir=cypress/reports,json=true,html=true" || echo "Cypress tests failed"
+        run: npx cypress run --headless
 
-
-      - name: Upload de relatórios do Cypress (Mochawesome)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mochawesome-reports
-          path: cypress/reports
-
-      - name: Upload de vídeos e screenshots
-        if: always()
+      - name: Upload de screenshots e vídeos
+        if: always()  # Sempre fazer upload, mesmo se falhar
         uses: actions/upload-artifact@v4
         with:
           name: cypress-results
           path: |
             cypress/screenshots
             cypress/videos
+            cypress/results
