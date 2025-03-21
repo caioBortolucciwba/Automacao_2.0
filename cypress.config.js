@@ -8,8 +8,8 @@ module.exports = defineConfig({
   numTestsKeptInMemory: 5, 
 
   e2e: {
-    video: false,
-    screenshotOnRunFailure: true,
+    video: true,
+    screenshotOnRunFailure: false,
     verifyBaseUrl: false,
     defaultCommandTimeout: 50000,
     viewportWidth: 1380,
