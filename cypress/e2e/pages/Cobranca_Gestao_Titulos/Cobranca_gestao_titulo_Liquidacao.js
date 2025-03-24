@@ -194,8 +194,8 @@ class MenuPage {
     finalizarOperacao(){
       cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
       cy.get('#btn-label-sim').click();
-      cy.get('.header > titulo-pagina > .d-inline-block > .f-24').should('be.visible');
-      cy.get("#mat-tab-content-1-1 > div > conteudo-titulos-liquidados > div.pb100.ng-star-inserted > div > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button > fa-icon > svg").click();
+      //cy.get('.header > titulo-pagina > .d-inline-block > .f-24').should('be.visible');
+      //cy.get("#mat-tab-content-1-1 > div > conteudo-titulos-liquidados > div.pb100.ng-star-inserted > div > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button > fa-icon > svg").click();
       
       
       

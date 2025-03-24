@@ -32,6 +32,6 @@ When('cria uma operacao de duplicata de servico preenchendo os campos obrigatori
   operacionalDS.criandoOpDS(); 
 });
 
-Then('tenho a operacao concluida para avancar de step', () => {
-  operacionalDS.concluindoOpDs();
+Then('tenho a operacao ds concluida para avancar de step', () => {
+  operacionalDS.concluindoOpDS();
 });

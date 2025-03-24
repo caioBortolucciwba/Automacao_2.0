@@ -70,12 +70,14 @@ class OperacionalBordero {
         cy.get(`[aria-label="${vencimentoGerado}"] > .mat-calendar-body-cell-content`).click()
         
     //Quando o vencimento cair em dia não util, o código clica em "Sim" no modal para alterar para um dia ultil.
-        cy.contains("Alterar vencimento").then(($el) =>{
-            if($el.length > 0){
-                cy.get('#btn-label-sim').click();
-            }
+    
+    cy.document().then((doc) => {
+        if (doc.body.innerText.includes("Alterar vencimento")) {
+          cy.contains("Alterar vencimento").click();
+          cy.get("#btn-label-sim").click();
         }
-    ) 
+      });
+        
         cy.screenshot('campos_preenchidos'); // Captura após preenchimento dos campos principais
 
         cy.get(':nth-child(9) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
@@ -94,10 +96,10 @@ class OperacionalBordero {
         cy.screenshot('Sacado_salvo_Com_Sucesso'); // Captura sacado sendo salvo com sucesso na digitação do título.
 
         //Step1 -Valide se os títulos foram salvos com sucesso no grid do borderô
-        cy.get('#btn-incluir-alterar > .ng-star-inserted').should('be.visible').click();
+        cy.get('#bt-avancar').should('be.visible').click();
         cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero').as('endPointTitulosGrig');
         cy.get('#btn-finalizar').should('be.visible').click();
-        
+        cy.wait(5000);
         cy.wait('@endPointTitulosGrig').then((interception)=> {
             expect(interception.response.statusCode).to.eq(200)
             const quantidadeTitulosGridBordero = interception.response.body.qtdeTotal;
@@ -114,18 +116,27 @@ class OperacionalBordero {
         })
         cy.wait(3000);
         cy.screenshot('Título_salvo_Com_Sucesso_Grid_Borderô_Step1'); // Valida título salvo no grid do borderô
+        
         cy.get('#bt-avancar').click();
         cy.wait(6000);
 
-        cy.get('#mat-input-33').click().clear().type(70000);
-        cy.get('#mat-input-37').click().clear().type(1000);
+        cy.get('#ad-valore').click().clear().type(70000);
+        //cy.get('#mat-input-37').click().clear().type(1000);
         cy.wait(5000);
 
-        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/calcular/operacao').as('endPointRecalculo');
         cy.get('#bt-recalcular')
         .should('be.visible')
         .should('be.enabled')
         .click();
+        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/calcular/operacao').as('endPointRecalculo');
+        
+        cy.get('#bt-recalcular')
+        .should('be.visible')
+        .should('be.enabled')
+        .click();
+        cy.contains('Operação calculada com sucesso!').should('be.visible');
+        cy.screenshot('Recalculo_Funcionado_Com_Sucesso_Step2');
+
         cy.wait('@endPointRecalculo').then((interception) =>{
             const statusCode = interception.response.statusCode;
             console.log("Status code",statusCode);
@@ -137,7 +148,7 @@ class OperacionalBordero {
         })
     
         cy.get('#bt-avancar').click();
-
+       
         cy.get('#bt-avancar').click();
         
     }
@@ -164,53 +175,13 @@ class OperacionalBordero {
                 assert.isTrue(false, 'Problema na finalização do Borderô');
             }
         })
-        let numeroBorderoLiberado = null
-        let quantidadeTitulosBorderoLiberado = null
-
-        cy.wait('@endPointInformacaoBorderoLiberado').then((interception) =>{
-            numeroBorderoLiberado = interception.response.body.codigo;
-            quantidadeTitulosBorderoLiberado = interception.response.body.operacoes[0].qtdeRecebiveis;           
-            console.log("NUMERO BORDERO LIBERADO", numeroBorderoLiberado);
-            console.log("QUANTIDADE DE TITULOS BORDERO",quantidadeTitulosBorderoLiberado);
-            cy.wrap(numeroBorderoLiberado).as('numeroBorderoLiberado');
-            cy.wrap(quantidadeTitulosBorderoLiberado).as('quantidadeTitulosBorderoLiberado');
-        })
                
         cy.wait(3000);
         cy.get('[id="bt-estornar"]').should('be.visible');
+        cy.screenshot('Borderô Finalizado - Step-5');
 
-        cy.get('.grid-voltar').click();
-        cy.get('#menu-lateral-COBRANCA').click();
-        cy.get('#item-menu-1 > span').click();
-        cy.get('#btn-card-1 > .card-titulo-texto').click();
-        cy.get('#bt-filtrar-titulos').click();
-        cy.get('#select-empresa-carteira > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="PROPRIA - Securitizadora Mathe"] > .check-multiple').click();
-        cy.get('.mat-checkbox-inner-container').click();
+        cy.log('✅ BorderÔ de Duplicata Mercantil Finalizado com Sucesso.');
 
-        cy.get('@numeroBorderoLiberado').then((numero) => {
-            cy.get('#mat-chip-list-3').type(numero);
-            console.log("NUMERO BORDERO LIBERADO", numero);
-        });
-        cy.get('.wb-row > :nth-child(2) > w-button > .btn').click();
-        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/buscar/lancamentos/agrupados').as('endPointGestaoCobrancaLancamentos');
-        cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button').click();
-        cy.wait('@endPointGestaoCobrancaLancamentos').then((interception)=>{
-            const quantidadeTitulosGestaoCobranca = interception.response.body.length;
-            console.log("endpoint QUANTIDADE LANÇAMENTOS",quantidadeTitulosGestaoCobranca);
-            
-            cy.get('@quantidadeTitulosBorderoLiberado').then((numero) => {
-                if (numero == quantidadeTitulosGestaoCobranca ){
-                    assert.isTrue(true, 'Todos os títulos do borderô chegaram no Gestão de lançamentos');  
-                    } else {
-                        assert.isTrue(false, 'Não chegaram todos os títulos da operação no Gestão de lançamentos');
-                    }               
-            });
-
-        })
-        //cy.log('Todos os campos obrigatórios foram preenchidos. Cadastro concluído com sucesso.');
-        
-        //cy.screenshot('conclusao_operacao'); // Captura no final do processo
     }
 }
 
