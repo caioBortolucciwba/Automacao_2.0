@@ -45,8 +45,9 @@ class CadastroPF {
         cy.get('#btn-novo-assinante').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('1876 - 00.839.402/0001-84 - LABELLI CONFECCOES LTDA ');
-        cy.get('#select-usuarios-erp').click();
-        cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        //cy.get('#select-usuarios-erp').click();
+        cy.get('.w-select-input > .mat-icon').click();
+        //cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
         cy.get('#input-razao-social > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Labelli');
         cy.get('#btn-label-sim').click();
         cy.get('.guarda-botao-voltar').click();
