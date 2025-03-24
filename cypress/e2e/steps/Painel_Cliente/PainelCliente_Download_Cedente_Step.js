@@ -1,8 +1,8 @@
 import LoginPainel from '../../pages/LoginPainelClientePage';
-import painelClienteExportarKarinaCedente from '../../pages/Painel_Cliente/PainelCliente_Exportar_Karina_Cedente';
+import painelClienteDownloadCedente from '../../pages/Painel_Cliente/PainelCliente_Download_Cedente ';
 
 const loginPainel = new LoginPainel();
-const painelClienteExportarK = new painelClienteExportarKarinaCedente();
+const painelClienteExportarK = new painelClienteDownloadCedente();
 
 Given('precisa fazer o login dentro do painel do cliente', () =>{
   loginPainel.visit();
@@ -27,14 +27,14 @@ Given('que o usuário está na página inicial do painel do cliente', () => {
 
 });
 
-When('o usuário Painel do Cliente com os dados karina cedente exportar', () => {
-  painelClienteExportarK.painelClienteExportarKarinaCedente();
+When('o usuário Painel do Cliente com os dados cedente download', () => {
+  painelClienteExportarK.painelClienteDownloadCedente();
 });
 
-And('acessa a página de Lançamentos, seleciona o boleto que quer exportar', () => {
-  painelClienteExportarK.painelClienteExportarBoletoKarinaCedente();
+And('acessa a página de Lançamentos, seleciona o boleto para download', () => {
+  painelClienteExportarK.painelClienteDownloadBoletoCedente();
 });
 
-Then('tenho o boleto exportado concluido', (titulo) => {
+Then('tenho o boleto baixado concluido', (titulo) => {
   painelClienteExportarK.PainelCLienteConcluido();
 });
