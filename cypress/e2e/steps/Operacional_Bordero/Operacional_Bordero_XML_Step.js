@@ -29,7 +29,7 @@ Given('efetuada a criacao de um bordero importando xml', () => {
 });
 
 When('faz a importacao no mesmo cnpj e confere', () => {
-  operacionalXML.importarXML();
+  operacionalXML.CriandoOperaçãoImportarXML();
 });
 
 Then('tenho a operacao concluida para avancar de step', () => {
