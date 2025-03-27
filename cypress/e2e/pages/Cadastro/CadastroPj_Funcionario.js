@@ -113,7 +113,7 @@ class CadastroPJFuncionario {
         cy.get('#mat-input-65').type('Conta de luz');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('#btn-salvar').click(); 
 
         //////////////////Contatos//////////////////////////////
         cy.get('#item-menu-5').click();

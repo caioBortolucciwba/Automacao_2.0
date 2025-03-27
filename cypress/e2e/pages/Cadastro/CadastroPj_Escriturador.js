@@ -113,8 +113,9 @@ class CadastroPJEscriturador {
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
         cy.get('#mat-option-125 > .mat-option-text').click();
-        cy.get('#select-usuarios-erp').click();
-        cy.get('#mat-checkbox-4 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        cy.get('.w-select-input > .mat-icon').click();
+        cy.get('[label="Selecionar todos"] > .check-multiple').click();
+       // cy.get('#mat-checkbox-4 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
         cy.get('#btn-label-sim').click();
         
         //////////GRUPO DE ASSINATURAS//////////
@@ -130,7 +131,7 @@ class CadastroPJEscriturador {
         cy.get('#btn-salvar').click();
 
         //////////Patrimonio//////////
-        cy.get('.nav > ul > #item-menu-3').click();
+        cy.get('#item-menu-5').click();
         cy.get('.btn > .ng-star-inserted').click();
         cy.get('#select-empresa > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="Imóvel"] > .label-option').click();
@@ -139,34 +140,36 @@ class CadastroPJEscriturador {
         cy.get('.fr > w-button > .btn').click();
 
         ///////////////////Central de Documentos//////////////////////////////
-        cy.get('#item-menu-4').click();
+        cy.get('#item-menu-7').click();
         cy.get('#btn-enviar-doc').click();
         cy.get('#input-data').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-70').type('Conta de celular');
+        cy.get('#mat-input-130').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('#btn-salvar').click(); 
         
          ///////////////////Anotações//////////////////////////////
-         cy.get('.nav > ul > #item-menu-5').click();
+         cy.get('#item-menu-8').click();
          cy.get('#btn-enviar-documento').click();
          cy.get('.mat-select-value').click();
-         cy.get('#mat-option-92 > .mat-option-text').click();
+         cy.get('#option-tipo-3 > .mat-option-text').click();
         
-         cy.get('#mat-input-71').type('Teste Escriturador PJ');
+         cy.get('#input-digite-anotacao').type('Teste Escriturador PJ');
 
         ///////////////////Contatos//////////////////////////////
-        cy.get('#item-menu-6').click();
+        cy.get('#item-menu-9').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Fernando Diniz');
-        cy.get('#mat-input-72').type('Contabilidade');
-        cy.get('#mat-input-73').type('teste.teste@wba.com.br');
-        cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('22');
-        cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('998754587');
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get('#mat-input-133').type('Contabilidade');
+        cy.get('#mat-input-134').type('teste.teste@wba.com.br');
+        cy.get('#mat-input-135').type('11');
+        cy.get('#mat-input-136').type('499989898');
+        cy.get('#mat-input-137').type('11');
+        cy.get('#mat-input-138').type('999878998');
+        cy.get('#btn-label-sim').click();
         
 
     }

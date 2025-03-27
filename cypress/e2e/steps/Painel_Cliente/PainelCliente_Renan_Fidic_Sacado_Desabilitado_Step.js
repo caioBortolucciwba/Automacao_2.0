@@ -36,6 +36,6 @@ And('acessa Painel do Cliente com os dados renan fidic sacado desabilitado', () 
   painelClienteRenanFidc.PaginaPainelCLiente();
 });
 
-Then('tenho cadastramento renan fidic sacado concluido', (titulo) => {
+Then('tenho cadastramento renan fidic sacado concluido desabilitado', (titulo) => {
   painelClienteRenanFidc.CadastroConcluido();
 });

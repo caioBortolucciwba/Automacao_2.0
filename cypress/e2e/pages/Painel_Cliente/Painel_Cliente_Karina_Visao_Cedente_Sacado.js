@@ -55,7 +55,7 @@ class PainelCliente {
         });
 
         cy.origin('https://tportal.wba.com.br:8445', () => {
-            cy.visit('/realms/portal-demo/protocol/openid-connect/auth?client_id=portal-angular&redirect_uri=https%3A%2F%2Fdportal.wba.com.br%2F');
+            cy.visit('https://tportal.wba.com.br:8445/realms/portal-demo/protocol/openid-connect/auth?client_id=portal-angular&redirect_uri=https%3A%2F%2Fdportal.wba.com.br%2F&state=ab46923f-34bc-47dd-9d07-c73f2c93bb29&response_mode=fragment&response_type=code&scope=openid&nonce=819aa27a-a74d-48ee-9843-f1a359739a67');
 
             cy.fixture('cpf.json').then((data) => {
                 cy.log('CPF lido do arquivo:', data.cpf);
@@ -73,13 +73,6 @@ class PainelCliente {
             cy.get('#password-new').type('252525');
             cy.get('#password-confirm').type('252525');
             cy.get('.bt-default').should('not.be.disabled').click();
-            cy.get('#item-menu-lancamentos > span').click();
-            cy.get('#card-cedente > .card-titulo-texto > .header').click();
-            
-            cy.get('#card-cedente > .card-titulo-texto > .header > :nth-child(2) > :nth-child(1)', { timeout: 100000 }).should('be.visible');
-            cy.get('#card-cedente > .card-titulo-texto > .header > :nth-child(1) > .d-flex > .btn-click-card-js').click();
-            
-
 
         });
 

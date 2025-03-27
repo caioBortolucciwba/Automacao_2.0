@@ -131,7 +131,7 @@ class CadastroPJAssinante {
         cy.get('#mat-input-70').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('#btn-salvar > .ng-star-inserted').click(); 
         
         ///////////////////Contatos//////////////////////////////
         cy.get('#item-menu-6').click();

@@ -70,8 +70,14 @@ class CadastroPFEmpresa {
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
         cy.get('#mat-option-130 > .mat-option-text').click();
-        cy.get('#select-usuarios-erp').click();
-        cy.get('#mat-checkbox-4 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        
+        //MUDANÇA DE LAYOUT DO SISTEMA DO CADASTRO DE ASSINANTES
+        cy.get('.w-select-input > .mat-icon').click();
+        cy.get('[label="Selecionar todos"] > .check-multiple').click();
+        cy.get('#mat-slide-toggle-4 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-7 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#btn-label-sim').click();
         
       //////////GRUPO DE ASSINATURAS//////////
@@ -92,8 +98,8 @@ class CadastroPFEmpresa {
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('11');
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('978554879');
-        cy.get('#mat-input-103').type('Secretaria');
-        cy.get('#mat-input-104').type('teste.outros@wba.com.br');
+        cy.get('#mat-input-102').type('Secretaria');
+        cy.get('#mat-input-103').type('teste.outros@wba.com.br');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         
     }
