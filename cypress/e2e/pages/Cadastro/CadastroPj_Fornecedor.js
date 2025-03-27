@@ -103,6 +103,7 @@ class CadastroPJFornecedor {
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('934554845');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         ///////////////////Central de Documentos//////////////////////////////
+        
         cy.get('#item-menu-4').click();
         cy.get('#btn-enviar-doc').click();
         cy.get('#input-data').click();
@@ -113,7 +114,7 @@ class CadastroPJFornecedor {
         cy.get('#mat-input-65').type('Conta de luz');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('#btn-salvar').click(); 
 
         //////////////////Contatos//////////////////////////////
         cy.get('#item-menu-5').click();

@@ -27,11 +27,11 @@ Given('que o usuário está na página inicial', () => {
   cy.url().should('include', '/home'); // Substitua pelo caminho correto
 });
 
-When('o usuário clica no menu cadastro sacado', () => {
+When('o usuário clica no menu cadastro prospect', () => {
   cadastroPFProspect.entrarCadastroPf();
 });
 
-Then('preencho todos os campos do cadastramento sacado', () => {
+Then('preencho todos os campos do cadastramento prospect', () => {
   cadastroPFProspect.preencherCadastroPfProspect();
 });
 

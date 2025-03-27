@@ -51,7 +51,7 @@ class CadastroPFFuncionario {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('3');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-82 > .mat-option-text').click();               
+        cy.get('#mat-option-78 > .mat-option-text').click();               
         cy.get('#mat-input-37').type('110.0448');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="FUMO"] > .label-option').click();
@@ -59,8 +59,8 @@ class CadastroPFFuncionario {
         cy.get('[ng-reflect-label="Autônomo"] > .label-option').click();
         cy.get('.cbo > .ui-lg-6').type('4110-10'); 
         cy.get('#btn-add-imposto').should('be.visible').click(); 
-        cy.get('#mat-input-39').type('10102010');
-        cy.get('#mat-input-40').type('2023');
+        cy.get('#mat-input-38').type('10102010');
+        cy.get('#mat-input-39').type('2023');
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
        
@@ -82,10 +82,10 @@ class CadastroPFFuncionario {
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-50').type('Conta de luz');
+        cy.get('#mat-input-49').type('Conta de luz');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('.fr > w-button > .btn').click(); 
         
         ///////////////////Contatos//////////////////////////////
         cy.get('#item-menu-5').click();

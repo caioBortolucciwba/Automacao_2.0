@@ -81,9 +81,15 @@ class CadastroPF {
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
         cy.get('#mat-option-136 > .mat-option-text').click();
-        cy.get('#select-usuarios-erp').click();
-        cy.get('#mat-checkbox-4 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        
+        cy.get('.w-select-input > .mat-icon').click();
+        cy.get('[label="Selecionar todos"] > .check-multiple').click();
+        cy.get('#mat-slide-toggle-4 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-7 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#btn-label-sim').click();
+
         
         //////////GRUPO DE ASSINATURAS//////////
         cy.get('.nav > ul > #item-menu-4').click();
@@ -113,17 +119,17 @@ class CadastroPF {
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-95').type('Conta de celular');
+        cy.get('#mat-input-122').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('.fr > w-button > .btn').click(); 
         
         ///////////////////Anotações//////////////////////////////
         cy.get('.nav > ul > #item-menu-8').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-160 > .mat-option-text').click();
-        cy.get('#mat-input-96').type('Teste Escriturador');
+        cy.get('#mat-option-216 > .mat-option-text').click();
+        cy.get('#mat-input-123').type('Teste Escriturador');
 
         ///////////////////Contatos//////////////////////////////
         cy.get('.nav > ul > #item-menu-9').click();

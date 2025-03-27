@@ -101,14 +101,8 @@ class CadastroPJEmpresa {
         cy.get('#btn-novo-assinante').click();
         cy.get('#mat-input-49').type('teste');
         cy.get('#mat-option-115 > .mat-option-text').click();
-        cy.get('#select-usuarios-erp').click();
-        cy.get('#mat-checkbox-6 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
-        cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label').click();
-        cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label').click();
-        cy.get('#mat-slide-toggle-7 > .mat-slide-toggle-label').click();
-        cy.get('#mat-slide-toggle-8 > .mat-slide-toggle-label').click();
-        cy.get('.card-icon > span.ng-star-inserted').should('be.visible').click();
-        cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
+        cy.get('.w-select-input > .mat-icon').click();
+        cy.get('[label="Selecionar todos"] > .check-multiple').click();
         cy.get('#btn-label-sim').click();
         
         //////////GRUPO DE ASSINATURAS//////////
@@ -127,12 +121,12 @@ class CadastroPJEmpresa {
         cy.get('#item-menu-4').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Fernando Diniz');
-        cy.get('#mat-input-85').type('Contabilidade');
-        cy.get('#mat-input-86').type('teste.teste@wba.com.br');
+        cy.get('#mat-input-110').type('Contabilidade');
+        cy.get('#mat-input-111').type('teste.teste@wba.com.br');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('22');
-        cy.get('#mat-input-87').type('11');
-        cy.get('#mat-input-88').type('45543378');
-        cy.get('#mat-input-87').type('22')
+        cy.get('#mat-input-112').type('11');
+        cy.get('#mat-input-113').type('45543378');
+        cy.get('#mat-input-114').type('22')
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('998754587');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         cy.contains('Contato salvo com sucesso!').should('be.visible');

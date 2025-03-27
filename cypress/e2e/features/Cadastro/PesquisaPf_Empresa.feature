@@ -6,7 +6,7 @@ Feature: Operação pesquisa PF empresa
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Pesquisa PJ campos obrigatórios
+  Scenario: Operação pesquisa PF empresa
     Given que o usuário está na página inicial
     When o usuário clica no menu pesquisa pf empresa
     And preencho todos os campos do pesquisa pf empresa

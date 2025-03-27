@@ -113,15 +113,8 @@ class CadastroPJOutros {
         cy.get('#btn-novo-assinante > .ng-star-inserted').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste');
         cy.get('#mat-option-125 > .mat-option-text').click();
-        cy.get('#select-usuarios-erp').click();
-        cy.get("#mat-checkbox-12 > label > div").click();
-        // cy.get('#mat-slide-toggle-13 > .mat-slide-toggle-label').click();
-        // cy.get('#mat-slide-toggle-14 > .mat-slide-toggle-label').click();
-        // cy.get('#mat-slide-toggle-15 > .mat-slide-toggle-label').click();
-        // cy.get('#mat-slide-toggle-16 > .mat-slide-toggle-label').click();
-        
-        // cy.get("#mat-input-130").type('1333');
-        // cy.get('.card-icon > span.ng-star-inserted').should('be.visible').click();
+        cy.get('.w-select-input > .mat-icon').click();
+        cy.get('[label="Selecionar todos"] > .check-multiple').click();
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
        
@@ -129,7 +122,7 @@ class CadastroPJOutros {
         cy.get('#item-menu-5').click();
         cy.get('#ui-tabpanel-0 > .pt20 > grupo-assinatura > :nth-child(1) > .d-flex > :nth-child(3) > w-button > #input-adicionar-grupo > .ng-star-inserted').click();
         cy.get('#input-sacado').type('teste');
-        cy.get("#mat-option-134 > span").click();
+        cy.get('.mat-option-text').click();
         cy.get(':nth-child(3) > .ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="Conjunto"] > .label-option').click();
         //cy.get("#cdk-describedby-message-container").click();

@@ -94,14 +94,14 @@ class CadastroPF {
         cy.get('#mat-input-61').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('.fr > w-button > .btn').click(); 
         
         ///////////////////Anotações//////////////////////////////
         cy.get('.nav > ul > #item-menu-5').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
         
-        cy.get("#mat-option-92 > span").click();
+        cy.get('#mat-option-102 > .mat-option-text').click();
         cy.get('#mat-input-62').type('Teste Teste');
 
         ///////////////////Contatos//////////////////////////////

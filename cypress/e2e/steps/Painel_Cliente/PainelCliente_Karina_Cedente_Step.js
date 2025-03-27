@@ -35,6 +35,6 @@ And('acessa Painel do Cliente com os dados karina cedente', () => {
   painelClienteKarinaC.PaginaPainelCLiente();
 });
 
-Then('tenho cadastramento sacado concluido', (titulo) => {
+Then('tenho cadastramento cedente concluido', (titulo) => {
   painelClienteKarinaC.CadastroConcluido();
 });

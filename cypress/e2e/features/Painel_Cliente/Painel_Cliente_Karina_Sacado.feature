@@ -6,7 +6,7 @@ Feature: Painel do cliente Karina Sacado
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Painel do cliente Cedente
+  Scenario: Painel do cliente Karina Sacado
     Given que o usuário está na página inicial
     When o usuário clica em configurações e preenche todos os campos do cadastramento de cliente sacado karina
     And acessa Painel do Cliente com os dados karina sacado

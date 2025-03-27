@@ -94,8 +94,9 @@ class CadastroPFOutros {
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
         cy.get('#mat-option-136 > .mat-option-text').click();
-        cy.get('#select-usuarios-erp').click();
-        cy.get('#mat-checkbox-4 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
+        cy.get('.w-select-input > .mat-icon').click();
+        cy.get('[label="Selecionar todos"] > .check-multiple').click();
+        //cy.get('#mat-checkbox-4 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
         cy.get('#btn-label-sim').click();
         
       //////////GRUPO DE ASSINATURAS//////////
@@ -117,10 +118,10 @@ class CadastroPFOutros {
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-83').type('Conta de celular');
+        cy.get('#mat-input-109').type('Conta do carteado');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('#btn-salvar').click(); 
         
         ///////////////////Contatos//////////////////////////////
         cy.get('#item-menu-8').click();
@@ -128,8 +129,8 @@ class CadastroPFOutros {
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('11');
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('978554879');
-        cy.get('#mat-input-85').type('Secretaria');
-        cy.get('#mat-input-86').type('teste.outros@wba.com.br');
+        cy.get('#mat-input-111').type('Secretaria');
+        cy.get('#mat-input-112').type('teste.outros@wba.com.br');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         
     }

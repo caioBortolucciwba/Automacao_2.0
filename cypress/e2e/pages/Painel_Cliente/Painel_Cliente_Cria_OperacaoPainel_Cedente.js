@@ -43,6 +43,7 @@ class PainelCliente {
               cy.get('#item-menu-1 > span').click();
               cy.contains('R$ 11.111.111,11');
               cy.contains('PORTAL');
+              cy.contains('Novo');
           });
       }
   

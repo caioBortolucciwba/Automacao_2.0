@@ -50,7 +50,7 @@ class CadastroPFFornecedor {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('2');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-79 > .mat-option-text').click();               
+        cy.get('#option-rend-3 > .mat-option-text').click();               
         cy.get('#mat-input-37').type('110.044.441.112');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="FUMO"] > .label-option').click();
@@ -90,7 +90,7 @@ class CadastroPFFornecedor {
         cy.get('#mat-input-56').type('Conta de luz');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('.fr > w-button > .btn').click(); 
     }
 
     cadastroConcluido() {

@@ -61,9 +61,6 @@ class PainelCliente {
             cy.get('#password-new').type('252525');
             cy.get('#password-confirm').type('252525');
             cy.get('.bt-default').should('not.be.disabled').click();
-            cy.get('#item-menu-lancamentos > span').click();
-
-
         });
 
     }
