@@ -11,17 +11,19 @@ class Abatimento {
 
     // Seleção de empresa/carteira
     cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
+    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAAA"] > .label-option').click();
 
     // Aplicação de filtros de data
     cy.get('.menu-right-filtro').click();
     cy.get('#input-vencimento').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-arrow').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('#input-ate').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-arrow').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="23 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
 
     // Confirmação dos filtros aplicados

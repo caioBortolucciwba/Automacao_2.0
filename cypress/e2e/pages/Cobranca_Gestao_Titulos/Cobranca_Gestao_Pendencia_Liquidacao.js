@@ -11,9 +11,14 @@ class MenuPage {
         cy.get('#mat-option-21 > .mat-option-pseudo-checkbox').click();
         cy.get('body').type('{esc}');
         cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .mt-20 > :nth-child(1) > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
-        cy.get('.mat-calendar-previous-button').click();
+        cy.get('.mat-calendar-arrow').click();
+        cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
+        cy.get('[aria-label="janeiro 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="1 de janeiro de 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .mt-20 > :nth-child(2) > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle').click();
+        cy.get('.mat-calendar-arrow').click();
+        cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
+        cy.get('[aria-label="fevereiro 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="18 de fevereiro de 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .rodape-buttons > :nth-child(2)').click();
         cy.get('.submenu__fechado > .iconSvg').click();
