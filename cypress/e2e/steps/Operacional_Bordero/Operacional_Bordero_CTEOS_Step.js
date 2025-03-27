@@ -24,14 +24,15 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-Given('cria uma operacao de Conhecimento de Transporte OS preenchendo os campos obrigatorios', () => {
-   operacionalCTEOS.acessarBordero();
+
+Given('efetuada a criacao de um bordero', () => {
+	operacionalCTEOS.acessarBordero();
 });
 
-When('preencho todos os campos obrigatorios do portal', () => {
-  operacionalCTEOS.criandoOpCTEOS();
+When('importado um arquivo de Conhecimento de Transporte OS na tela de digitação de titulos', () => {
+	operacionalCTEOS.criandoOpImportandoCTEOS();
 });
 
-Then('tenho a operacao concluida para avancar de step', () => {
-  operacionalCTEOS.concluindoOpCTEOS();
+Then('tenho a operacao de CTEOS concluida para avancar de step', () => {
+	operacionalCTEOS.concluindoOpCTEOS();
 });

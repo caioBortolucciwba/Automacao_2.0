@@ -24,14 +24,15 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-Given('efetuada a criacao de um bordero importando xml', () => {
-   operacionalXML.acessarBordero();
+
+Given('efetuada a criacao de um bordero', () => {
+	operacionalXML.acessarBordero();
 });
 
-When('faz a importacao no mesmo cnpj e confere', () => {
-  operacionalXML.CriandoOperaçãoImportarXML();
+When('importado um XML na tela de digitação de titulos', () => {
+	operacionalXML.CriandoOperaçãoImportarXML();
 });
 
-Then('tenho a operacao concluida para avancar de step', () => {
-  operacionalXML.operacaoConcluida();
+Then('tenho a operacao de XML concluida para avancar de step', () => {
+	operacionalXML.operacaoConcluida();
 });

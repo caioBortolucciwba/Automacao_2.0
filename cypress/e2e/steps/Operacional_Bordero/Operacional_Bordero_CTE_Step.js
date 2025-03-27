@@ -24,14 +24,15 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-Given('cria uma operacao de Conhecimento de Transporte preenchendo os campos obrigatorios', () => {
-   operacionalCTE.acessarBordero();
+
+Given('efetuada a criacao de um bordero', () => {
+	operacionalCTE.acessarBordero();
 });
 
-When('preencho todos os campos obrigatorios do portal', () => {
-  operacionalCTE.criandoOpCTE();
+When('importado uma CTE na tela de digitação de titulos', () => {
+	operacionalCTE.criandoOpImportandoCTE();
 });
 
-Then('tenho a operacao concluida para avancar de step', () => {
-  operacionalCTE.concluindoOpCTE();
+Then('tenho a operacao de CTE concluida para avancar de step', () => {
+	operacionalCTE.concluindoOpCTE();
 });

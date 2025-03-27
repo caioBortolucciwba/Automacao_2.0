@@ -94,9 +94,10 @@ class OperacionalBordero {
         cy.get('#btn-salvar > .ng-star-inserted').should('be.visible').click();
         cy.contains('Sacado salvo com sucesso!').should('be.visible'); // Valida mensagem de sucesso
         cy.screenshot('Sacado_salvo_Com_Sucesso'); // Captura sacado sendo salvo com sucesso na digitação do título.
+        cy.get('#btn-incluir-alterar').should('be.visible').click();
 
         //Step1 -Valide se os títulos foram salvos com sucesso no grid do borderô
-        cy.get('#bt-avancar').should('be.visible').click();
+        
         cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero').as('endPointTitulosGrig');
         cy.get('#btn-finalizar').should('be.visible').click();
         cy.wait(5000);
@@ -120,8 +121,7 @@ class OperacionalBordero {
         cy.get('#bt-avancar').click();
         cy.wait(6000);
 
-        cy.get('#ad-valore').click().clear().type(70000);
-        //cy.get('#mat-input-37').click().clear().type(1000);
+        cy.get('#input-taxa-calculo').clear().click().type(70000);
         cy.wait(5000);
 
         cy.get('#bt-recalcular')
