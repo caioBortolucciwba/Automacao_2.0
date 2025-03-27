@@ -114,8 +114,10 @@ class OperacionalBorderoDS {
             .should('be.visible')
             .type('41240107853960000143550020007654801116690221');
 
+            cy.get('#btn-incluir-alterar').should('be.visible').click();
+
             //Step1 -Valide se os títulos foram salvos com sucesso no grid do borderô
-        cy.get('#bt-avancar').should('be.visible').click();
+            
         cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero').as('endPointTitulosGrig');
         cy.get('#btn-finalizar').should('be.visible').click();
         
@@ -138,8 +140,7 @@ class OperacionalBorderoDS {
         cy.get('#bt-avancar').click();
         cy.wait(6000);
 
-        cy.get('#mat-input-34').click().clear().type(70000);
-        cy.get('#mat-input-37').click().clear().type(1000);
+        cy.get('#input-taxa-calculo').clear().click().type(70000);
         cy.wait(5000);
 
         cy.get('#bt-recalcular')

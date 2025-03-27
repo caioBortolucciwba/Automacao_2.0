@@ -42,7 +42,7 @@ class OperacionalXML {
                 .should('be.visible').click();
             cy.get('input[type="file"]').attachFile('41240207853960000143550020007687451262179913-nfe.xml');
             cy.get('.actions > :nth-child(2)').click();
-            cy.get('#mat-input-13')
+            cy.get('#input-n-documento')
                 .clear()
                 .type(`${numeroDocumentoGerado}`);
             cy.get('#btn-incluir-alterar').click();
@@ -71,8 +71,7 @@ class OperacionalXML {
         cy.get('#bt-avancar').click();
         cy.wait(6000);
 
-        cy.get('#mat-input-33').click().clear().type(70000);
-        cy.get('#mat-input-37').click().clear().type(1000);
+        cy.get('#input-taxa-calculo').clear().click().type(70000);
         cy.wait(5000);
 
         cy.get('#bt-recalcular')
@@ -107,7 +106,34 @@ class OperacionalXML {
 
 
  operacaoConcluida() {
-        cy.get('.mensagem-sucesso').should('be.visible');
+    cy.get('#select-formaPagamento-0 > .w-select > .w-select-input > .mat-icon').click();
+    cy.get('[ng-reflect-label="Dinheiro"]').click();
+    cy.get('#bt-avancar').click();
+    cy.get('#bt-avancar').click();
+    cy.get('.w-select-input > .mat-icon').click();
+    cy.get('[ng-reflect-label="Concluido"] > .label-option').click();
+
+    cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/permite/finalizar/bordero').as('endPointStatusLiberacaoBordero');
+    cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/finalizar/bordero').as('endPointInformacaoBorderoLiberado');
+
+    cy.get('#btn-label-sim').click();
+
+    cy.wait('@endPointStatusLiberacaoBordero').then((interception) =>{
+        const statusCode = interception.response.statusCode;
+        const statusLiberacaoBordero = interception.response.body.permite;
+        console.log("true: Borderô liberado   False : Borderô não liberado", statusLiberacaoBordero);
+        if (statusCode == 200 && statusLiberacaoBordero == true){
+        assert.isTrue(true, 'Borderô finalizado corretamente');  
+        } else {
+            assert.isTrue(false, 'Problema na finalização do Borderô');
+        }
+    })
+           
+    cy.wait(3000);
+    cy.get('[id="bt-estornar"]').should('be.visible');
+    cy.screenshot('Borderô Finalizado - Step-5');
+
+    cy.log('✅ BorderÔ de importação de XML Finalizado com Sucesso.');
     }
 
    

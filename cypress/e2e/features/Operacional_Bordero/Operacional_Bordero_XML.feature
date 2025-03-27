@@ -7,6 +7,6 @@ Background: Usuário realiza login no sistema
     Then o usuário é redirecionado para a página inicial
 
 Scenario: Criar operacao importando arquivos XML
-    Given efetuada a criacao de um bordero importando xml
-    When faz a importacao no mesmo cnpj e confere
-    Then tenho a operacao concluida para avancar de step
+    Given efetuada a criacao de um bordero 
+    When importado um XML na tela de digitação de titulos
+    Then tenho a operacao de XML concluida para avancar de step

@@ -29,7 +29,7 @@ Given('que o usuario precisa criar uma operacao NC no bordero', () => {
 });
 
 When('cria uma operacao de Nota Comercial preenchendo os campos obrigatorios', () => {
-    operacionalNC.criandoNC(); 
+    operacionalNC.criandoOperacaoDigitandoNC(); 
 });
 
 Then('tenho a operacao concluida para avancar de step', () => {
