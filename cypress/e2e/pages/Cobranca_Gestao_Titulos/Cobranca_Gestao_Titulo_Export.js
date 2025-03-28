@@ -41,7 +41,7 @@ class Edicao {
   }
 
   finalizaEdicao() {
-
+    ///Colocar a finalizacao
   }
 
 }
