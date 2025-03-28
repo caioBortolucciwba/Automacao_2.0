@@ -11,17 +11,19 @@ class Protesto {
 
     // Seleção de empresa/carteira
     cy.get('#select-empresa-carteira > .w-select > .w-select-input > .mat-icon').click();
-    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAA"] > .check-multiple').click();
+    cy.get('[ng-reflect-label="FIDC - RENAN FIDC SAAA"]').click();
 
     // Aplicação de filtros de data
     cy.get('.menu-right-filtro').click();
     cy.get('#input-vencimento').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-arrow').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('#input-ate').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-arrow').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="23 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('.wb-row > :nth-child(2) > w-button > .btn > .ng-star-inserted').click();
     // Confirmação dos filtros aplicados
@@ -31,8 +33,8 @@ class Protesto {
     cy.get('tbody > :nth-child(1) > :nth-child(1)').click();
     cy.get(':nth-child(6) > #item-5').click();
     cy.get('#mat-input-29').clear().type('2000');
-    cy.get('w-select.ng-untouched > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-    cy.get('#mat-option-153 > .mat-option-text > :nth-child(1) > .ng-star-inserted').click();
+    cy.get('#select-protesto > .w-select > .w-select-input > :nth-child(2)').click();
+    cy.get('[ng-reflect-label="Protesto 01"] > .label-option').click();
     cy.get('.w-row > :nth-child(4) > w-button > .btn > .ng-star-inserted').click();
   }
 

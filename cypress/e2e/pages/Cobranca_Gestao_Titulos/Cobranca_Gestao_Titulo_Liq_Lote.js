@@ -22,16 +22,15 @@ class LiquidacaoLote {
     cy.get('[aria-label="31 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('.wb-row > :nth-child(2) > w-button > .btn > .ng-star-inserted').click();
 
-    cy.get(':nth-child(2) > box-informacoes > .card-box-informacoes > .btn__mostrarMais > .submenu__fechado > .iconSvg').click();
-    cy.get(':nth-child(2) > .block > .d-block > w-table.ng-star-inserted > form.ng-untouched > .wba-table > thead > tr > :nth-child(1)').click().click();
+    cy.get(':nth-child(3) > box-informacoes > .card-box-informacoes > .btn__mostrarMais > .submenu__fechado').click();
+    cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
     cy.get(':nth-child(7) > #item-6').click();
-  
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
     cy.get('#select-tipo-pessoa > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
     cy.get('#select-tipo-forma-pagamento > .w-select > .w-select-input').click();
     cy.get('#select-tipo-forma-pagamento > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
-    cy.get('#mat-input-53').clear().type('50000');
-    cy.get('#mat-input-54').clear().type('100000');
+    cy.get('#mat-input-35').clear().type('50000');
+    cy.get('#mat-input-36').clear().type('100000');
     cy.get('#check-multa').click();
     cy.get('#check-juros-de-mora').click();
     cy.get('#check-tarifa-liq').click();

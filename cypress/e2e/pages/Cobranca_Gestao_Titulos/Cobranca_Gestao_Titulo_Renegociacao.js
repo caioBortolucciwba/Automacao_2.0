@@ -57,11 +57,11 @@ class Renegociacao {
         cy.get('#select-periodicidade-item-box-select > .check-list__unselected-list > :nth-child(1)').click();
         cy.get('#select-modoCobranca').click();
         cy.get('#select-modoCobranca-item-box-select > .check-list__unselected-list > :nth-child(3)').click();
-        cy.get(':nth-child(5) > :nth-child(1) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.get('#mat-option-200 > .mat-option-text').click();
+        cy.get('#mat-select-1 > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow').click();
+        cy.contains('12 - Grafeno - 274 AG 0001 C/C 08134319-6').click();
         cy.get('body').type('{esc}');
         cy.get(':nth-child(5) > :nth-child(2) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.get('#mat-option-32 > .mat-option-text').click();
+        cy.contains('Dinheiro').click();
         cy.get('body').type('{esc}');
         cy.get('#bt-alterar > .ng-star-inserted').click();
         
