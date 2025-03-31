@@ -23,8 +23,11 @@
     "mochawesome-merge": "^4.4.1",
     "mochawesome-report-generator": "^6.2.0"
   },
-    "cypressHelper.enable": true,
-    "cypressHelper.autoComplete": true,
-    "cypressHelper.snippets": true
+  "cypressHelper.enable": true,
+  "cypressHelper.autoComplete": true,
+  "cypressHelper.snippets": true,
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "pdfkit": "^0.16.0"
   }
-
+}

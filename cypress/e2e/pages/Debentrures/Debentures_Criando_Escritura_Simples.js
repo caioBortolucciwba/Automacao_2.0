@@ -18,14 +18,14 @@ class formulasRem{
         cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('CDI Aut');
         cy.get('#remuneracao-cdi > .mat-slide-toggle-label').click();
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.contains('252').click();
+        cy.contains('252 dias').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
     }
     
     criandoEscritura() {
         cy.get('#ESCRITURACAO').click();
         cy.get('.btn > .ng-star-inserted').click();
-        cy.get('#mat-input-69').type('Escritura Simples CDI');
+        cy.get('#input-nome-escritutacao').type('Escritura Simples CDI');
         cy.get('#mat-input-30').type('1000000');
         cy.get('#mat-input-31').type('100000000000');
         cy.get(':nth-child(1) > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
@@ -80,7 +80,7 @@ class formulasRem{
             cy.get('#mat-input-46').type('CDI 100% Simples');
             cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.contains('CDI Aut').click();
-        cy.get('#mat-input-58').clear().type('10000');
+        cy.get('#input-porcentagem-cdi').clear().type('10000');
         
         cy.get('#btn-salvar-serie > .ng-star-inserted').click();
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();

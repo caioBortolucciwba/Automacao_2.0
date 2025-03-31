@@ -34,8 +34,8 @@ class Edicao {
     cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
     cy.get('#item-11').click();
     cy.get('.wb-lg-5 > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-   cy.contains('Todas as colunas').click();
-   cy.get('#mat-input-29').type('caio.bortolucci@wba.com.br');
+    cy.contains('Todas as colunas').click();
+    cy.get('#mat-input-29').type('caio.bortolucci@wba.com.br');
     cy.get('#btn-filtro > .ng-star-inserted').click();
 
   }

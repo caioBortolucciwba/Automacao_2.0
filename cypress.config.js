@@ -39,7 +39,7 @@ module.exports = defineConfig({
   reporterOptions: {
     reportDir: 'cypress/reports',
     overwrite: false,
-    html: true,
+    html: false,
     json: true,
   },
 });

@@ -30,10 +30,10 @@ jobs:
             cypress-${{ runner.os }}-
 
       - name: Instalar dependências
-        run: npm ci  # Melhor que 'npm install' para CI/CD
+        run: npm ci  
 
       - name: Verificar estrutura do projeto (debug)
-        run: ls -R  # Mostra os arquivos e pastas para debug
+        run: ls -R  
 
       - name: Instalar Cypress manualmente
         run: npx cypress install
@@ -45,7 +45,7 @@ jobs:
         run: npx cypress run --headless
 
       - name: Upload de screenshots e vídeos
-        if: always()  # Sempre fazer upload, mesmo se falhar
+        if: always()  
         uses: actions/upload-artifact@v4
         with:
           name: cypress-results
@@ -53,3 +53,16 @@ jobs:
             cypress/screenshots
             cypress/videos
             cypress/results
+      
+      - name: Gerar relatório em PDF
+        if: always()
+        run: |
+          npm install pdfkit fs  # Instalar dependências para geração do PDF
+          node gerar_relatorio.js  # Executar script para gerar o PDF
+
+      - name: Upload do relatório PDF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-pipeline
+          path: relatorio_tests.pdf
