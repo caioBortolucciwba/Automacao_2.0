@@ -28,15 +28,15 @@ Given('que o usuário está na página inicial do painel do cliente', () => {
 
 });
 
-When('o usuário Painel do Cliente com os dados cedente cria operação cc', () => {
+When('o usuário Painel do Cliente com os dados cedente cria operação importa xml', () => {
   painelClienteCriaOperacaoCc.painelClienteCriaOperacaoCedenteCc();
 });
 
-And('acessa a página de Lançamentos, seleciona cria operação cc', () => {
+And('acessa a página de Lançamentos, seleciona cria operação importa xml', () => {
   painelClienteCriaOperacaoCc.painelClienteCriaOperacaoPainlCedenteCc();
 });
 
-And('acessa a página wba web cc', () => {
+And('acessa a página wba web importa xml', () => {
   painelClienteCriaOperacaoCc.paginaWbaWebCc();
 });
 
@@ -44,3 +44,5 @@ And('acessa a página wba web cc', () => {
 Then('tenho a criacao de operação concluido', () => {
   painelClienteCriaOperacaoCc.PainelCLienteConcluido();
 });
+
+
