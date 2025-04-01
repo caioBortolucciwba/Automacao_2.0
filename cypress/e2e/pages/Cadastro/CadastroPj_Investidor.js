@@ -131,7 +131,7 @@ class CadastroPJInvestidor {
         cy.get('#mat-input-70').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim').click(); 
+        cy.get('#btn-salvar').click(); 
         
          ///////////////////Anotações//////////////////////////////
          cy.get('.nav > ul > #item-menu-5').click();
@@ -145,7 +145,7 @@ class CadastroPJInvestidor {
         cy.get('#item-menu-6').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Fernando Diniz');
-        cy.get('#mat-input-72').type('Contabilidade');
+        cy.contains('Positivo').click();
         cy.get('#mat-input-73').type('teste.teste@wba.com.br');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('22');
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('998754587');

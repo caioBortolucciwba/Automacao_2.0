@@ -51,7 +51,7 @@ class CadastroPF {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-77 > .mat-option-text').click();               
+        cy.contains('DE 3 A 5 SALÁRIOS MÍNIMOS').click();               
         cy.get('#mat-input-37').type('110.044.441.112');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="FUMO"] > .label-option').click();
@@ -81,7 +81,6 @@ class CadastroPF {
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
         cy.get('#mat-option-136 > .mat-option-text').click();
-        
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[label="Selecionar todos"] > .check-multiple').click();
         cy.get('#mat-slide-toggle-4 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
@@ -128,8 +127,8 @@ class CadastroPF {
         cy.get('.nav > ul > #item-menu-8').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-216 > .mat-option-text').click();
-        cy.get('#mat-input-123').type('Teste Escriturador');
+        cy.contains('Positivo').click();
+        cy.get('#input-digite-anotacao').type('Teste Escriturador');
 
         ///////////////////Contatos//////////////////////////////
         cy.get('.nav > ul > #item-menu-9').click();

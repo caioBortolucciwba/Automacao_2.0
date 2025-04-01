@@ -74,7 +74,7 @@ class CadastroPF {
         cy.get(':nth-child(3) > .label-option').click();
         //cy.get('[ng-reflect-label="Enviar para SINGULARE"] > .label-option').click();
         cy.get('.ng-untouched > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="FIDC - KARINA FACTORING"] > .label-option').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#btn-enviar-cadastro > .ng-star-inserted').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         ///////////////////Contatos//////////////////////////////

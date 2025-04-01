@@ -150,8 +150,8 @@ class CadastroPJProspect {
         cy.get('#item-menu-9').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
-        cy.get('#option-tipo-3 > .mat-option-text').click();
-        cy.get('#mat-input-103').type('NOME SUJO');
+        cy.contains('Positivo').click();
+        cy.get('#input-digite-anotacao').type('NOME SUJO');
         cy.get('#btn-enviar-documento > .ng-star-inserted > span').click();
     }
 

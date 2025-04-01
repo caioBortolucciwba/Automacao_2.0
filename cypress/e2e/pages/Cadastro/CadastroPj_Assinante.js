@@ -76,7 +76,7 @@ class CadastroPJAssinante {
         cy.get('#mat-input-43').type('1997');
         cy.get('.mat-checkbox-inner-container').click();
         cy.get('#mat-input-44').type('BALANÇO 97');
-        cy.get('.new-file-upload > label > span').click
+        cy.get('.new-file-upload > label > span').click();
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-salvar').click();
         cy.get('.guarda-botao-voltar').click();
