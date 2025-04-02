@@ -83,7 +83,7 @@ class jurosSimples{
         cy.get('#mat-input-47').type('Juros Simples 100%');
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.contains('Juros simples Aut').click();
-        cy.get('#mat-input-59').clear().type('10000');
+        cy.get('#input-juros-simples').clear().type('10000');
         
         cy.get('#btn-salvar-serie > .ng-star-inserted').click();
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();

@@ -41,8 +41,11 @@ jobs:
       - name: Verificar instalação do Cypress
         run: npx cypress verify
 
-      - name: Rodar testes do Cypress (headless)
-        run: npx cypress run --headless
+      - name: Rodar testes do Cypress (headless) com Mochawesome
+        run: npx cypress run --headless --reporter mochawesome
+
+      - name: Verificar relatório JSON gerado
+        run: ls -lh cypress/reports/ || echo "Relatório não encontrado!"
 
       - name: Upload de screenshots e vídeos
         if: always()  
@@ -52,7 +55,7 @@ jobs:
           path: |
             cypress/screenshots
             cypress/videos
-            cypress/results
+            cypress/reports
       
       - name: Gerar relatório em PDF
         if: always()

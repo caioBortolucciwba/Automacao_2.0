@@ -4,8 +4,8 @@ const mochawesomeMerge = require("mochawesome-merge");
 const mochawesomeReportGenerator = require("mochawesome-report-generator");
 
 module.exports = defineConfig({
-  experimentalMemoryManagement: true, 
-  numTestsKeptInMemory: 5, 
+  experimentalMemoryManagement: true,
+  numTestsKeptInMemory: 5,
 
   e2e: {
     video: true,
@@ -34,12 +34,15 @@ module.exports = defineConfig({
       });
     },
   },
- ////
+  ////
+
   reporter: 'mochawesome',
   reporterOptions: {
-    reportDir: 'cypress/reports',
-    overwrite: false,
+    overwrite: false, // Mantenha como false para permitir múltiplos arquivos
     html: false,
     json: true,
-  },
+    reportDir: 'cypress/reports',
+    inline: false,
+    quiet: true
+  }
 });

@@ -1,4 +1,4 @@
-class formulasRem{
+class formulasRem {
     AcessandoDebentrures() {
         cy.get('#menu-lateral-COBRANCA').click();
         cy.get('.link-configuracoes > span').click();
@@ -6,7 +6,7 @@ class formulasRem{
     }
 
     criandoFormulasRm() {
-       cy.contains('Geral').click();
+        cy.contains('Geral').click();
         cy.get(':nth-child(2) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('#mat-option-8 > .mat-option-text').click();
         cy.get('#btn-salvar > .ng-star-inserted').click();
@@ -21,7 +21,7 @@ class formulasRem{
         cy.contains('252 dias').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
     }
-    
+
     criandoEscritura() {
         cy.get('#ESCRITURACAO').click();
         cy.get('.btn > .ng-star-inserted').click();
@@ -49,6 +49,9 @@ class formulasRem{
         cy.get('[aria-label="julho 2024"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="6 de julho de 2024"] > .mat-calendar-body-cell-content').click();
         cy.get('#input-data-registro-publico').click();
+        cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+        cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
+        cy.get('[aria-label="março 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="6 de março de 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('#mat-input-33').type('2323');
         cy.get('#mat-input-34').type('151515');
@@ -57,31 +60,30 @@ class formulasRem{
         cy.get('#mat-select-5').click();
         cy.contains('50').click();
         cy.contains('Escritura Simples CDI').parent().siblings('[data-label="Ações"]').find('.iconSvg.btn-click-mega-menu-js').first().click();
-      }
+    }
 
-    finalizandoEscritura(){
-
+    finalizandoEscritura() {
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
         cy.get('#mat-input-56').type('Documento teste');
         cy.get('#mat-input-57').type('Arquivo teste');
-        cy.get('.input > w-button.ng-star-inserted > .btn > .ng-star-inserted').should('be.visible').click(); 
-        cy.get('input[type="file"]').attachFile('cenarios.txt'); 
+        cy.get('.input > w-button.ng-star-inserted > .btn > .ng-star-inserted').should('be.visible').click();
+        cy.get('input[type="file"]').attachFile('cenarios.txt');
         cy.get('#btn-salvar-arquivo').click();
-    //     cy.wait(3000);
-    //   // Validação: Se aparecer a mensagem de erro, o teste falha
-    //   cy.get('body').then(($body) => {
-    //     if ($body.text().includes('Você não possui arquivos inseridos')) {
-    //         throw new Error('Teste falhou: Nenhum arquivo foi anexado.');
-    //     } else {
-    //         cy.log('Arquivo anexado com sucesso!');
-    //     }
-    // });
-            cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-            cy.get('#mat-input-46').type('CDI 100% Simples');
-            cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
+        //     cy.wait(3000);
+        //   // Validação: Se aparecer a mensagem de erro, o teste falha
+        //   cy.get('body').then(($body) => {
+        //     if ($body.text().includes('Você não possui arquivos inseridos')) {
+        //         throw new Error('Teste falhou: Nenhum arquivo foi anexado.');
+        //     } else {
+        //         cy.log('Arquivo anexado com sucesso!');
+        //     }
+        // });
+        cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+        cy.get('#mat-input-46').type('CDI 100% Simples');
+        cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.contains('CDI Aut').click();
         cy.get('#input-porcentagem-cdi').clear().type('10000');
-        
+
         cy.get('#btn-salvar-serie > .ng-star-inserted').click();
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
     }
