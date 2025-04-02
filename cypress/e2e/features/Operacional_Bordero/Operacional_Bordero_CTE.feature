@@ -7,6 +7,7 @@ Background: Usuário realiza login no sistema
     Then o usuário é redirecionado para a página inicial
 
 Scenario: Criando uma operacao CTE bordero
-    Given efetuada a criacao de um bordero 
-    When importado uma CTE na tela de digitação de titulos
-    Then tenho a operacao de CTE concluida para avancar de step
+    Given que o usuario precisa criar uma operacao importando CTE
+    When importado o arquivo CTE preenchendo todos os campos obrigatorio de CTE na tela de digitacao de titulo
+	And  avanco todos os steps obrigatorios da operacao com CTE
+    Then tenho a operacao com CTE importado concluida

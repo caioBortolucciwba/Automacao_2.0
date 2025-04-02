@@ -7,6 +7,7 @@ Background: Usuário realiza login no sistema
     Then o usuário é redirecionado para a página inicial
 
 Scenario: Criacao operacao operacao DS no bordero
-    Given que o usuario precisa criar uma operacao DS no bordero
-    When cria uma operacao de duplicata de servico preenchendo os campos obrigatorios
-    Then tenho a operacao ds concluida para avancar de step
+    Given que o usuario precisa criar uma operacao de duplicata servico
+    When preencho manualmente todos os campos obrigatorio de duplicata servico na tela de digitacao de titulo
+	And  avanco todos os steps obrigatorios da operacao ds
+    Then tenho a operacao de duplicata servico concluida

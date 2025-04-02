@@ -1,5 +1,8 @@
-import { gerarCPF, gerarCNPJ } from '../../../support/utils';
+//import { gerarCPF, gerarCNPJ } from '../../../support/utils';
 import {gerarNumeroAleatorio} from '../../../support/utils'
+import LoginPage from '../../pages/LoginPage';
+const loginPage = new LoginPage();
+let baseUrlUtilizada = loginPage.urlBaseUtilizada();
 
 class OperacionalBorderoCTEOS {
     acessarBordero() {
@@ -22,10 +25,10 @@ class OperacionalBorderoCTEOS {
        cy.get('#btn-avancar > .ng-star-inserted > span')
            .should('be.visible').click();
        cy.wait(9000);
-       cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
+       //cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô
     }
 
-    criandoOpImportandoCTEOS() {
+    ImportarCTEOS() {
 
         const numeroDocumentoGerado = gerarNumeroAleatorio(5);
                 
@@ -42,7 +45,7 @@ class OperacionalBorderoCTEOS {
                             cy.get('#btn-incluir-alterar').click();
                 
                             //Step1 -Valide se os títulos foram salvos com sucesso no grid do borderô
-                            cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero').as('endPointTitulosGrig');
+                            cy.intercept('POST',`${baseUrlUtilizada}-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero`).as('endPointTitulosGrig');
                             cy.get('#btn-finalizar').should('be.visible').click();
                             cy.wait(5000);
                             cy.wait('@endPointTitulosGrig').then((interception)=> {
@@ -62,6 +65,10 @@ class OperacionalBorderoCTEOS {
                         cy.wait(3000);
                         cy.screenshot('Título_salvo_Com_Sucesso_Grid_Borderô_Step1'); // Valida título salvo no grid do borderô
                         
+                    }
+                       
+                    avancoStepObrigatorios(){
+
                         cy.get('#bt-avancar').click();
                         cy.wait(6000);
                 
@@ -72,7 +79,7 @@ class OperacionalBorderoCTEOS {
                         .should('be.visible')
                         .should('be.enabled')
                         .click();
-                        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/calcular/operacao').as('endPointRecalculo');
+                        cy.intercept('POST',`${baseUrlUtilizada}-api.wba.com.br:30082/api/v1/private/flow/calcular/operacao`).as('endPointRecalculo');
                         
                         cy.get('#bt-recalcular')
                         .should('be.visible')
@@ -127,8 +134,8 @@ class OperacionalBorderoCTEOS {
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[ng-reflect-label="Concluido"] > .label-option').click();
     
-        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/permite/finalizar/bordero').as('endPointStatusLiberacaoBordero');
-        cy.intercept('POST','https://dnew-api.wba.com.br:30082/api/v1/private/flow/finalizar/bordero').as('endPointInformacaoBorderoLiberado');
+        cy.intercept('POST',`${baseUrlUtilizada}-api.wba.com.br:30082/api/v1/private/flow/permite/finalizar/bordero`).as('endPointStatusLiberacaoBordero');
+        cy.intercept('POST',`${baseUrlUtilizada}-api.wba.com.br:30082/api/v1/private/flow/finalizar/bordero`).as('endPointInformacaoBorderoLiberado');
     
         cy.get('#btn-label-sim').click();
     

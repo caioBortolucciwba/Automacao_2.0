@@ -24,14 +24,19 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-Given('que o usuario precisa criar uma operacao duplicata mercantil', () => {
-   operacionalDM.acessarBordero();
+
+Given('que o usuario precisa criar uma operacao de duplicata mercantil', () => {
+	operacionalDM.acessarBordero();
 });
 
-When('preencho todos os campos de duplicata mercantil obrigatorios do portal', () => {
-  operacionalDM.criandoOpdm()
+When('preencho manualmente todos os campos obrigatorio de duplicata mercantil na tela de digitacao de titulo', () => {
+	operacionalDM.digitandotituloDmManualmente();
 });
 
-Then('tenho a operacao dm concluida para avancar de step', () => {
-  operacionalDM.concluindoOpDm();
+When('avanco todos os steps obrigatorios da operacao dm', () => {
+	operacionalDM.avancoStepObrigatorios();
+});
+
+Then('tenho a operacao de duplicata mercantil concluida', () => {
+	operacionalDM.concluindoOperacaoDuplicataMercantil();
 });

@@ -29,9 +29,27 @@ Given('que o usuario precisa criar uma operacao NC no bordero', () => {
 });
 
 When('cria uma operacao de Nota Comercial preenchendo os campos obrigatorios', () => {
-    operacionalNC.criandoOperacaoDigitandoNC(); 
+     
 });
 
 Then('tenho a operacao concluida para avancar de step', () => {
-    operacionalNC.concluindoOp();
+    
+});
+
+
+
+Given('que o usuario precisa criar uma operacao de nota comercial', () => {
+	operacionalNC.acessarBordero();
+});
+
+When('preencho manualmente todos os campos obrigatorio de nota comercial na tela de digitacao de titulo', () => {
+	operacionalNC.digitandotituloNcManualmente();
+});
+
+When('avanco todos os steps obrigatorios da operacao nc', () => {
+	operacionalNC.avancoStepObrigatorios();
+});
+
+Then('tenho a operacao de nota comercial concluida', () => {
+	operacionalNC.concluindoOperacaoNotaComercial();
 });

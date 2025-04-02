@@ -24,14 +24,20 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-Given('que o usuario precisa criar uma operacao com mais de uma empresa no bordero', () => {
-    operacionalMista.acessarBordero();
+
+Given('que o usuario precisa criar uma operacao de Mista', () => {
+	operacionalMista.acessarBordero();
 });
 
-When('cria uma operacao mista preenchendo os campos obrigatorios', () => {
-    operacionalMista.criandoMista(); 
+When('digito manualmente titulos de carteiras distintas', () => {
+	operacionalMista.criandoMista();
 });
 
-Then('tenho a operacao mista concluida para avancar de step', () => {
-    operacionalMista.concluindoMista();
+When('avanco todos os steps obrigatorios da operacao mista', () => {
+	operacionalMista.avancoStepObrigatorios();
 });
+
+Then('tenho a operacao de mista concluida', () => {
+	operacionalMista.concluindoMista();
+});
+

@@ -7,6 +7,7 @@ Background: Usuário realiza login no sistema
     Then o usuário é redirecionado para a página inicial
 
 Scenario: Criando uma operacao CTEOS bordero
-    Given efetuada a criacao de um bordero 
-    When importado um arquivo de Conhecimento de Transporte OS na tela de digitação de titulos
-    Then tenho a operacao de CTEOS concluida para avancar de step
+    Given que o usuario precisa criar uma operacao importando CTEOS
+    When importado o arquivo CTEOS preenchendo todos os campos obrigatorio de CTEOS na tela de digitacao de titulo
+	And  avanco todos os steps obrigatorios da operacao com CTEOS
+    Then tenho a operacao com CTEOS importado concluida
