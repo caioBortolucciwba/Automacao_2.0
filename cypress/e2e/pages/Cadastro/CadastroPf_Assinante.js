@@ -16,7 +16,9 @@ class CadastroPFAssinante {
     CadastroPFAssinante(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
-        cy.get('#mat-input-4').type(cpf);
+        const cpfassinante = cpf;
+        cy.get('#mat-input-4').type(cpfassinante);
+        cy.writeFile('cypress/fixtures/cpf/cpf_assinante.json', {cpfassinante});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');
@@ -51,7 +53,8 @@ class CadastroPFAssinante {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('3');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-83 > .mat-option-text').click();               
+        cy.contains('DE 3 A 5 SALÁRIOS MÍNIMOS').click();
+                    
         cy.get('#mat-input-37').type('110.0448');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="FUMO"] > .label-option').click();
@@ -59,11 +62,11 @@ class CadastroPFAssinante {
         cy.get('[ng-reflect-label="Autônomo"] > .label-option').click();
         cy.get('.cbo > .ui-lg-6').type('4110-10'); 
         cy.get('#btn-add-imposto').should('be.visible').click(); 
-        cy.get('#mat-input-39').type('10102010');
-        cy.get('#mat-input-40').type('2023');
+        cy.get('#mat-input-38').type('10102010');
+        cy.get('#mat-input-39').type('2023');
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
-       
+        
         ////////////Conta Bancaria//////////////////////
         cy.get('.nav > ul > #item-menu-2').click();
         cy.get('#btn-adicionar-conta').click();
@@ -91,7 +94,7 @@ class CadastroPFAssinante {
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-62').type('Conta de celular');
+        cy.get('#mat-input-61').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('.fr > w-button > .btn').click(); 
@@ -100,15 +103,15 @@ class CadastroPFAssinante {
         cy.get('#item-menu-6').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Fernando Diniz');
-        cy.get('#mat-input-63').type('Contabilidade');
-        cy.get('#mat-input-64').type('teste.teste@wba.com.br');
+        cy.get('#mat-input-62').type('Contabilidade');
+        cy.get('#mat-input-63').type('teste.teste@wba.com.br');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('22');
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('998754587');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         
     }
 
-    filtroConcluido() {
+    cadastroConcluido() {
 
         cy.log('Todos os campos obrigatórios foram preenchidos. Cadastro concluído com sucesso.');
     }

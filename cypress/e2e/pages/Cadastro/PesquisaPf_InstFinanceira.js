@@ -7,8 +7,10 @@ class PesquisaPfInstFinanceira {
     }
 
     preencherPesquisaPfInstFinanceira(){
-        cy.get('#input-search').type('000.283.837-02');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_instfinanceira').then((data) => {
+            cy.get('#input-search').type(data.cpfinstfinanceira);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

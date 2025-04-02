@@ -7,8 +7,10 @@ class PesquisaPjOutros {
     }
 
     preencherPesquisaPjOutros(){
-        cy.get('#input-search').type('52.031.357/0001-30');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cnpj_outros').then((data) => {
+            cy.get('#input-search').type(data.cnpjoutros);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

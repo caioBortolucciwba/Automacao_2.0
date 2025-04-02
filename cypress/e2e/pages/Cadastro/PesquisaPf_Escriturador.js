@@ -7,8 +7,10 @@ class PesquisaPfEscriturador {
     }
 
     preencherPesquisaPfEscriturador(){
-        cy.get('#input-search').type('231.566.161-76');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_escriturador').then((data) => {
+            cy.get('#input-search').type(data.cpfescriturador);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

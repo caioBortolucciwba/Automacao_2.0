@@ -16,7 +16,9 @@ class CadastroPFFuncionario {
     preencherCadastroPfFuncionario(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpffuncionario = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_funcionario.json',{cpffuncionario});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');
@@ -51,7 +53,7 @@ class CadastroPFFuncionario {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('3');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-78 > .mat-option-text').click();               
+        cy.contains('DE 3 A 5 SALÁRIOS MÍNIMOS').click();            
         cy.get('#mat-input-37').type('110.0448');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="FUMO"] > .label-option').click();

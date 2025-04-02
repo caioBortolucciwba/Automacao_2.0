@@ -16,7 +16,9 @@ class CadastroPFEmpresa {
     preencherCadastroPfEmpresa(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfempresa = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_empresa.json', {cpfempresa});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Rohan Amaral');
         cy.get('body').type('{esc}');
@@ -51,7 +53,7 @@ class CadastroPFEmpresa {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-78 > .mat-option-text').click();               
+        cy.contains('DE 3 A 5 SALÁRIOS MÍNIMOS').click();               
         cy.get('#mat-input-37').type('110.044.441.112');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="FUMO"] > .label-option').click();
@@ -62,7 +64,7 @@ class CadastroPFEmpresa {
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf'); 
         cy.get('#mat-input-38').type('11112020');
         cy.get('#mat-input-39').type('2025');
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get('.fr > w-button > #btn-salvar').click();
          
         ///////Assinantes/////////////////
         cy.get('.nav > ul > #item-menu-2').click();

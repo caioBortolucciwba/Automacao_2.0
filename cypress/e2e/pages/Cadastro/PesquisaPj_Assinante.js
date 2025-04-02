@@ -7,8 +7,10 @@ class PesquisaPjAssinante {
     }
 
     preencherPesquisaPjAssinante(){
-        cy.get('#input-search').type('72.584.609/0001-66');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cnpj_assinante').then((data) => {
+            cy.get('#input-search').type(data.cnpjassinante);
+            cy.get("#bt-search").click(); 
+        }); 
     }
 
     pesquisaConcluido() {

@@ -7,8 +7,10 @@ class PesquisaPfAssinante {
     }
 
     preencherPesquisaPfAssinante(){
-        cy.get('#input-search').type('442.962.431-36');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_assinante').then((data) => {
+            cy.get('#input-search').type(data.cpfassinante);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

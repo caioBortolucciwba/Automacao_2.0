@@ -7,8 +7,10 @@ class PesquisaPfProspect {
     }
 
     preencherPesquisaPfProspect(){
-        cy.get('#input-search').type('002.145.870-70');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_prospect').then((data) => {
+            cy.get('#input-search').type(data.cpfprospect);
+            cy.get("#bt-search").click(); 
+        }); 
     }
 
     pesquisaConcluido() {

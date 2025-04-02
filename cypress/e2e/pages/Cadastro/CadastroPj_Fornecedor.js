@@ -16,7 +16,9 @@ class CadastroPJFornecedor {
     preencherCadastroPjFornecedor(){
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjfornecedor = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_fornecedor.json',{cnpjfornecedor});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('TEste TESTE Fornecedor');
         cy.get('body').type('{esc}');

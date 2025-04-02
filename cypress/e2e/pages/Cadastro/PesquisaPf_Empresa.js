@@ -7,8 +7,10 @@ class PesquisaPfEmpresa {
     }
 
     preencherPesquisaPfEmpresa(){
-        cy.get('#input-search').type('935.677.201-04');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_empresa').then((data) => {
+            cy.get('#input-search').type(data.cpfempresa);
+            cy.get("#bt-search").click();
+        }); 
     }
 
     pesquisaConcluido() {

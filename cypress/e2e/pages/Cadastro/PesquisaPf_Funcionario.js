@@ -7,8 +7,10 @@ class PesquisaPfFuncionario {
     }
 
     preencherPesquisaPfFuncionario(){
-        cy.get('#input-search').type('582.325.606-06');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_funcionario').then((data) => {
+            cy.get('#input-search').type(data.cpffuncionario);
+            cy.get("#bt-search").click();
+        });  
     }
 
     pesquisaConcluido() {

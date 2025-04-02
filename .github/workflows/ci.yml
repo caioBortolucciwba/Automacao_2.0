@@ -42,10 +42,22 @@ jobs:
         run: npx cypress verify
 
       - name: Rodar testes do Cypress (headless) com Mochawesome
-        run: npx cypress run --headless --reporter mochawesome
+        run: npx cypress run --headless --reporter mochawesome --spec 'cypress/e2e/features/**/*.feature'
 
       - name: Verificar relatório JSON gerado
         run: ls -lh cypress/reports/ || echo "Relatório não encontrado!"
+
+      - name: Mesclar relatórios do Mochawesome
+        run: npm install mochawesome-merge mochawesome-report-generator  # Instalar dependências para mesclar relatórios
+       
+      - name: Gerar relatório JSON mesclado
+        run: npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json
+
+      - name: Gerar relatório em PDF
+        if: always()
+        run: |
+          npm install pdfkit  # Instalar dependências para geração do PDF
+          node gerar_relatorio.js  # Executar script para gerar o PDF
 
       - name: Upload de screenshots e vídeos
         if: always()  
@@ -57,12 +69,6 @@ jobs:
             cypress/videos
             cypress/reports
       
-      - name: Gerar relatório em PDF
-        if: always()
-        run: |
-          npm install pdfkit fs  # Instalar dependências para geração do PDF
-          node gerar_relatorio.js  # Executar script para gerar o PDF
-
       - name: Upload do relatório PDF
         if: always()
         uses: actions/upload-artifact@v4

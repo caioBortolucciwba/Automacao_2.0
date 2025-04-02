@@ -16,7 +16,9 @@ class CadastroPF {
     preencherCadastroPf(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
-        cy.get('#mat-input-4').type(cpf);
+        const cpfcedente = cpf;
+        cy.get('#mat-input-4').type(cpfcedente);
+        cy.writeFile('cypress/fixtures/cpf/cpf_cedente.json', {cpfcedente});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Abel Luiz Ferreira');
         cy.get(':nth-child(5) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
@@ -74,7 +76,7 @@ class CadastroPF {
         cy.get(':nth-child(3) > .label-option').click();
         //cy.get('[ng-reflect-label="Enviar para SINGULARE"] > .label-option').click();
         cy.get('.ng-untouched > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="FIDC - KARINA FACTORING"] > .label-option').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#btn-enviar-cadastro > .ng-star-inserted').click();
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         ///////////////////Contatos//////////////////////////////
@@ -92,13 +94,10 @@ class CadastroPF {
         cy.get('#input-email > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste@teste.com.br');
         cy.get('#btn-add-empresa > .fa').click();
         cy.get('.wb-lg-3.ng-star-inserted').click();
-        cy.get('#mat-option-309 > .mat-option-text').click();
+        cy.contains('FIDC - KARINA TRUSTEE').click();
         cy.get('body').type('{esc}');
         cy.get('.pt50 > :nth-child(2)').click();
-        // document.querySelector("#mat-option-313 > span")
-        //document.querySelector("#mat-option-316 > span")
-        //cy.get('body').type('{esc}');
-        cy.get("#mat-option-316 > .mat-option-text").click();
+        cy.contains('TUDO LIBERADO').click();
         cy.get('body').type('{esc}');
         cy.get('.ml30 > .btn').click();
         //cy.get('.ml30 > .btn > .ng-star-inserted').click();

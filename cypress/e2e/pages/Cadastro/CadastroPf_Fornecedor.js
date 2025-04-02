@@ -16,7 +16,9 @@ class CadastroPFFornecedor {
     preencherCadastroPfFornecedor(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpffornecedor = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_fornecedor.json',{cpffornecedor});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Marcelo Verrati');
         cy.get('body').type('{esc}');

@@ -16,7 +16,9 @@ class CadastroPJAssinante {
     preencherCadastroPjAssinante(){
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjassinante = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_assinante.json',{cnpjassinante});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');
@@ -76,7 +78,7 @@ class CadastroPJAssinante {
         cy.get('#mat-input-43').type('1997');
         cy.get('.mat-checkbox-inner-container').click();
         cy.get('#mat-input-44').type('BALANÇO 97');
-        cy.get('.new-file-upload > label > span').click
+        cy.get('.new-file-upload > label > span').click();
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('#btn-salvar').click();
         cy.get('.guarda-botao-voltar').click();

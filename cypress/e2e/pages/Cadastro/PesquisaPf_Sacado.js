@@ -7,8 +7,10 @@ class PesquisaPfSacado {
     }
 
     preencherPesquisaPfSacado(){
-        cy.get('#input-search').type('107.827.095-32');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_sacado').then((data) => {
+            cy.get('#input-search').type(data.cpfsacado);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

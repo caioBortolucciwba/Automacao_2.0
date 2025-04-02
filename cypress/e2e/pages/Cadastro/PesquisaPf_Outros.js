@@ -7,8 +7,10 @@ class PesquisaPfOutros {
     }
 
     preencherPesquisaPfOutros(){
-        cy.get('#input-search').type('293.297.132-89');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_outros').then((data) => {
+            cy.get('#input-search').type(data.cpfoutros);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

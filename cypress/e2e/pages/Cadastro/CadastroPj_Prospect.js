@@ -17,7 +17,9 @@ class CadastroPJProspect {
     preencherCadastroPjProspect() {
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjprospect = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_prospect.json',{cnpjprospect});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('PROSPECT PJ');
         cy.get('body').type('{esc}');
@@ -150,8 +152,8 @@ class CadastroPJProspect {
         cy.get('#item-menu-9').click();
         cy.get('#btn-enviar-documento').click();
         cy.get('.mat-select-value').click();
-        cy.get('#option-tipo-3 > .mat-option-text').click();
-        cy.get('#mat-input-103').type('NOME SUJO');
+        cy.contains('Positivo').click();
+        cy.get('#input-digite-anotacao').type('NOME SUJO');
         cy.get('#btn-enviar-documento > .ng-star-inserted > span').click();
     }
 

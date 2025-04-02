@@ -10,8 +10,10 @@ class PesquisaPjSacado {
     }
 
     preencherPesquisaPjSacado(){
-        cy.get('#input-search').type('12.763.127/0003-03');
-        cy.get("#bt-search").click();
+        cy.fixture('cpf/cnpj_sacado').then((data) => {
+            cy.get('#input-search').type(data.cnpjsacado); 
+            cy.get("#bt-search").click();
+        });
         
        
         

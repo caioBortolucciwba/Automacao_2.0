@@ -7,8 +7,10 @@ class PesquisaPjInvestidor {
     }
 
     preencherPesquisaPjInvestidor(){
-        cy.get('#input-search').type('22.531.668/0001-06');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cnpj_investidor').then((data) => {
+            cy.get('#input-search').type(data.cnpjinvestidor);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

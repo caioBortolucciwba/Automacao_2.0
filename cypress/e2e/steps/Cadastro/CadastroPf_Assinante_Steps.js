@@ -20,11 +20,11 @@ When('clica no botão de login', () => {
 });
 
 Then('o usuário é redirecionado para a página inicial', () => {
-  cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
+  cy.url().should('include', '/home'); 
 });
 
 Given('que o usuário está na página inicial', () => {
-  cy.url().should('include', '/home'); // Substitua pelo caminho correto
+  cy.url().should('include', '/home'); 
 });
 
 When('o usuário clica no menu cadastro assinante', () => {
@@ -36,5 +36,5 @@ Then('preencho todos os campos do cadastramento assinante', () => {
 });
 
 Then('tenho cadastramento concluido', (titulo) => {
- // cadastroPFAssinante.cadastroConcluido();
+   cadastroPFAssinante.cadastroConcluido();
 });

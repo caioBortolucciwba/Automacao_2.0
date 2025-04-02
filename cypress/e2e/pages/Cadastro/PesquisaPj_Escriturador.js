@@ -7,8 +7,10 @@ class PesquisaPjEscriturador {
     }
 
     preencherPesquisaPjEscriturador(){
-        cy.get('#input-search').type('09.949.077/0001-87');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cnpj_edcriturador').then((data) => {
+            cy.get('#input-search').type(data.cnpjescriturador);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

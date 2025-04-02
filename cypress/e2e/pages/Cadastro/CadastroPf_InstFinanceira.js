@@ -16,7 +16,9 @@ class CadastroPFInstFinanceira {
     preencherCadastroPfInstFinanceira(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfinstfinanceira = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_instfinanceira.json',{cpfinstfinanceira});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Pablito Aimar');
         cy.get('body').type('{esc}');
@@ -51,7 +53,7 @@ class CadastroPFInstFinanceira {
         cy.get('.nav > ul > #item-menu-1').click();
         cy.get('#input-dependentes > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('6');
         cy.get('.mat-select-value').click();
-        cy.get('#mat-option-80 > .mat-option-text').click();               
+        cy.contains('DE 3 A 5 SALÁRIOS MÍNIMOS').click();                
         cy.get('#mat-input-37').type('110.044.441.112');
         cy.get(':nth-child(5) > :nth-child(1) > wba-select.ng-untouched > .w-select > .w-select-input').click();
         cy.get('[ng-reflect-label="TRANSPORTE"] > .label-option').click();
