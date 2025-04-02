@@ -16,7 +16,9 @@ class CadastroPFFuncionario {
     preencherCadastroPfFuncionario(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpffuncionario = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_funcionario.json',{cpffuncionario});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');

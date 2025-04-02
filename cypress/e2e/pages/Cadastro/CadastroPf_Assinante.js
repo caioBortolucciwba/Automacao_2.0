@@ -16,10 +16,9 @@ class CadastroPFAssinante {
     CadastroPFAssinante(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
-        cy.get('#mat-input-4').type(cpf);
-        cy.writeFile('cypress/fixtures/cpf_assinante.json',{cpf});
-       
-       
+        const cpfassinante = cpf;
+        cy.get('#mat-input-4').type(cpfassinante);
+        cy.writeFile('cypress/fixtures/cpf/cpf_assinante.json', {cpfassinante});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');
@@ -112,7 +111,7 @@ class CadastroPFAssinante {
         
     }
 
-    filtroConcluido() {
+    cadastroConcluido() {
 
         cy.log('Todos os campos obrigatórios foram preenchidos. Cadastro concluído com sucesso.');
     }

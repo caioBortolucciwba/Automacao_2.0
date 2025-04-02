@@ -16,7 +16,9 @@ class CadastroPF {
     preencherCadastroPfInvestidor(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfinvestidor = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_investidor.json',{cpfinvestidor});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lex Luthor');
         cy.get('body').type('{esc}');

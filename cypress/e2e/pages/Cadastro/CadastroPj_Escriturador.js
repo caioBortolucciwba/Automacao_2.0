@@ -16,7 +16,9 @@ class CadastroPJEscriturador {
     preencherCadastroPjEscriturador(){
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjescriturador = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_escriturador.json',{cnpjescriturador});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');

@@ -16,7 +16,9 @@ class CadastroPFProspect {
     preencherCadastroPfProspect(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfprospect = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_prospect.json',{cpfprospect});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Mustafa da Silva');
         cy.get('body').type('{esc}');

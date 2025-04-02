@@ -7,8 +7,10 @@ class PesquisaPjEmpresa {
     }
 
     preencherPesquisaPjEmpresa(){
-        cy.get('#input-search').type('70.688.344/0001-10');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cnpj_empresa').then((data) => {
+            cy.get('#input-search').type(data.cnpjempresa);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

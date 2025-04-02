@@ -16,7 +16,9 @@ class CadastroPFEmpresa {
     preencherCadastroPfEmpresa(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfempresa = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_empresa.json', {cpfempresa});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Rohan Amaral');
         cy.get('body').type('{esc}');
@@ -62,7 +64,7 @@ class CadastroPFEmpresa {
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf'); 
         cy.get('#mat-input-38').type('11112020');
         cy.get('#mat-input-39').type('2025');
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get('.fr > w-button > #btn-salvar').click();
          
         ///////Assinantes/////////////////
         cy.get('.nav > ul > #item-menu-2').click();

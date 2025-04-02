@@ -9,11 +9,12 @@ class FiltroPfFuncionario{
     }
 
     preencherFiltroPfFuncionario(){
-        cy.get('#select-tipo-cadastro > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="FUNCIONÁRIO"] > .check-multiple').click();
-        cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
-        cy.get("#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(5)").click();
-        cy.get('#btn-filtrar > .ng-star-inserted').click();
+        cy.fixture('cpf/cpf_funcionario').then((data) => {
+            cy.get('#mat-input-5').type(data.cpfuncionario);
+            cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
+            cy.get("#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(5)").click();
+            cy.get('#btn-filtrar > .ng-star-inserted').click();
+        });
        
     }
 

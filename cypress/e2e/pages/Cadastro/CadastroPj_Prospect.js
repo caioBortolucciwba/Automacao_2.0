@@ -17,7 +17,9 @@ class CadastroPJProspect {
     preencherCadastroPjProspect() {
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjprospect = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_prospect.json',{cnpjprospect});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('PROSPECT PJ');
         cy.get('body').type('{esc}');

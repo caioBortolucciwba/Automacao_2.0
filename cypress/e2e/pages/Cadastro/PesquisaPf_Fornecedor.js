@@ -7,8 +7,10 @@ class PesquisaPfFornecedor {
     }
 
     preencherPesquisaPfFornecedor(){
-        cy.get('#input-search').type('955.358.937-57');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_fornecedor').then((data) => {
+            cy.get('#input-search').type(data.cpffornecedor);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

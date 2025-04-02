@@ -7,8 +7,10 @@ class PesquisaPfInvestidor {
     }
 
     preencherPesquisaPfInvestidor(){
-        cy.get('#input-search').type('609.202.799-29');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_investidor').then((data) => {
+            cy.get('#input-search').type(data.cpfinvestidor);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

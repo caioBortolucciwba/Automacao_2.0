@@ -16,7 +16,9 @@ class CadastroPJFuncionario {
     preencherCadastroPjFuncionario(){
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjfuncionario = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_funcionario.json',{cnpjfuncionario});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('TEste TESTE Fornecedor');
         cy.get('body').type('{esc}');

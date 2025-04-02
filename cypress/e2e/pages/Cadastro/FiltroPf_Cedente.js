@@ -8,15 +8,16 @@ class FiltroPfCedente {
     }
 
     preencherFiltroPfCedente(){
-        cy.get('#select-tipo-cadastro > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="CEDENTE"] > .check-multiple').click();
-        //cy.get('body').type('{esc}');
-        cy.get('#select-empresa-carteira > .w-select > .w-select-input').click();
-        cy.get('#select-empresa-carteira > .w-select > .overlay > .w-select-list > [label="Selecionar todos"] > .check-multiple').click();
-        cy.get('#select-subtipo-cadastro > .w-select > .w-select-input').click();
-        cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="PESSOA FÍSICA"] > .check-multiple').click();
-        cy.get('#btn-filtrar > .ng-star-inserted').click();  
+        cy.fixture('cpf/cpf_assinante').then((data) => {
+            cy.get('#mat-input-5').type(data.cpfassinante);
+            //cy.get('body').type('{esc}');
+            cy.get('#select-empresa-carteira > .w-select > .w-select-input').click();
+            cy.get('#select-empresa-carteira > .w-select > .overlay > .w-select-list > [label="Selecionar todos"] > .check-multiple').click();
+            cy.get('#select-subtipo-cadastro > .w-select > .w-select-input').click();
+            cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
+            cy.get('[ng-reflect-label="PESSOA FÍSICA"] > .check-multiple').click();
+            cy.get('#btn-filtrar > .ng-star-inserted').click();  
+        });
         
     }
 

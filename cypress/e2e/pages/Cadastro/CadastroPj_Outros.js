@@ -16,7 +16,9 @@ class CadastroPJOutros {
     preencherCadastroPjOutros(){
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjoutros = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_outros.json',{cnpjoutros});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Outros Outros PJ');
         cy.get('body').type('{esc}');

@@ -7,11 +7,12 @@ class FiltroPjEscriturador {
     }
 
     preencherFiltroPjEscriturador(){
-        cy.get('#select-tipo-cadastro > .w-select > .w-select-input').click();
-        cy.get('[ng-reflect-label="ESCRITURADOR"] > .check-multiple').click();
-        cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
-        cy.get("#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(4) > span.check-multiple.ng-star-inserted").click();
-        cy.get('#btn-filtrar > .ng-star-inserted').click();
+        cy.fixture('cpf/cnpj_escriturador').then((data) => {
+            cy.get('#mat-input-5').type(data.cnpjescriturador);
+            cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
+            cy.get("#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(4) > span.check-multiple.ng-star-inserted").click();
+            cy.get('#btn-filtrar > .ng-star-inserted').click();
+        });
     }
 
     filtroConcluido() {

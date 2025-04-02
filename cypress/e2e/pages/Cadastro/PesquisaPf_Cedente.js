@@ -7,8 +7,10 @@ class PesquisaPfCedente {
     }
 
     preencherPesquisaPfCedente(){
-        cy.get('#input-search').type('871.492.685-79');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cpf_cedente').then((data) => {
+            cy.get('#input-search').type(data.cpfcedente);
+            cy.get("#bt-search").click();
+        });  
     }
 
     pesquisaConcluido() {

@@ -16,7 +16,9 @@ class CadastroPFOutros {
     preencherCadastroPfOutros(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfoutros = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_outros.json',{cpfoutros});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Mustafa da Silva');
         cy.get('body').type('{esc}');

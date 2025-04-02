@@ -16,7 +16,9 @@ class CadastroPFInstFinanceira {
     preencherCadastroPfInstFinanceira(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
+        const cpfinstfinanceira = cpf;
         cy.get('#mat-input-4').type(cpf);
+        cy.writeFile('cypress/fixtures/cpf/cpf_instfinanceira.json',{cpfinstfinanceira});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Pablito Aimar');
         cy.get('body').type('{esc}');

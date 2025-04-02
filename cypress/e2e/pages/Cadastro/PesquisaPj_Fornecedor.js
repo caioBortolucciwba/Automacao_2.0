@@ -7,8 +7,10 @@ class PesquisaPjFornecedor {
     }
 
     preencherPesquisaPjFornecedor(){
-        cy.get('#input-search').type('08.147.265/0001-29');
-        cy.get("#bt-search").click();  
+        cy.fixture('cpf/cnpj_fornecedor').then((data) => {
+            cy.get('#input-search').type(data.cnpjfornecedor);
+            cy.get("#bt-search").click();  
+        });
     }
 
     pesquisaConcluido() {

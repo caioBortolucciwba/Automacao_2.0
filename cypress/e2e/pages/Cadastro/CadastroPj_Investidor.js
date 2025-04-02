@@ -16,7 +16,9 @@ class CadastroPJInvestidor {
     preencherCadastroPjInvestidor(){
         //////////////////CADASTRO//////////////////////
         const cnpj = gerarCNPJ();
+        const cnpjinvestidor = cnpj;
         cy.get('#mat-input-4').type(cnpj);
+        cy.writeFile('cypress/fixtures/cpf/cnpj_investidor.json',{cnpjinvestidor});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');
