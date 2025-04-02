@@ -7,6 +7,7 @@ Background: Usuário realiza login no sistema
     Then o usuário é redirecionado para a página inicial
 
 Scenario: Criando uma operacao NC bordero
-    Given que o usuario precisa criar uma operacao NC no bordero
-    When cria uma operacao de Nota Comercial preenchendo os campos obrigatorios
-    Then tenho a operacao concluida para avancar de step
+    Given que o usuario precisa criar uma operacao de nota comercial
+    When preencho manualmente todos os campos obrigatorio de nota comercial na tela de digitacao de titulo
+	And  avanco todos os steps obrigatorios da operacao nc
+    Then tenho a operacao de nota comercial concluida

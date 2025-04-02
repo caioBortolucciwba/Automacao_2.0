@@ -24,14 +24,19 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-Given('que o usuario precisa criar uma operacao DS no bordero', () => {
-   operacionalDS.acessarBordero();
+
+Given('que o usuario precisa criar uma operacao de duplicata servico', () => {
+  operacionalDS.acessarBordero();
 });
 
-When('cria uma operacao de duplicata de servico preenchendo os campos obrigatorios', () => {
-  operacionalDS.criandoOpDS(); 
+When('preencho manualmente todos os campos obrigatorio de duplicata servico na tela de digitacao de titulo', () => {
+  operacionalDS.digitandotituloDsManualmente();
 });
 
-Then('tenho a operacao ds concluida para avancar de step', () => {
-  operacionalDS.concluindoOpDS();
+When('avanco todos os steps obrigatorios da operacao ds', () => {
+  operacionalDS.avancoStepObrigatorios();
+});
+
+Then('tenho a operacao de duplicata servico concluida', () => {
+  operacionalDS.concluindoOperacaoDS();
 });

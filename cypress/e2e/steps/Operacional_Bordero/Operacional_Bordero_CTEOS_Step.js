@@ -25,14 +25,18 @@ Then('o usuário é redirecionado para a página inicial', () => {
 });
 
 
-Given('efetuada a criacao de um bordero', () => {
+Given('que o usuario precisa criar uma operacao importando CTEOS', () => {
 	operacionalCTEOS.acessarBordero();
 });
 
-When('importado um arquivo de Conhecimento de Transporte OS na tela de digitação de titulos', () => {
-	operacionalCTEOS.criandoOpImportandoCTEOS();
+When('importado o arquivo CTEOS preenchendo todos os campos obrigatorio de CTEOS na tela de digitacao de titulo', () => {
+	operacionalCTEOS.ImportarCTEOS();
 });
 
-Then('tenho a operacao de CTEOS concluida para avancar de step', () => {
+When('avanco todos os steps obrigatorios da operacao com CTEOS', () => {
+	operacionalCTEOS.avancoStepObrigatorios();
+});
+
+Then('tenho a operacao com CTEOS importado concluida', () => {
 	operacionalCTEOS.concluindoOpCTEOS();
 });

@@ -24,15 +24,22 @@ Then('o usuário é redirecionado para a página inicial', () => {
   cy.url().should('include', '/home'); // Substitua o "/dashboard" pelo caminho correto da página inicial
 });
 
-
-Given('efetuada a criacao de um bordero', () => {
+Given('que o usuario precisa criar uma operacao importando CTE', () => {
 	operacionalCTE.acessarBordero();
 });
 
-When('importado uma CTE na tela de digitação de titulos', () => {
-	operacionalCTE.criandoOpImportandoCTE();
+When('importado o arquivo CTE preenchendo todos os campos obrigatorio de CTE na tela de digitacao de titulo', () => {
+	operacionalCTE.ImportarCTE();
 });
 
-Then('tenho a operacao de CTE concluida para avancar de step', () => {
+When('avanco todos os steps obrigatorios da operacao com CTE', () => {
+	operacionalCTE.avancoStepObrigatorios();
+});
+
+Then('tenho a operacao com CTE importado concluida', () => {
 	operacionalCTE.concluindoOpCTE();
 });
+
+
+
+
