@@ -139,16 +139,15 @@ class CadastroPJInvestidor {
          cy.get('.nav > ul > #item-menu-5').click();
          cy.get('#btn-enviar-documento').click();
          cy.get('.mat-select-value').click();
-         cy.get('#mat-option-92 > .mat-option-text').click();
-        
-         cy.get('#mat-input-71').type('Teste INVESTIDOR PJ');
+         cy.contains('Positivo').click();
+         cy.get('#input-digite-anotacao').type('Teste INVESTIDOR PJ');
 
         ///////////////////Contatos//////////////////////////////
         cy.get('#item-menu-6').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Fernando Diniz');
-        cy.contains('Positivo').click();
-        cy.get('#mat-input-73').type('teste.teste@wba.com.br');
+        cy.get('#departamento-contato').type('teste.teste@wba.com.br');
+        cy.get('#email-contato').type('teste.teste@wba.com.br');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('22');
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('998754587');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();

@@ -7,11 +7,12 @@ class VisualizaPfAssinante {
     }
 
     preencherVisualizaPfAssinante(){
-        cy.get('#input-search').type('442.962.431-36');
-        cy.get("#bt-search").click(); 
-        cy.get('body').type('{esc}');
-        cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg > path").click();
-
+        cy.fixture('cpf/cpf_assinante').then((data) => {
+            cy.get('#input-search').type(data.cpfassinante);
+            cy.get("#bt-search").click(); 
+            cy.get('body').type('{esc}');
+            cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg > path").click();
+        });
     }
 
     visualizaConcluido() {

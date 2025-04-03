@@ -1,4 +1,4 @@
-Feature: Cadastro operação PF
+Feature: Cadastro operação PJ OUTROS
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Cadastro operação PF
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Cadastrar PF campos obrigatórios
+  Scenario: Cadastrar PJ OUTROS campos obrigatórios
     Given que o usuário está na página inicial
     When o usuário clica no menu cadastro outros pj
     And preencho todos os campos do cadastramento outros pj

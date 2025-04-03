@@ -7,10 +7,12 @@ class VisualizaPfOutros {
     }
 
     preencherVisualizaPfOutros(){
-        cy.get('#input-search').type('293.297.132-89');
-        cy.get("#bt-search").click(); 
-        cy.get('body').type('{esc}');
-        cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
+        cy.fixture('cpf/cpf_outros').then((data) => {
+            cy.get('#input-search').type(data.cpfoutros);
+            cy.get("#bt-search").click(); 
+            cy.get('body').type('{esc}');
+            cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
+        });
     }   
 
     visualizaConcluido() {

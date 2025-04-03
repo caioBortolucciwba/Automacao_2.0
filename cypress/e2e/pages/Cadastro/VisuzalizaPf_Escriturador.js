@@ -7,11 +7,13 @@ class VisualizaPfEscriturador {
     }
 
     preencherVisualizaPfEscriturador(){
-        cy.get('#input-search').type('072.973.360-25');
-        cy.get("#bt-search").click(); 
-        cy.get('body').type('{esc}');
-        cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
-    }   
+        cy.fixture('cpf/cpf_escriturador').then((data) => {
+            cy.get('#input-search').type(data.cpfescriturador);
+            cy.get("#bt-search").click(); 
+            cy.get('body').type('{esc}');
+            cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
+        });
+        }   
 
     visualizaConcluido() {
 

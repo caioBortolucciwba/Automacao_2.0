@@ -7,11 +7,13 @@ class VisualizaPfEmpresa {
     }
 
     preencherVisualizaPfEmpresa(){
-        cy.get('#input-search').type('935.677.201-04');
-        cy.get("#bt-search").click(); 
-        cy.get('body').type('{esc}');
-        cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
-    }   
+        cy.fixture('cpf/cpf_empresa').then((data) => {
+            cy.get('#input-search').type(data.cpfempresa);
+            cy.get("#bt-search").click(); 
+            cy.get('body').type('{esc}');
+            cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
+        });
+        }   
 
     visualizaConcluido() {
 
