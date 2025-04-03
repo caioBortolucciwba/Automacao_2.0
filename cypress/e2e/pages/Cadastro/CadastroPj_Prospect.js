@@ -110,9 +110,6 @@ class CadastroPJProspect {
         cy.get('#input-favorecido > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#btn-label-sim').click();
 
-        
-    
-
         //Assinantes\\
         cy.get('.nav > ul > #item-menu-4').click();
         cy.get('#btn-novo-assinante > .ng-star-inserted').click();
