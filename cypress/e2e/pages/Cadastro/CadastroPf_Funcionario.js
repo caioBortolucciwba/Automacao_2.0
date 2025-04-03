@@ -64,7 +64,7 @@ class CadastroPFFuncionario {
         cy.get('#mat-input-38').type('10102010');
         cy.get('#mat-input-39').type('2023');
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get('.fr > w-button > #btn-salvar').click(); 
        
         ////////////Conta Bancaria//////////////////////
         cy.get('.nav > ul > #item-menu-2').click();

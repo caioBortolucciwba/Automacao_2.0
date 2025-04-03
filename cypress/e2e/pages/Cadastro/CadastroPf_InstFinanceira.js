@@ -64,7 +64,7 @@ class CadastroPFInstFinanceira {
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf'); 
         cy.get('#mat-input-51').type('11112020');
         cy.get('#mat-input-52').type('2025');
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get('.fr > w-button > #btn-salvar').click(); 
         
     }
 

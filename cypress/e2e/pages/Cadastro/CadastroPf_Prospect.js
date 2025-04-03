@@ -63,7 +63,7 @@ class CadastroPFProspect {
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf'); 
         cy.get('#mat-input-38').type('10102010');
         cy.get('#mat-input-39').type('2023');
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get('.fr > w-button > #btn-salvar').click(); 
         /////////////PARAMETROS POR EMPRESA////////////////////
        // cy.get('.nav > ul > #item-menu-2').click();
        // cy.get('#btn-vincular-empresa > .ng-star-inserted').click();

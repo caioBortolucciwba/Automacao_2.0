@@ -31,7 +31,7 @@ When('o usuário clica no menu cadastro investidor', () => {
   cadastroPfInvestidor.entrarCadastroPf();
 });
 
-And('preencho todos os campos de cadastramento investidor', () => {
+And('preencho todos os campos do cadastramento investidor', () => {
   cadastroPfInvestidor.preencherCadastroPfInvestidor();
 });
 

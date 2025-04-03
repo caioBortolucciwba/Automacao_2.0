@@ -82,13 +82,13 @@ class CadastroPF {
         cy.get('#btn-novo-assinante').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
-        cy.contains('145-00.235').click();
+        cy.contains('1435').click();
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[label="Selecionar todos"] > .check-multiple').click();
+        cy.get('#mat-slide-toggle-3 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#mat-slide-toggle-4 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
-        cy.get('#mat-slide-toggle-7 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#btn-label-sim').click();
 
         
