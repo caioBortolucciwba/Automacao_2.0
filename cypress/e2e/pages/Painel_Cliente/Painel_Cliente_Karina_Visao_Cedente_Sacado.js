@@ -13,7 +13,7 @@ class PainelCliente {
         cy.get("#mat-input-2").type('Teste Karina CEDENTE');
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get("#bt-search").click();
         cy.get('#input-search').type('CEDENTE SACADO KARINA 123');
         cy.get("#bt-search").click();

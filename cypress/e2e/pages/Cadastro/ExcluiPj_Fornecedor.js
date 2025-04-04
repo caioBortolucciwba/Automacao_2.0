@@ -2,7 +2,7 @@
 class ExcluiPjFornecedor {
     ExcluiPjFornecedor(){
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get("#bt-search").click();
     }
 

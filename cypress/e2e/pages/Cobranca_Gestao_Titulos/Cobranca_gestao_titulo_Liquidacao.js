@@ -10,7 +10,7 @@ class MenuPage {
   }
 
     filtrarLancamentoTelaLiquidacao() {
-    cy.get('#item-menu-1 > span').click();
+    cy.get('#item-menu-1 ').click();
     cy.get('#btn-card-1 > .card-titulo-texto').click();
     cy.get('#bt-filtrar-titulos').click();
 
@@ -19,13 +19,14 @@ class MenuPage {
 
     cy.get('.menu-right-filtro').click();
     cy.get('#input-vencimento').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
     cy.get('#input-ate').click();
-    cy.get('.mat-calendar-previous-button').click();
-    cy.get('.mat-calendar-previous-button').click();
+    cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+    cy.get('[aria-label="2025"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="janeiro 2025"] > .mat-calendar-body-cell-content').click();
     cy.get('[aria-label="31 de janeiro de 2025"] > .mat-calendar-body-cell-content').click();
     cy.get('#mat-chip-list-1').click().type("06.911.774/0001-50");
     cy.get('.mat-option-text').click();

@@ -4,7 +4,7 @@ import { gerarCPF, gerarCNPJ, gerarRG } from '../../../support/utils';
 class CadastroPJProspect {
     entrarCadastroPj() {
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get('#bt-criar-novo').click();
         cy.get('#select-tipo-pessoa').click();
         cy.contains('li', 'PESSOA JURÍDICA').click();
@@ -109,9 +109,6 @@ class CadastroPJProspect {
         cy.get('#input-dv-conta > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0');
         cy.get('#input-favorecido > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#btn-label-sim').click();
-
-        
-    
 
         //Assinantes\\
         cy.get('.nav > ul > #item-menu-4').click();

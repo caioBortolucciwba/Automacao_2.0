@@ -1,7 +1,7 @@
 class emissaoSimples{
     acessandoInvestimento() {
         cy.get('#menu-lateral-INVESTIMENTOS').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
     }
 
     fazendoEmissao() {

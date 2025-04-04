@@ -14,7 +14,7 @@ class OperacionalBorderoCTEOS {
            .should('be.visible').click();
        cy.screenshot('menu_operacional'); // Captura o estado do menu operacional
        cy.wait(9000);
-       cy.get('#item-menu-1 > span').should('be.visible').click();
+       cy.get('#item-menu-1 ').should('be.visible').click();
        cy.get('#bt-bordero-operacao > .ng-star-inserted')
            .should('be.visible').click();
        cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex')

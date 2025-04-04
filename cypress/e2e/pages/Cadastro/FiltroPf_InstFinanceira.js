@@ -3,7 +3,7 @@ import { gerarCPF, gerarCNPf, gerarRG } from '../../../support/utils';
 class FiltroPfInstFinanceira{
     filtroPfInstFinanceira(){
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get("#btn-filtro > span").click();
     
     }
