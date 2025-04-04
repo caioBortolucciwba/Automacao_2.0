@@ -1,9 +1,8 @@
-// import {cnpjempresa} from '../../../fixtures/cpf/cnpj_empresa.json';
-// const cnpjbusca = cnpjempresa;
+
 class EditaPjEmpresa {
     EditaPjEmpresa(){
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get("#bt-search").click();
     }
 

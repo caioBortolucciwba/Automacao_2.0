@@ -1,4 +1,4 @@
-Feature: Cadastro operação PF
+Feature: Teste:Fazer cadastro operação PF fornecedor
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Cadastro operação PF
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Cadastrar PF campos obrigatórios
+  Scenario: Teste:Fazer cadastro operação PF fornecedor
     Given que o usuário está na página inicial
     When o usuário clica no menu cadastro fornecedor
     And preencho todos os campos do cadastramento fornecedor

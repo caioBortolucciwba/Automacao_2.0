@@ -5,7 +5,7 @@ class Renegociacao {
   
     validarCamposRenegociacao() {
       // Abertura e seleção de campos no menu Cobrança
-      cy.get('#item-menu-1 > span').click();
+      cy.get('#item-menu-1 ').click();
       cy.get('#btn-card-1 > .card-titulo-texto').click();
       cy.get('#bt-filtrar-titulos').click();
   
@@ -16,14 +16,14 @@ class Renegociacao {
       // Aplicação de filtros de data
       cy.get('.menu-right-filtro').click();
       cy.get('#input-vencimento').click();
-      cy.get('.mat-calendar-previous-button').click();
-      cy.get('.mat-calendar-previous-button').click();
-      cy.get('.mat-calendar-previous-button').click();
+      cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
       cy.get('[aria-label="1 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
       cy.get('#input-ate').click();
-      cy.get('.mat-calendar-previous-button').click();
-      cy.get('.mat-calendar-previous-button').click();
-      cy.get('.mat-calendar-previous-button').click();
+      cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+    cy.get('[aria-label="2024"] > .mat-calendar-body-cell-content').click();
+    cy.get('[aria-label="dezembro 2024"] > .mat-calendar-body-cell-content').click();
       cy.get('[aria-label="23 de dezembro de 2024"] > .mat-calendar-body-cell-content').click();
   
       // Confirmação dos filtros aplicados

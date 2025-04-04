@@ -43,7 +43,7 @@ class PainelCliente {
               cy.get('#mat-input-1').type('Wbaweb@1234');
               cy.get('.btn > .ng-star-inserted > span').click();
               cy.get('#menu-lateral-OPERACIONAL > .flex-column > .menu-click-js').click();
-              cy.get('#item-menu-1 > span').click();
+              cy.get('#item-menu-1 ').click();
               cy.contains('R$ 66.666.666,66');
               cy.contains('PORTAL');
               cy.contains('Novo');

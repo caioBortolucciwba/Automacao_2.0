@@ -3,7 +3,7 @@ import { gerarCPF, gerarCNPJ } from '../../../support/utils';
 class filtroBordero{
     acessarBordero() {
         cy.get('#menu-lateral-OPERACIONAL > .texto-menu').click();
-        cy.get('#item-menu-1 > span').click();    
+        cy.get('#item-menu-1 ').click();    
     }
 
     filtrarBorderoSimples(){

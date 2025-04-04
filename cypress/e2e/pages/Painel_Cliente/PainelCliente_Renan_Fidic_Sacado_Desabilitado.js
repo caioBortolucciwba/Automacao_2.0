@@ -14,7 +14,7 @@ class PainelCliente {
         cy.get('#mat-checkbox-2 > .mat-checkbox-layout').click();
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get("#bt-search").click();
         cy.get('#input-search').type('888.999.777-04');
         cy.get("#bt-search").click();

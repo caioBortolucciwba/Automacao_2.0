@@ -4,7 +4,7 @@ class MenuPage {
     }
   
     validarPendencias() {
-        cy.get('#item-menu-1 > span').click();
+        cy.get('#item-menu-1 ').click();
         cy.get('#btn-card-2 > .card-titulo-texto').click();
         cy.get('#bt-filtro-em-aberto > .ng-star-inserted').click();
         cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .mt20 > .wb-lg-12 > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
@@ -21,7 +21,7 @@ class MenuPage {
         cy.get('[aria-label="fevereiro 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="18 de fevereiro de 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .rodape-buttons > :nth-child(2)').click();
-        cy.get('.submenu__fechado > .iconSvg').click();
+        cy.get('#mat-tab-content-1-0 > div > div > conteudo-modal-pendencia > div > div.ng-star-inserted > conteudo-pendencia-debito > div > div.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button > fa-icon > svg').click();
         cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
         cy.get('.mega-menu > :nth-child(3)').click();
         cy.get('#select-tipo-pessoa > .mat-icon').click();
