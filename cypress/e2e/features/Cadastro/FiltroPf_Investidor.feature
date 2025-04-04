@@ -1,4 +1,4 @@
-Feature: Operação filtro PF Investidor
+Feature: Teste: Operação filtro PF INVESTIDOR
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação filtro PF Investidor
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Cadastrar PF campos obrigatórios
+  Scenario: Teste: Operação filtro PF INVESTIDOR
     Given que o usuário está na página inicial
     When o usuário clica no menu filtro pf investidor
     And preencho todos os campos do filtro pf investidor

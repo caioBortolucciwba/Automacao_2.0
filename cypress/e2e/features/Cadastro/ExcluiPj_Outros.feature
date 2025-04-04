@@ -1,4 +1,4 @@
-Feature: Operação exclui PJ outros
+Feature: Teste: Fazer operação exclui PJ OUTROS
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação exclui PJ outros
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Exclui PJ campos obrigatórios
+  Scenario: Teste: Fazer operação exclui PJ OUTROS
     Given que o usuário está na página inicial
     When o usuário clica no menu exclui pj outros
     And exclui o pj outros

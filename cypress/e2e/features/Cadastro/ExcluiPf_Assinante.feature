@@ -1,4 +1,4 @@
-Feature: Operação exclui PF assinante
+Feature: Teste: Fazer operação exclui PF ASSINANTE
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação exclui PF assinante
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Exclui PF campos obrigatórios
+  Scenario: Teste: Fazer operação exclui PF ASSINANTE
     Given que o usuário está na página inicial
     When o usuário clica no menu exclui pf assinante
     And exclui o pf assinante

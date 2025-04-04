@@ -1,4 +1,4 @@
-Feature: Operação pesquisa PF investidor
+Feature: Teste: Operação pesquisa PF INVESTIDOR
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,8 +6,8 @@ Feature: Operação pesquisa PF investidor
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Pesquisa PF Investidor campos obrigatórios
+  Scenario: Teste: Operação pesquisa PF INVESTIDOR
     Given que o usuário está na página inicial
-    When o usuário clica no menu cadastro investidor
-    And preencho todos os campos de cadastramento investidor
+    When o usuário clica no menu pesquisa pf investidor
+    And preencho todos os campos do pesquisa pf investidor
     Then tenho cadastramento concluido

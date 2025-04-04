@@ -10,7 +10,7 @@ class FiltroPfFuncionario{
 
     preencherFiltroPfFuncionario(){
         cy.fixture('cpf/cpf_funcionario').then((data) => {
-            cy.get('#mat-input-5').type(data.cpfuncionario);
+            cy.get('#mat-input-5').type(data.cpffuncionario);
             cy.get('#select-tipo-pessoa > .w-select > .w-select-input').click();
             cy.get("#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(5)").click();
             cy.get('#btn-filtrar > .ng-star-inserted').click();

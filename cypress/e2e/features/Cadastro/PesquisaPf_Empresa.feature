@@ -1,4 +1,4 @@
-Feature: Operação pesquisa PF empresa
+Feature: Teste: Operação pesquisa PF EMPRESA
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação pesquisa PF empresa
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Operação pesquisa PF empresa
+  Scenario: Teste: Operação pesquisa PF EMPRESA
     Given que o usuário está na página inicial
     When o usuário clica no menu pesquisa pf empresa
     And preencho todos os campos do pesquisa pf empresa

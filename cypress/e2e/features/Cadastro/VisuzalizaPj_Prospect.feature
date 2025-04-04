@@ -1,4 +1,4 @@
-Feature: Operação visualiza PJ Prospect
+Feature: Teste: Operação visualiza PJ PROSPECT
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação visualiza PJ Prospect
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Visualiza PJ campos obrigatórios
+  Scenario: Teste: Operação visualiza PJ PROSPECT
     Given que o usuário está na página inicial
     When o usuário clica no menu visualiza pj prospect
     And preencho todos os campos do visualiza pj prospect

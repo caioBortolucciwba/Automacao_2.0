@@ -1,4 +1,4 @@
-Feature: Operação visualiza PF outros
+Feature: Teste: Operação visualiza PF OUTROS
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação visualiza PF outros
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Visualiza PF campos obrigatórios
+  Scenario: Teste: Operação visualiza PF OUTROS
     Given que o usuário está na página inicial
     When o usuário clica no menu visualiza pf outros
     And preencho todos os campos do visualiza pf outros

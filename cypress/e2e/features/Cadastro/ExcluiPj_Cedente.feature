@@ -1,4 +1,4 @@
-Feature: Operação exclui PJ cedente
+Feature: Teste: Fazer operação exclui PJ CEDENTE
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação exclui PJ cedente
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Exclui PJ campos obrigatórios
+  Scenario: Teste: Fazer operação exclui PJ CEDENTE
     Given que o usuário está na página inicial
     When o usuário clica no menu exclui pj cedente
     And exclui o pj cedente
