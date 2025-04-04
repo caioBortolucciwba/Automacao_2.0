@@ -9,8 +9,9 @@ class EditaPfSacado {
     preencherEditaPfSacado(){
         cy.fixture('cpf/cpf_sacado').then((data) => {
             cy.get('#input-search').type(data.cpfsacado);
+            cy.get("#bt-search").click(); 
             cy.get('body').type('{esc}');
-            cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
+            cy.get('.actions > :nth-child(2)').click();
             cy.get('#mat-input-14').clear();
             cy.get('#mat-input-14').type('Teste EDITA Pf SACADO');
             cy.get('#bt-salvar > .ng-star-inserted').click();

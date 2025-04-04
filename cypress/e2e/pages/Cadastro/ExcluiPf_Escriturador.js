@@ -9,11 +9,10 @@ class ExcluiPfEscriturador{
     preencherExcluiPfEscriturador(){
         cy.fixture('cpf/cpf_escriturador').then((data) => {
             cy.get('#input-search').type(data.cpfescriturador);
+            cy.get("#bt-search").click();
             cy.get('body').type('{esc}');
-            cy.get(':nth-child(4) > .semBefore > [ng-reflect-ng-style="[object Object]"] > .actions > :nth-child(3)').click();
-            //cy.get('.actions > :nth-child(3) > .svg-inline--fa > path').click();
-            //cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(3)").click();
-         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+            cy.get('.actions > :nth-child(3)').click();
+            cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         });
     }
 
