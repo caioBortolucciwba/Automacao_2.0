@@ -63,19 +63,13 @@ export function gerarRG() {
   return base + digito;
 }
 
-export function geradorDeVencimentoValido(){
-  const vencimento = new Date(); // Gera a data de vencimento atual
+export function geradorDeVencimentoValido() {
+  const vencimento = new Date(); 
 
-  vencimento.setDate(vencimento.getDate()+30);  // acrescenta 30 dias a mais no vencimento atual
-  const dia = vencimento.getDate().toString();  // preenhe a variável com o dia
-  const mes = vencimento.toLocaleString('default', {month: 'long'}); // preenche a variável com o mês
-  const ano = vencimento.getFullYear().toString(); // preenche a variável ano com o ano
-  console.log("Dia:", dia);
-  console.log("Mês:", mes);
-  console.log("Ano:", ano);
-  //const dia1 = "19";    //Digitação manual - Substituir o dia no return
-  //const mes1 = "março"; //digitação manual - Substituir o mes no return
-  //const ano1 = "2025";  //digitação manual - Substituir o ano no return
+  vencimento.setDate(vencimento.getDate() + 30); 
+  const dia = vencimento.getDate().toString(); 
+  const mes = vencimento.toLocaleString('pt-BR', { month: 'long' });
+  const ano = vencimento.getFullYear().toString(); 
 
-  return `${dia} de ${mes} de ${ano}`;    
+  return `${dia} de ${mes} de ${ano}`; 
 }

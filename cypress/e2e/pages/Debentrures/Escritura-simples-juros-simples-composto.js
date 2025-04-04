@@ -52,6 +52,9 @@ class jurosSimples{
         cy.get('[aria-label="julho 2024"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="6 de julho de 2024"] > .mat-calendar-body-cell-content').click();
         cy.get('#input-data-registro-publico').click();
+        cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
+        cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
+        cy.get('[aria-label="março 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('[aria-label="6 de março de 2025"] > .mat-calendar-body-cell-content').click();
         cy.get('#mat-input-34').type('2323');
         cy.get('#mat-input-35').type('151515');
