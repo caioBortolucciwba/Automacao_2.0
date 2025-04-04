@@ -7,14 +7,16 @@ class EditaPfAssinante {
     }
 
     preencherEditaPfAssinante(){
-        cy.get('#input-search').type('965.755.970-76');
+        cy.fixture('cpf/cpf_assinante').then((data) => {
+        cy.get('#input-search').type(data.cpfassinante);
         cy.get("#bt-search").click(); 
         cy.get('body').type('{esc}');
-        cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
+        cy.get('.actions > :nth-child(2)').click();
         cy.get('#mat-input-15').clear();
         cy.get('#mat-input-15').type('Teste EDITA Pf ASSINANTE');
         cy.get('#bt-salvar > .ng-star-inserted').click();
         cy.contains('Sucesso').should('exist');
+        });
     }
     
     EditaConcluido() {

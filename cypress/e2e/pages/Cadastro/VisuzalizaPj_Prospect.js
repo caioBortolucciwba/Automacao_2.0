@@ -11,8 +11,7 @@ class VisualizaPjProspect {
             cy.get('#input-search').type(data.cnpjprospect);
             cy.get("#bt-search").click(); 
             cy.get('body').type('{esc}');
-            cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg").click();
-            //cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(1) > svg > path").click();
+            cy.get('.actions > :nth-child(1)').click();
         });
     }
 
