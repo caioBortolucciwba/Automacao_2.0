@@ -18,7 +18,7 @@ class emissaoSimples{
     }
 
     emissaLiberada() {
-        cy.get('#mat-input-54').type('2');
+        cy.get('#mat-input-5').type('2');
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-period-button > .mat-button-wrapper').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
@@ -33,7 +33,7 @@ class emissaoSimples{
         // cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
         // cy.get('#mat-option-34 > .mat-option-text').click();
         cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
+        cy.get(':nth-child(3) > w-button > #btn-label-sim').click();
     }
 }
 

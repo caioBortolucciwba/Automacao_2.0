@@ -94,10 +94,10 @@ class CadastroPF {
         cy.get('#input-email > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste@teste.com.br');
         cy.get('#btn-add-empresa > .fa').click();
         cy.get('.wb-lg-3.ng-star-inserted').click();
-        cy.contains('FIDC - KARINA TRUSTEE').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('body').type('{esc}');
         cy.get('.pt50 > :nth-child(2)').click();
-        cy.contains('TUDO LIBERADO').click();
+        cy.contains('Perfil fixo de cedente').click();
         cy.get('body').type('{esc}');
         cy.get('.ml30 > .btn').click();
         //cy.get('.ml30 > .btn > .ng-star-inserted').click();

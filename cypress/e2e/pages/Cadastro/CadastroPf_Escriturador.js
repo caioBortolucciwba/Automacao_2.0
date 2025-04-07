@@ -85,10 +85,11 @@ class CadastroPF {
         cy.contains('1435').click();
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[label="Selecionar todos"] > .check-multiple').click();
-        cy.get('#mat-slide-toggle-3 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
-        cy.get('#mat-slide-toggle-4 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
-        cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
-        cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('body').click();
+        cy.get('#input-avalista > .mat-slide-toggle-label').click();
+        cy.get('#input-representante > .mat-slide-toggle-label').click();
+        cy.get('#input-entidade-ligada > .mat-slide-toggle-label').click();
+        cy.get('#input-socio > .mat-slide-toggle-label').click();
         cy.get('#btn-label-sim').click();
 
         
