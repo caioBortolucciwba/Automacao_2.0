@@ -1,4 +1,4 @@
-Feature: Teste: Operação filtro PF CEDENTE
+Feature: Teste:Fazer cadastro operação PJ sacado
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,8 +6,8 @@ Feature: Teste: Operação filtro PF CEDENTE
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Teste: Operação filtro PF CEDENTE
+  Scenario: Teste:Fazer cadastro operação PJ sacado
     Given que o usuário está na página inicial
-    When o usuário clica no menu filtro pf cedente
-    And preencho todos os campos do filtro pf cedente
-    Then tenho o filtro concluido
+    When o usuário clica no menu cadastro sacado pj
+    And preencho todos os campos do cadastramento sacado pj
+    Then tenho cadastramento concluido

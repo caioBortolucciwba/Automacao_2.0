@@ -8,7 +8,7 @@ class CadastroPF {
         cy.get('#select-tipo-pessoa').click();
         cy.contains('li', 'PESSOA FÍSICA').click();
         cy.get('.mat-form-field-flex').click();
-        cy.get('#mat-option-14').click();
+        cy.contains('SACADO').click();
         cy.get('body').click(0, 0); 
         cy.get('#btn-salvar').click();
     }
@@ -16,27 +16,36 @@ class CadastroPF {
     preencherCadastroPf(){
         //////////////////CADASTRO//////////////////////
         const cpf = gerarCPF();
-        const cpfcedente = cpf;
-        cy.get('#mat-input-4').type(cpfcedente);
-        cy.writeFile('cypress/fixtures/cpf/cpf_cedente.json', {cpfcedente});
+        const cpfsacado = cpf;
+        cy.get('#mat-input-4').type(cpfsacado);
+        cy.writeFile('cypress/fixtures/cpf/cpf_cedente.json', {cpfsacado});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Abel Luiz Ferreira');
-        cy.get(':nth-child(5) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.get('#mat-option-25 > .mat-option-pseudo-checkbox').click();
-        cy.get('body').type('{esc}');
         cy.get('#mat-input-27').type('11');
         cy.get('#mat-input-28').type('978588899');
         cy.get('#bt-salvar').click();
         /////////////PARAMETROS GLOBAIS////////////////////
         cy.get('.nav > ul > #item-menu-2').click();
-        cy.get('#input-limite-global > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('5000000');
+        cy.get('#mat-slide-toggle-2 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-3 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#input-busca-grupo-empresarial').type('TESTE QA');
+        cy.contains('TESTE QA').click();
+        cy.get('#btn-salvar').click();
+        /////////////PARAMETROS POR EMPRESA////////////////////
+        cy.get('.nav > ul > #item-menu-3').click();
+        cy.get('#btn-vincular-empresa').click();
+        cy.get('#select-empresa-carteira').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
+        cy.get('#btn-avancar').click();
+        cy.get('.mat-select-value').click();
+        cy.contains('qwe1').click();
         cy.get('#btn-salvar').click();
         ////////////Conta Bancaria//////////////////////
-        cy.get('#item-menu-4').click();
+        cy.wait(40000);
+        cy.get('.nav > ul > #item-menu-4').click();
         cy.get('#btn-adicionar-conta').click();
         cy.get('.ng-invalid > .w-select > .w-select-input').click();
         cy.get('.ng-invalid > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
-       // cy.get('[ng-reflect-label="000 - Banco Athena."] > .label-option').click();
         cy.get('#input-agencia > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0258');
         cy.get('#input-conta-corrente > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('15789');
         cy.get('#input-dv-conta > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('0');
@@ -62,32 +71,15 @@ class CadastroPF {
         cy.get('#valor > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('12500000');
         cy.get('#descricao > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('apto');
         cy.get('.fr > w-button > .btn').click();
-        ////////////Contratos e Papeis/////////////////////
-        cy.get('#item-menu-8').click();
-        cy.get('#btn-emitir > .ng-star-inserted').click();
-        cy.get(':nth-child(1) > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
-        cy.get('.mat-option-text').click();
-        cy.get('.item-linha > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
-        cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
-        ////////////Integracao////////////////////////////////////
-        cy.get('#item-menu-11').click();
-        cy.get('.ui-g-4 > .ng-invalid > .w-select > .w-select-input').click();
-        cy.get(':nth-child(3) > .label-option').click();
-        //cy.get('[ng-reflect-label="Enviar para SINGULARE"] > .label-option').click();
-        cy.get('.ng-untouched > .w-select > .w-select-input').click();
-        cy.contains('FIDC - FINAXIS FIDC').click();
-        cy.get('#btn-enviar-cadastro > .ng-star-inserted').click();
-        cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         ///////////////////Contatos//////////////////////////////
-        cy.get('#item-menu-13').click();
+        cy.get('#item-menu-11').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#nome-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#celular-ddd-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('11');
         cy.get('#celular-numero-contato > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('978554879');
         cy.get('#btn-label-sim > .ng-star-inserted > span').click();
         //////////Painel Cliente/////////////
-        cy.get('#item-menu-14').click();
+        cy.get('#item-menu-12').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
         cy.get('#input-cpf > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type(cpf);
         cy.get('#input-nome > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
@@ -96,8 +88,8 @@ class CadastroPF {
         cy.get('.wb-lg-3.ng-star-inserted').click();
         cy.contains('FIDC - RENAN FIDC SAAA').click();
         cy.get('body').type('{esc}');
-        cy.get('.pt50 > :nth-child(2)').click();
-        cy.contains('tudo liberado').click();
+        cy.get('#select-perdil-sacado0 > .mat-select-trigger > .mat-select-value').click();
+        cy.contains('Tudo liberado sacado').click();
         cy.get('body').type('{esc}');
         cy.get('.ml30 > .btn').click();   
         
