@@ -1,4 +1,4 @@
-Feature: Operação visualiza PF fornecedor
+Feature: Teste: Operação visualiza PF FORNECEDOR
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação visualiza PF fornecedor
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Visualiza PF campos obrigatórios
+  Scenario: Teste: Operação visualiza PF FORNECEDOR
     Given que o usuário está na página inicial
     When o usuário clica no menu visualiza pf fornecedor
     And preencho todos os campos do visualiza pf fornecedor

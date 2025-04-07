@@ -1,4 +1,4 @@
-Feature: Operação filtro PJ Escriturador
+Feature: Teste: Operação filtro PJ ESCRITURADOR
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação filtro PJ Escriturador
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Cadastrar PF campos obrigatórios
+  Scenario: Teste: Operação filtro PJ ESCRITURADOR
     Given que o usuário está na página inicial
     When o usuário clica no menu filtro pj escriturador
     And preencho todos os campos do filtro pj escriturador

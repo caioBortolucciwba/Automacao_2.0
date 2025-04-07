@@ -1,4 +1,4 @@
-Feature: Operação visualiza PJ funcionario
+Feature: Teste: Operação visualiza PJ FUNCIONARIO
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação visualiza PJ funcionario
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Visualiza PJ campos obrigatórios
+  Scenario: Teste: Operação visualiza PJ FUNCIONARIO
     Given que o usuário está na página inicial
     When o usuário clica no menu visualiza pj funcionario
     And preencho todos os campos do visualiza pj funcionario

@@ -1,4 +1,4 @@
-Feature: Operação visualiza PJ escriturador
+Feature: Teste: Operação visualiza PJ ESCRITURADOR
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação visualiza PJ escriturador
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Visualiza PJ campos obrigatórios
+  Scenario: Teste: Operação visualiza PJ ESCRITURADOR
     Given que o usuário está na página inicial
     When o usuário clica no menu visualiza pj escriturador
     And preencho todos os campos do visualiza pj escriturador

@@ -1,4 +1,4 @@
-Feature: Cadastro operação PJ INVESTIDOR
+Feature: Teste: Fazer cadastro operação PJ INVESTIDOR
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Cadastro operação PJ INVESTIDOR
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Cadastrar PJ INVESTIDOR campos obrigatórios
+  Scenario: Teste: Fazer cadastro operação PJ INVESTIDOR
     Given que o usuário está na página inicial
     When o usuário clica no menu cadastro investidor pj
     And preencho todos os campos do cadastramento investidor pj

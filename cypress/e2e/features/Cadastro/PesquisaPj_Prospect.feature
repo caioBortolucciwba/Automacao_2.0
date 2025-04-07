@@ -1,4 +1,4 @@
-Feature: Operação pesquisa PJ prospect
+Feature: Teste: Operação pesquisa PJ PROSPECT
 
   Background: Usuário realiza login no sistema
     Given que o usuário acessa a página de login
@@ -6,7 +6,7 @@ Feature: Operação pesquisa PJ prospect
     And clica no botão de login
     Then o usuário é redirecionado para a página inicial
 
-  Scenario: Pesquisa PJ campos obrigatórios
+  Scenario: Teste: Operação pesquisa PJ PROSPECT
     Given que o usuário está na página inicial
     When o usuário clica no menu pesquisa pj prospect
     And preencho todos os campos do pesquisa pj prospect
