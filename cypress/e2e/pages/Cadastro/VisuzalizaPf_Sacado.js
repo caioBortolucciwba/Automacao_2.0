@@ -11,7 +11,7 @@ class VisualizaPfSacado {
             cy.get('#input-search').type(data.cpfsacado);
             cy.get("#bt-search").click(); 
             cy.get('body').type('{esc}');
-            cy.get('#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(3) > svg').click();
+            cy.get(':nth-child(1) > .semBefore > [ng-reflect-ng-style="[object Object]"] > .actions > :nth-child(1) > .svg-inline--fa').click();
         });
         }   
 

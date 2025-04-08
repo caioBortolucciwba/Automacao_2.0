@@ -18,7 +18,7 @@ class CadastroPF {
         const cpf = gerarCPF();
         const cpfsacado = cpf;
         cy.get('#mat-input-4').type(cpfsacado);
-        cy.writeFile('cypress/fixtures/cpf/cpf_cedente.json', {cpfsacado});
+        cy.writeFile('cypress/fixtures/cpf/cpf_sacado.json', {cpfsacado});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Abel Luiz Ferreira');
         cy.get('#mat-input-27').type('11');

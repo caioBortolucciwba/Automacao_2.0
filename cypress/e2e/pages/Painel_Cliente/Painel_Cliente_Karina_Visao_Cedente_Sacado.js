@@ -6,40 +6,38 @@ class PainelCliente {
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
         cy.get('.link-configuracoes > .icon').click();
-        cy.contains('KARINA').click();
+        cy.get('#card-menu-1').click();
+        //cy.contains('KARINA').click();
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_CEDENTE').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-        cy.get("#mat-input-2").type('Teste Karina CEDENTE');
+        cy.get("#mat-input-2").type('CEDENTE SACADO QA NAO APAGA');
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1 ').click();
         cy.get("#bt-search").click();
-        cy.get('#input-search').type('CEDENTE SACADO KARINA 123');
+        cy.get('#input-search').type('QA HADOUKEN');
         cy.get("#bt-search").click();
         cy.get('body').type('{esc}');
         cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
         cy.get('#item-menu-14').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
-        cy.get("#mat-input-32").click();
-        cy.get('#mat-input-32').type(cpf);
+        cy.get('#input-cpf').click();
+        cy.get('#input-cpf').type(cpf);
         cy.writeFile('cypress/fixtures/cpf.json', { cpf: cpfsemformatacao });
-        cy.get('#mat-input-33').click().type('Teste Karina CEDENTE & SACADO Painel');
-        cy.get('#mat-input-34').click().type('daniel.souza@wba.com.br');
+        cy.get('#input-nome').click().type('Teste Karina CEDENTE & SACADO Painel');
+        cy.get('#input-email').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa > :nth-child(2)').click();
         cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
         cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-59 > .mat-option-text').click();
+        cy.get('#mat-option-93').click();
         cy.get('#mat-tab-label-1-1 > .mat-tab-label-content').click();
-        
         //cy.get('body').type('{esc}');
         cy.get('#btn-add-empresa', { timeout: 100000 }).should('be.visible');
         cy.get('#btn-add-empresa').click();
-        
-        
         cy.get('#select-empresa-sacado0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-62 > .mat-option-text').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#select-perdil-sacado0 > .mat-select-trigger > .mat-select-value').click();
         cy.get('.mat-option-text').click();
         //cy.get('#mat-option-76 > .mat-option-text').click();

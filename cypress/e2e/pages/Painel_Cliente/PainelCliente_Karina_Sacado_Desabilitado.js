@@ -6,11 +6,12 @@ class PainelCliente {
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
         cy.get('.link-configuracoes > .icon').click();
-        cy.contains('KARINA').click();
+        //cy.contains('KARINA').click();
+        cy.get('#card-menu-1').click();
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_SACADO').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-        cy.get("#mat-input-2").type('Teste Karina Sacado DESABILITADO');
+        cy.get("#mat-input-2").type('DESABILITADO Sacado DESABILITADO');
         cy.get('#mat-checkbox-2 > .mat-checkbox-layout').click();
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
@@ -32,9 +33,11 @@ class PainelCliente {
         cy.get('#mat-input-35').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa').click();
         cy.get('#select-empresa-sacado0 > .mat-select-trigger > .mat-select-value').click();
-        cy.contains('PROPRIA - KARINA FACTORING').click();
+        cy.contains('FIDC - RENAN FIDC SAAA').click();
+        cy.get('body').type('{esc}');
         cy.get('#select-perdil-sacado0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-86 > .mat-option-text').click();
+        //cy.wait(50000);
+        cy.get('#mat-option-118 > .mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
 
         cy.contains('Usuário criado com sucesso!').should('be.visible');
