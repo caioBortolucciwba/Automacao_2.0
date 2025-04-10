@@ -197,15 +197,16 @@ class CadastroPJCedente {
         //////////Painel Cliente/////////////
         cy.get('#item-menu-14').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
-        //cy.get('#input-cpf > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type(cpf);
+        const cpf = gerarCPF();
+        cy.get('#input-cpf').type(cpf);
         cy.get('#input-nome > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#input-email > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste@teste.com.br');
         cy.get('#btn-add-empresa > .fa').click();
         cy.get('.wb-lg-3.ng-star-inserted').click();
         cy.contains('FIDC - RENAN FIDC SAAA').click();
         cy.get('body').type('{esc}');
-        cy.get('#select-perdil-sacado0 > .mat-select-trigger > .mat-select-value').click();
-        cy.contains('Tudo liberado sacado').click();
+        cy.get('#select-perdil-cedente0').click();
+        cy.get('#mat-option-231 > .mat-option-text').click();
         cy.get('body').type('{esc}');
         cy.get('.ml30 > .btn').click();   
         

@@ -15,7 +15,7 @@ class formulasRem {
         cy.get('#card-menu-10 > .card-icon').click();
         cy.get('#FORMULAS_REMUNERACAO').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
-        cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('CDI Aut');
+        cy.get('#nome-formula > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('CDI Autamação');
         cy.get('#remuneracao-cdi > .mat-slide-toggle-label').click();
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.contains('252 dias').click();
@@ -25,7 +25,7 @@ class formulasRem {
     criandoEscritura() {
         cy.get('#ESCRITURACAO').click();
         cy.get('.btn > .ng-star-inserted').click();
-        cy.get('#input-nome-escritutacao').type('Escritura Simples CDI');
+        cy.get('#input-nome-escritutacao').type('Escritura Simples CDI Aut');
         cy.get('#mat-input-30').type('1000000');
         cy.get('#mat-input-31').type('100000000000');
         cy.get(':nth-child(1) > .mat-autocomplete > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-suffix > .mat-datepicker-toggle > .mat-icon-button').click();
@@ -63,7 +63,7 @@ class formulasRem {
     }
 
     finalizandoEscritura() {
-        cy.get(':nth-child(3) > w-button > #btn-label-sim > .ng-star-inserted').click();
+        cy.get('#03').click();
         cy.get('#mat-input-56').type('Documento teste');
         cy.get('#mat-input-57').type('Arquivo teste');
         cy.get('.input > w-button.ng-star-inserted > .btn > .ng-star-inserted').should('be.visible').click();

@@ -2,7 +2,7 @@
 import {gerarNumeroAleatorio} from '../../../support/utils'
 import LoginPage from '../../pages/LoginPage';
 const loginPage = new LoginPage();
-let baseUrlUtilizada = loginPage.urlBaseUtilizada();
+// let baseUrlUtilizada = loginPage.urlBaseUtilizada();
 
 class OperacionalBorderoCTEOS {
     acessarBordero() {

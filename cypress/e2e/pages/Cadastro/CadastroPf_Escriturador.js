@@ -85,11 +85,10 @@ class CadastroPF {
         cy.contains('1435').click();
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[label="Selecionar todos"] > .check-multiple').click();
-        cy.get('body').click();
-        cy.get('#input-avalista > .mat-slide-toggle-label').click();
-        cy.get('#input-representante > .mat-slide-toggle-label').click();
-        cy.get('#input-entidade-ligada > .mat-slide-toggle-label').click();
-        cy.get('#input-socio > .mat-slide-toggle-label').click();
+        cy.get('#mat-slide-toggle-3 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-4 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-5 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
+        cy.get('#mat-slide-toggle-6 > .mat-slide-toggle-label > .mat-slide-toggle-bar').click();
         cy.get('#btn-label-sim').click();
 
         
@@ -121,7 +120,7 @@ class CadastroPF {
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-122').type('Conta de celular');
+        cy.get('#input-descricao').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('.fr > w-button > .btn').click(); 

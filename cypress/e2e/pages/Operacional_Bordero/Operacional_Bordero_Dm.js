@@ -3,7 +3,7 @@ import { geradorDeVencimentoValido } from '../../../support/utils';
 import { gerarNumeroAleatorio } from '../../../support/utils'
 import LoginPage from '../../pages/LoginPage';
 const loginPage = new LoginPage();
-let baseUrlUtilizada = loginPage.urlBaseUtilizada();
+// let baseUrlUtilizada = loginPage.urlBaseUtilizada();
 
 
 class OperacionalBordero {
@@ -109,7 +109,7 @@ class OperacionalBordero {
           .click();
         
         // // Aguarde um pouco para garantir que a requisição tenha chance de ser feita
-        // cy.wait(1000); // Aguarda 1 segundo antes de esperar pela requisição
+         cy.wait(9000); // Aguarda 1 segundo antes de esperar pela requisição
         
         // // Aguarda a requisição interceptada
         // cy.wait('@endPointTitulosGrig', { timeout: 10000 }).then((interception) => {
@@ -143,10 +143,10 @@ class OperacionalBordero {
             .click();
         // cy.intercept('POST', `${baseUrlUtilizada}-api.wba.com.br:30082/api/v1/private/flow/calcular/operacao`).as('endPointRecalculo');
 
-        // cy.get('#bt-recalcular')
-        //     .should('be.visible')
-        //     .should('be.enabled')
-        //     .click();
+        cy.get('#bt-recalcular')
+            .should('be.visible')
+            .should('be.enabled')
+            .click();
         cy.contains('Operação calculada com sucesso!').should('be.visible');
         cy.screenshot('Recalculo_Funcionado_Com_Sucesso_Step2');
 
