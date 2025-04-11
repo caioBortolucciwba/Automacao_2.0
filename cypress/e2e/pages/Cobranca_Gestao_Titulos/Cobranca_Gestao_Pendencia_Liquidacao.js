@@ -4,7 +4,7 @@ class MenuPage {
     }
   
     validarPendencias() {
-        cy.get('#item-menu-1 ').click();
+        cy.get('#item-menu-1').click();
         cy.get('#btn-card-2 > .card-titulo-texto').click();
         cy.get('#bt-filtro-em-aberto > .ng-star-inserted').click();
         cy.get('form-filtro-gestao-pendencias-aberto > .main-ctn-filter > .mat-typography > .content-ctn > .content-form > .mt20 > .wb-lg-12 > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();

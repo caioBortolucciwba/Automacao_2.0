@@ -14,6 +14,7 @@ module.exports = defineConfig({
     defaultCommandTimeout: 50000,
     viewportWidth: 1380,
     viewportHeight: 720,
+    chromeWebSecurity: false,
     baseUrl: "https://dnew.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979",
     specPattern: "cypress/e2e/features/**",
     setupNodeEvents(on, config) {

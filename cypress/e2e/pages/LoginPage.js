@@ -2,7 +2,7 @@ let urlBase = "https://dnew";  // ALTERAR PARA BASE URL QUE DESEJA UTILIZAR.
 
 class LoginPage {
   visit() {
-    cy.visit(`${urlBase}.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979`);
+    cy.visit(`https://dnew.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979`);
   }
 
  urlBaseUtilizada(){
