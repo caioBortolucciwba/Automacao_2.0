@@ -1,7 +1,7 @@
 class filtro{
     acessarFiltro() {
         cy.get('#menu-lateral-INVESTIMENTOS').click();
-        cy.get('#item-menu-1 ').click();
+        cy.get('#item-menu-1').click();
         cy.get('#btn-filtro').click();
         cy.get('#select-empresa > .w-select > .w-select-input').click();
         cy.contains('PROPRIA - Securitizadora Matheus').click();

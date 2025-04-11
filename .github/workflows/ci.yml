@@ -41,8 +41,8 @@ jobs:
       - name: Verificar instalação do Cypress
         run: npx cypress verify
 
-      - name: Rodar testes do Cypress (headless) com Mochawesome
-        run: npx cypress run --headless --reporter mochawesome --spec 'cypress/e2e/features/**/*.feature'
+      - name: Rodar testes do Cypress (headless) no Chrome com Mochawesome
+        run: npx cypress run --headless --browser chrome --reporter mochawesome --spec 'cypress/e2e/features/**/*.feature'
 
       - name: Verificar relatório JSON gerado
         run: ls -lh cypress/reports/ || echo "Relatório não encontrado!"

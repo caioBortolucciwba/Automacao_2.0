@@ -14,7 +14,7 @@ class PainelCliente {
         cy.get("#mat-input-2").type('CEDENTE SACADO QA NAO APAGA');
         cy.get('#btn-salvar > .ng-star-inserted').click();
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 ').click();
+        cy.get('#item-menu-1').click();
         cy.get("#bt-search").click();
         cy.get('#input-search').type('QA HADOUKEN');
         cy.get("#bt-search").click();

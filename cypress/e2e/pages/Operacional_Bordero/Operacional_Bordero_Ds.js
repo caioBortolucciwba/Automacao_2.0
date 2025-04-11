@@ -9,6 +9,29 @@ class OperacionalBorderoDS {
         cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('47');
         cy.get('#mat-option-17 > .mat-option-text').click();
         cy.get('#btn-avancar').click();
+
+      //Acessa o borderô e Escolhe Cedente - Tela Inicial da operação
+
+      cy.log('Acessando a seção de Borderô');
+      cy.wait(9000);
+      cy.get('#menu-lateral-OPERACIONAL > .texto-menu')
+          .should('be.visible').click();
+      cy.screenshot('menu_operacional'); // Captura o estado do menu operacional
+      cy.wait(9000);
+      cy.get('#item-menu-1').should('be.visible').click();
+      cy.get('#bt-bordero-operacao > .ng-star-inserted')
+          .should('be.visible').click();
+      cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex')
+          .should('be.visible')
+          .type('47');
+      cy.get('#mat-option-17 > .mat-option-text')
+          .should('be.visible').click();
+      cy.get('#btn-avancar > .ng-star-inserted > span')
+          .should('be.visible').click();
+      cy.wait(9000);
+      //cy.screenshot('bordero_acessado'); // Captura após acessar a página de borderô  cy.get('#menu-lateral-OPERACIONAL > .texto-menu').click();
+       
+
     }
     digitandotituloDsManualmente() {
         cy.get('.mega-menu > :nth-child(2)').click();

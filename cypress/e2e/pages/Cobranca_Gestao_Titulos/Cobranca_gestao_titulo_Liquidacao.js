@@ -10,7 +10,7 @@ class MenuPage {
   }
 
     filtrarLancamentoTelaLiquidacao() {
-    cy.get('#item-menu-1 ').click();
+    cy.get('#item-menu-1').click();
     cy.get('#btn-card-1 > .card-titulo-texto').click();
     cy.get('#bt-filtrar-titulos').click();
 

@@ -3,7 +3,7 @@ import { gerarCPF, gerarCNPJ, gerarRG } from '../../../support/utils';
 class FiltroPjSacado {
     filtroPjSacado(){
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
-        cy.get('#item-menu-1 ').click();
+        cy.get('#item-menu-1').click();
         cy.get("#btn-filtro > span").click();
     
     }
