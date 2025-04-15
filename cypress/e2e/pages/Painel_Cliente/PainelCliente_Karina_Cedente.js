@@ -35,7 +35,9 @@ class PainelCliente {
         cy.get('body').type('{esc}');
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
         //cy.get('.mat-option-text').click();
-        cy.get('#mat-option-86 > .mat-option-text').click();
+        cy.get('#mat-option-94 > .mat-option-text').click();
+        // cy.contains('Teste Karina CEDENTE').eq(2).click();
+        // cy.contains('Teste Karina CEDENTE').type('{enter}');
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         cy.contains('Usuário criado com sucesso!').should('be.visible');
     }
