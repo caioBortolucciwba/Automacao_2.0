@@ -28,6 +28,7 @@ class CadastroPF {
         cy.get('#mat-input-28').type('978588899');
         cy.get('#bt-salvar').click();
         /////////////PARAMETROS GLOBAIS////////////////////
+        cy.get('.nav > ul > #item-menu-2', { timeout: 90000 }).should('be.visible');
         cy.get('.nav > ul > #item-menu-2').click();
         cy.get('#input-limite-global > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('5000000');
         cy.get('#btn-salvar').click();

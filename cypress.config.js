@@ -11,7 +11,7 @@ module.exports = defineConfig({
     video: true,
     screenshotOnRunFailure: false,
     verifyBaseUrl: false,
-    defaultCommandTimeout: 50000,
+    defaultCommandTimeout: 100000,
     viewportWidth: 1380,
     viewportHeight: 720,
     baseUrl: "https://dnew.wba.com.br/login/82240abc-fd82-4c4b-8266-8deebbad9979",

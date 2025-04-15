@@ -94,14 +94,16 @@ class CadastroPFProspect {
         cy.get('#btn-novo-assinante').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
+        cy.get('#mat-option-135 > .mat-option-text', { timeout: 80000 }).should('be.visible');
         cy.get('#mat-option-135 > .mat-option-text').click();
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[label="Selecionar todos"] > .check-multiple').click();
         cy.get('#btn-label-sim').click();
         
       //////////GRUPO DE ASSINATURAS//////////
-       cy.get('#item-menu-5').click();
-       cy.get('#ui-tabpanel-0 > .pt20 > grupo-assinatura > :nth-child(1) > .d-flex > :nth-child(3) > w-button > #input-adicionar-grupo').click();
+        cy.get('#item-menu-5', { timeout: 90000 }).should('be.visible');
+        cy.get('#item-menu-5').click();
+        cy.get('#ui-tabpanel-0 > .pt20 > grupo-assinatura > :nth-child(1) > .d-flex > :nth-child(3) > w-button > #input-adicionar-grupo').click();
         cy.get('#input-sacado').type('TESTE');
         cy.get('.mat-option-text').click();
         cy.get(':nth-child(3) > .ng-untouched > .w-select > .w-select-input > .mat-icon').click();

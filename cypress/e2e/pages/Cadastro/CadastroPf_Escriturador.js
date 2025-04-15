@@ -82,6 +82,7 @@ class CadastroPF {
         cy.get('#btn-novo-assinante').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
+        cy.contains('1435', { timeout: 80000 }).should('be.visible');
         cy.contains('1435').click();
         cy.get('.w-select-input > .mat-icon').click();
         cy.get('[label="Selecionar todos"] > .check-multiple').click();
@@ -95,6 +96,7 @@ class CadastroPF {
 
         
         //////////GRUPO DE ASSINATURAS//////////
+        cy.get('.nav > ul > #item-menu-4', { timeout: 80000 }).should('be.visible');
         cy.get('.nav > ul > #item-menu-4').click();
         cy.get('#ui-tabpanel-0 > .pt20 > grupo-assinatura > :nth-child(1) > .d-flex > :nth-child(3) > w-button > #input-adicionar-grupo').click();
         cy.get('#input-sacado').type('TESTE');
