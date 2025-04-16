@@ -38,11 +38,12 @@ class CadastroPF {
         cy.contains('FIDC - FINAXIS FIDC').click();
         cy.get('#btn-avancar').click();
         cy.get('.mat-select-value').click();
+        //cy.get('.mat-select-arrow').click();
         cy.contains('qwe1').click();
         cy.get('#btn-salvar').click();
         ////////////Conta Bancaria//////////////////////
         cy.wait(40000);
-        cy.get('.nav > ul > #item-menu-4').click();
+        cy.get('#item-menu-4').click();
         cy.get('#btn-adicionar-conta').click();
         cy.get('.ng-invalid > .w-select > .w-select-input').click();
         cy.get('.ng-invalid > .w-select > .overlay > .w-select-list > :nth-child(3) > .label-option').click();
@@ -52,13 +53,12 @@ class CadastroPF {
         cy.get('#input-favorecido > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
         cy.get('#btn-label-sim').click();
         ///////Assinante//////////////////
+        cy.get('#item-menu-5', { timeout: 90000 }).should('be.visible');
         cy.get('#item-menu-5').click();
         cy.get('#btn-novo-assinante').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('1876 - 00.839.402/0001-84 - LABELLI CONFECCOES LTDA ');
-        //cy.get('#select-usuarios-erp').click();
         cy.get('.w-select-input > .mat-icon').click();
-        //cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
         cy.get('#input-razao-social > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Labelli');
         cy.get('#btn-label-sim').click();
         cy.get('.guarda-botao-voltar').click();

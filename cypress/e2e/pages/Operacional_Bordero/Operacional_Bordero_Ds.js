@@ -24,7 +24,7 @@ class OperacionalBorderoDS {
       cy.get('.w-select > .mat-form-field-wrapper > .mat-form-field-flex')
           .should('be.visible')
           .type('47');
-      cy.get('#mat-option-17 > .mat-option-text')
+      cy.get('#mat-option-18')
           .should('be.visible').click();
       cy.get('#btn-avancar > .ng-star-inserted > span')
           .should('be.visible').click();
