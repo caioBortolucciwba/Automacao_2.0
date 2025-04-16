@@ -4,12 +4,12 @@ let ValorDespesa = 14;
 
 class MenuPage {
 
-  criarTituloPrazoMaior30Dias(){
-    
+  criarTituloPrazoMaior30Dias() {
+
     cy.get('#menu-lateral-COBRANCA > .texto-menu').click();// Paliativo, necessário criar o título >30 dias.
   }
 
-    filtrarLancamentoTelaLiquidacao() {
+  filtrarLancamentoTelaLiquidacao() {
     cy.get('#item-menu-1').click();
     cy.get('#btn-card-1 > .card-titulo-texto').click();
     cy.get('#bt-filtrar-titulos').click();
@@ -35,9 +35,9 @@ class MenuPage {
     cy.get('#mat-tab-content-1-0 > div > conteudo-titulos-abertos > div.pb100.ng-star-inserted > div:nth-child(1) > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button').click();
     cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click();
     cy.get(':nth-child(7) > #item-6').click();
-    }
+  }
 
-    PreencherDadosObrigatorios(){
+  PreencherDadosObrigatorios() {
 
     cy.get('#select-tipo-pessoa > .w-select > .w-select-input > .mat-icon').click();
     cy.get('#select-tipo-pessoa > div > div.overlay > div > wba-option:nth-child(3) > span').click();
@@ -96,112 +96,112 @@ class MenuPage {
 
     cy.wait(10000);
 
-  cy.get('[data-label="Valor Pago"]').invoke('text').then((documentoText) => {
+    cy.get('[data-label="Valor Pago"]').invoke('text').then((documentoText) => {
       const numeroDocumento = documentoText.replace(/[^\d,]/g, '').replace(',', '.') || 0;
       console.log("documento : ", numeroDocumento)
 
-    cy.get('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {
-      const valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+      cy.get('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {
+        const valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-      cy.get('[data-label="Multa"]').invoke('text').then((multaText) => {
-        const multa = parseFloat(multaText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+        cy.get('[data-label="Multa"]').invoke('text').then((multaText) => {
+          const multa = parseFloat(multaText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-        cy.get('[data-label="Juros de mora"]').invoke('text').then((jurosText) => {
-          const juros = parseFloat(jurosText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+          cy.get('[data-label="Juros de mora"]').invoke('text').then((jurosText) => {
+            const juros = parseFloat(jurosText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-          cy.get('[data-label="Prazo"]').invoke('text').then((prazoText) => {
-            const prazo = parseInt(prazoText) || 0;
-            const prazoPositivo = Math.abs(prazo);
+            cy.get('[data-label="Prazo"]').invoke('text').then((prazoText) => {
+              const prazo = parseInt(prazoText) || 0;
+              const prazoPositivo = Math.abs(prazo);
 
-            cy.get('[data-label="Despesas"]').invoke('text').then((despesasText) => {
-              const despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+              cy.get('[data-label="Despesas"]').invoke('text').then((despesasText) => {
+                const despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-              cy.get('[data-label="Valor Atualizado"]').invoke('text').then((valorAtualizadoText) => {
-                const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+                cy.get('[data-label="Valor Atualizado"]').invoke('text').then((valorAtualizadoText) => {
+                  const valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
 
-                // VALIDA JUROS RETORNADA NO ENDPOINT LIQUIDACAO
-                const calculoCorretoJuros = valorPago *((porcentagemJuros/100+1)**(prazoPositivo/30)-1);
-                const calculoCorretoJurosFormatado = calculoCorretoJuros.toFixed(2);
-                const ResultadoCalculoJurosCorreto = parseFloat(calculoCorretoJurosFormatado);
-                console.log("Calculo de juros gerado pelo Sistema:", juros)
-                console.log("Calculo de juros gerado pela automação: ", ResultadoCalculoJurosCorreto)
+                  // VALIDA JUROS RETORNADA NO ENDPOINT LIQUIDACAO
+                  const calculoCorretoJuros = valorPago * ((porcentagemJuros / 100 + 1) ** (prazoPositivo / 30) - 1);
+                  const calculoCorretoJurosFormatado = calculoCorretoJuros.toFixed(2);
+                  const ResultadoCalculoJurosCorreto = parseFloat(calculoCorretoJurosFormatado);
+                  console.log("Calculo de juros gerado pelo Sistema:", juros)
+                  console.log("Calculo de juros gerado pela automação: ", ResultadoCalculoJurosCorreto)
 
-                if(juros == ResultadoCalculoJurosCorreto ){
+                  if (juros == ResultadoCalculoJurosCorreto) {
 
-                  assert.isTrue(true, 'Cálculo do Juros retornado pelo backend está correto');  
-                    } else {
-                        assert.isTrue(false, 'Cálculo do Juros retornado pelo backend está incorreto');
-                    };
+                    assert.isTrue(true, 'Cálculo do Juros retornado pelo backend está correto');
+                  } else {
+                    assert.isTrue(false, 'Cálculo do Juros retornado pelo backend está incorreto');
+                  };
 
-                // VALIDA MULTA RETORNADA NO ENDPOINT LIQUIDACAO
-                const calculoCorretoMulta =  (porcentagemMulta/100)* valorPago ;
-                const calculoCorretoMultaFormatado = calculoCorretoMulta.toFixed(2);
-                const ResultadoCalculoMultaCorreto = parseFloat(calculoCorretoMultaFormatado);
-                console.log("Calculo de Multa gerado pelo Sistema: ", multa);
-                console.log("Calculo de Multa gerado pela automação ", ResultadoCalculoMultaCorreto);
-                
-                if(multa == ResultadoCalculoMultaCorreto ){
+                  // VALIDA MULTA RETORNADA NO ENDPOINT LIQUIDACAO
+                  const calculoCorretoMulta = (porcentagemMulta / 100) * valorPago;
+                  const calculoCorretoMultaFormatado = calculoCorretoMulta.toFixed(2);
+                  const ResultadoCalculoMultaCorreto = parseFloat(calculoCorretoMultaFormatado);
+                  console.log("Calculo de Multa gerado pelo Sistema: ", multa);
+                  console.log("Calculo de Multa gerado pela automação ", ResultadoCalculoMultaCorreto);
 
-                  assert.isTrue(true, 'Cálculo da Multa retornado pelo backend está correto');  
-                    } else {
-                        assert.isTrue(false, 'Cálculo da Multa retornado pelo backend está incorreto');
-                    };
+                  if (multa == ResultadoCalculoMultaCorreto) {
 
-                 // VALIDA DESPESA RETORNADA NO ENDPOINT LIQUIDACAO
-                 if(despesas == ValorDespesa ){
+                    assert.isTrue(true, 'Cálculo da Multa retornado pelo backend está correto');
+                  } else {
+                    assert.isTrue(false, 'Cálculo da Multa retornado pelo backend está incorreto');
+                  };
 
-                  assert.isTrue(true, 'Cálculo da Despesa retornado pelo backend está correto');  
-                    } else {
-                        assert.isTrue(false, 'Cálculo da Despesa retornado pelo backend está incorreto');
-                    };
-                
+                  // VALIDA DESPESA RETORNADA NO ENDPOINT LIQUIDACAO
+                  if (despesas == ValorDespesa) {
+
+                    assert.isTrue(true, 'Cálculo da Despesa retornado pelo backend está correto');
+                  } else {
+                    assert.isTrue(false, 'Cálculo da Despesa retornado pelo backend está incorreto');
+                  };
+
                   //VALIDAÇÃO VALOR ATUALIZADO
 
-                let multaCalculada = multa;
-                let jurosCalculado = prazoPositivo > 30 ? juros : juros * (prazoPositivo / 30);
-                console.log("juros calculado caio : jurosCalculado",jurosCalculado);
-                let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
+                  let multaCalculada = multa;
+                  let jurosCalculado = prazoPositivo > 30 ? juros : juros * (prazoPositivo / 30);
+                  console.log("juros calculado caio : jurosCalculado", jurosCalculado);
+                  let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
 
-                valorCalculado = Math.round((valorCalculado + Number.EPSILON) * 100) / 100;
-                const valorAtualizadoArredondado = Math.round((valorAtualizado + Number.EPSILON) * 100) / 100;
+                  valorCalculado = Math.round((valorCalculado + Number.EPSILON) * 100) / 100;
+                  const valorAtualizadoArredondado = Math.round((valorAtualizado + Number.EPSILON) * 100) / 100;
 
-                // Logs para depuração
-                cy.log(`Valor Pago: ${valorPago}`);
-                cy.log(`Multa: ${multa} | Multa Calculada: ${multaCalculada}`);
-                cy.log(`Juros: ${juros} | Juros Calculados: ${jurosCalculado}`);
-                cy.log(`Prazo: ${prazoPositivo}`);
-                cy.log(`Despesas: ${despesas}`);
-                cy.log(`Valor Atualizado no Sistema: ${valorAtualizadoArredondado}`);
-                cy.log(`Valor Calculado: ${valorCalculado}`);
+                  // Logs para depuração
+                  cy.log(`Valor Pago: ${valorPago}`);
+                  cy.log(`Multa: ${multa} | Multa Calculada: ${multaCalculada}`);
+                  cy.log(`Juros: ${juros} | Juros Calculados: ${jurosCalculado}`);
+                  cy.log(`Prazo: ${prazoPositivo}`);
+                  cy.log(`Despesas: ${despesas}`);
+                  cy.log(`Valor Atualizado no Sistema: ${valorAtualizadoArredondado}`);
+                  cy.log(`Valor Calculado: ${valorCalculado}`);
 
-                const valorCalculadoFinal = Number(valorCalculado.toFixed(2));
-                const valorAtualizadoFinal = Number(valorAtualizado.toFixed(2));
+                  const valorCalculadoFinal = Number(valorCalculado.toFixed(2));
+                  const valorAtualizadoFinal = Number(valorAtualizado.toFixed(2));
 
-                if (valorAtualizadoFinal === valorCalculadoFinal) {
-                  cy.log('✅ O Valor Atualizado está correto.');
-                } else {
-                  cy.log(`❌ O Valor Atualizado exibido não está correto!: Esperado ${valorCalculadoFinal}, encontrado ${valorAtualizadoFinal}`);
-                  expect(valorAtualizadoFinal).to.equal(valorCalculadoFinal);
-                }
+                  if (valorAtualizadoFinal === valorCalculadoFinal) {
+                    cy.log('✅ O Valor Atualizado está correto.');
+                  } else {
+                    cy.log(`❌ O Valor Atualizado exibido não está correto!: Esperado ${valorCalculadoFinal}, encontrado ${valorAtualizadoFinal}`);
+                    expect(valorAtualizadoFinal).to.equal(valorCalculadoFinal);
+                  }
 
+                });
               });
             });
           });
         });
       });
     });
-  });
   }
-    finalizarOperacao(){
-      cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
-      cy.get('#btn-label-sim').click();
-      //cy.get('.header > titulo-pagina > .d-inline-block > .f-24').should('be.visible');
-      //cy.get("#mat-tab-content-1-1 > div > conteudo-titulos-liquidados > div.pb100.ng-star-inserted > div > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button > fa-icon > svg").click();
-      
-      
-      
-    }
-            
+  finalizarOperacao() {
+    cy.get('.conteudo-liq-manual > .footer-default > .ml50 > .btn').click();
+    cy.get('#btn-label-sim').click();
+    //cy.get('.header > titulo-pagina > .d-inline-block > .f-24').should('be.visible');
+    //cy.get("#mat-tab-content-1-1 > div > conteudo-titulos-liquidados > div.pb100.ng-star-inserted > div > box-informacoes > section > div.btn__mostrarMais.ng-star-inserted > button > fa-icon > svg").click();
+
+
+
+  }
+
 
 }
 

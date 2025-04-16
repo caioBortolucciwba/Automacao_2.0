@@ -62,8 +62,8 @@ class CadastroPFAssinante {
         cy.get('[ng-reflect-label="Autônomo"] > .label-option').click();
         cy.get('.cbo > .ui-lg-6').type('4110-10'); 
         cy.get('#btn-add-imposto').should('be.visible').click(); 
-        cy.get('#mat-input-38').type('10102010');
-        cy.get('#mat-input-39').type('2023');
+        cy.get('#input-data-imposto').type('10102010');
+        cy.get('#input-ano').type('2023');
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('.fr > w-button > #btn-salvar').click(); 
         
@@ -94,7 +94,7 @@ class CadastroPFAssinante {
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
         cy.get('#input-validade').click();
         cy.get('.mat-calendar-body-active > .mat-calendar-body-cell-content').click();
-        cy.get('#mat-input-61').type('Conta de celular');
+        cy.get('#input-descricao').type('Conta de celular');
         cy.get('.new-file-upload > label > span').should('be.visible').click(); 
         cy.get('input[type="file"]').attachFile('DOC_NEW.pdf');
         cy.get('.fr > w-button > .btn').click(); 

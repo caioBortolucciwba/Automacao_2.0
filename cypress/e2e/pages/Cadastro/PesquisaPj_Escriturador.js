@@ -7,7 +7,7 @@ class PesquisaPjEscriturador {
     }
 
     preencherPesquisaPjEscriturador(){
-        cy.fixture('cpf/cnpj_edcriturador').then((data) => {
+        cy.fixture('cpf/cnpj_escriturador').then((data) => {
             cy.get('#input-search').type(data.cnpjescriturador);
             cy.get("#bt-search").click();  
         });

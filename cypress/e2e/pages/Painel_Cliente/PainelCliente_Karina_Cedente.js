@@ -6,7 +6,7 @@ class PainelCliente {
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
         cy.get('.link-configuracoes > .icon').click();
-        cy.contains('KARINA').click();
+        cy.get('#card-menu-1').click();
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_CEDENTE').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
@@ -15,22 +15,29 @@ class PainelCliente {
         cy.get('#menu-lateral-CADASTRO > .flex-column > .menu-click-js').click();
         cy.get('#item-menu-1').click();
         cy.get("#bt-search").click();
-        cy.get('#input-search').type('CEDENTE PAINEL CLIENTE 1');
+        cy.get('#input-search').type('TESTE PALHAÇO ');
         cy.get("#bt-search").click();
+        //cy.wait(30000);
         cy.get('body').type('{esc}');
         cy.get("#conteudo-geral > home > div.meuBode.ng-star-inserted > div > pessoa-grid-list > div.full-row.fl.mt15.mb30 > w-table > form > table > tbody > tr:nth-child(1) > td.semBefore.ng-star-inserted > span > span > fa-icon:nth-child(2) > svg").click();
-        cy.get('#item-menu-14').click();
+        cy.contains('Painel do Cliente').click();
+        //cy.get('#item-menu-14').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
-        cy.get("#mat-input-32").click();
-        cy.get('#mat-input-32').type(cpf);
+        cy.get('#input-cpf').click();
+        cy.get('#input-cpf').type(cpf);
         cy.writeFile('cypress/fixtures/cpf.json', { cpf: cpfsemformatacao });
-        cy.get('#mat-input-33').click().type('Teste Karina CEDENTE Painel');
-        cy.get('#mat-input-34').click().type('daniel.souza@wba.com.br');
+        cy.get('#input-nome').type('Teste Karina CEDENTE Painel');
+        cy.get('#input-email').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa > :nth-child(2)').click();
-        cy.get('#select-carteira-cedente0 > .mat-select-trigger > .mat-select-value').click();
+        cy.get('body').type('{esc}');
+        cy.get('.wb-lg-3.ng-star-inserted > .w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
         cy.contains('FIDC - FINAXIS FIDC').click();
+        cy.get('body').type('{esc}');
         cy.get('#select-perdil-cedente0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-58 > .mat-option-text').click();
+        //cy.get('.mat-option-text').click();
+        cy.get('#mat-option-94 > .mat-option-text').click();
+        // cy.contains('Teste Karina CEDENTE').eq(2).click();
+        // cy.contains('Teste Karina CEDENTE').type('{enter}');
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
         cy.contains('Usuário criado com sucesso!').should('be.visible');
     }

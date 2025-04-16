@@ -71,6 +71,7 @@ class CadastroPFEmpresa {
         cy.get('#btn-novo-assinante').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').click();
         cy.get('.d-flex-direction-column > .full-row > .w-input-select > .w-select > .mat-form-field-wrapper > .mat-form-field-flex').type('teste');
+        cy.get('#mat-option-130 > .mat-option-text', { timeout: 80000 }).should('be.visible');
         cy.get('#mat-option-130 > .mat-option-text').click();
         
         //MUDANÇA DE LAYOUT DO SISTEMA DO CADASTRO DE ASSINANTES

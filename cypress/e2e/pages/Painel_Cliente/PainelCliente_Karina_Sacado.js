@@ -6,7 +6,7 @@ class PainelCliente {
         const cpfsemformatacao = cpf.replace(/\D/g, '');
 
         cy.get('.link-configuracoes > .icon').click();
-        cy.contains('KARINA').click();
+        cy.get('#card-menu-1').click();
         cy.get('#card-menu-9 > .card-icon').click();
         cy.get('#PERFIL_ACESSO_SACADO').click();
         cy.get('#btn-novo > .ng-star-inserted').click();
@@ -30,10 +30,11 @@ class PainelCliente {
         cy.get('#mat-input-34').click().type('Teste Karina Sacado Painel');
         cy.get('#mat-input-35').click().type('daniel.souza@wba.com.br');
         cy.get('#btn-add-empresa').click();
-        cy.get('#select-empresa-sacado0 > .mat-select-trigger > .mat-select-value').click();
-        cy.contains('PROPRIA - KARINA FACTORING').click();
+        cy.get('.wb-lg-3.ng-star-inserted > .w-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').click();
+        cy.contains('FIDC - FINAXIS FIDC').click();
+        cy.get('body').type('{esc}');
         cy.get('#select-perdil-sacado0 > .mat-select-trigger > .mat-select-value').click();
-        cy.get('#mat-option-86 > .mat-option-text').click();
+        cy.get('.mat-option-text').click();
         cy.get('.ml30 > .btn > .ng-star-inserted').click();
 
         cy.contains('Usuário criado com sucesso!').should('be.visible');

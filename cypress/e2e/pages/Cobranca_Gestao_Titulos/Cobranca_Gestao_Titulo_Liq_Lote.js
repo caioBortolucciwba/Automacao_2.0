@@ -39,71 +39,59 @@ class LiquidacaoLote {
 
   calcularJurosLote() {
     cy.wait(10000);
-  
+
     let valores = {
-      valorPagoTotal: 0,
-      multaTotal: 0,
-      jurosTotal: 0,
-      despesasTotal: 0,
-      valorAtualizadoTotal: 0
+        valorPagoTotal: 0,
+        multaTotal: 0,
+        jurosTotal: 0,
+        despesasTotal: 0,
+        valorAtualizadoTotal: 0
     };
-  
-    cy.get('[data-row]').each(($row) => {
-      let valorPago = 0, multa = 0, juros = 0, prazo = 0, despesas = 0, valorAtualizado = 0;
-  
-      cy.wrap($row).find('[data-label="Valor Pago"]').invoke('text').then((valorPagoText) => {
-        valorPago = parseFloat(valorPagoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-        
-        cy.wrap($row).find('[data-label="Multa"]').invoke('text').then((multaText) => {
-          multa = parseFloat(multaText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-  
-          cy.wrap($row).find('[data-label="Juros de mora"]').invoke('text').then((jurosText) => {
-            juros = parseFloat(jurosText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-  
-            cy.wrap($row).find('[data-label="Prazo"]').invoke('text').then((prazoText) => {
-              prazo = parseInt(prazoText) || 0;
-  
-              cy.wrap($row).find('[data-label="Despesas"]').invoke('text').then((despesasText) => {
-                despesas = parseFloat(despesasText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-  
-                cy.wrap($row).find('[data-label="Valor atualizado"]').invoke('text').then((valorAtualizadoText) => {
-                  valorAtualizado = parseFloat(valorAtualizadoText.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-  
-                  let multaCalculada = multa;
-                  let jurosCalculado = prazo > 30 ? juros : juros * (prazo / 30);
-                  let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
-  
-                  valores.valorPagoTotal += valorPago;
-                  valores.multaTotal += multaCalculada;
-                  valores.jurosTotal += jurosCalculado;
-                  valores.despesasTotal += despesas;
-                  valores.valorAtualizadoTotal += valorAtualizado;
-                });
-              });
+
+    cy.get('[data-row]', { timeout: 100000 }).each(($row) => {
+        const extrairValor = (dataLabel) => {
+            return cy.wrap($row).find(`[data-label="${dataLabel}"]`).invoke('text').then(text => {
+                return parseFloat(text.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
             });
-          });
+        };
+
+        return Promise.all([
+            extrairValor("Valor Pago"),
+            extrairValor("Multa"),
+            extrairValor("Juros de mora"),
+            extrairValor("Prazo"),
+            extrairValor("Despesas"),
+            extrairValor("Valor atualizado")
+        ]).then(([valorPago, multa, juros, prazo, despesas, valorAtualizado]) => {
+            let multaCalculada = multa;
+            let jurosCalculado = prazo > 30 ? juros : juros * (prazo / 30);
+            let valorCalculado = valorPago + multaCalculada + jurosCalculado + despesas;
+
+            valores.valorPagoTotal += valorPago;
+            valores.multaTotal += multaCalculada;
+            valores.jurosTotal += jurosCalculado;
+            valores.despesasTotal += despesas;
+            valores.valorAtualizadoTotal += valorAtualizado;
         });
-      });
     }).then(() => {
-      const valorCalculadoTotal = valores.valorPagoTotal + valores.multaTotal + valores.jurosTotal + valores.despesasTotal;
-      const valorAtualizadoArredondado = Number(valores.valorAtualizadoTotal.toFixed(2));
-      const valorCalculadoArredondado = Number(valorCalculadoTotal.toFixed(2));
-  
-      cy.log(`✅ Valor Pago Total: ${valores.valorPagoTotal}`);
-      cy.log(`✅ Multa Total: ${valores.multaTotal}`);
-      cy.log(`✅ Juros Total: ${valores.jurosTotal}`);
-      cy.log(`✅ Despesas Total: ${valores.despesasTotal}`);
-      cy.log(`✅ Valor Atualizado no Sistema: ${valorAtualizadoArredondado}`);
-      cy.log(`✅ Valor Calculado: ${valorCalculadoArredondado}`);
-      cy.log(`🔍 Diferença entre valores: ${Math.abs(valorAtualizadoArredondado - valorCalculadoArredondado)}`);
-  
-      expect(Math.abs(valorAtualizadoArredondado - valorCalculadoArredondado)).to.be.at.most(0.02,
-        `❌ O Valor Atualizado exibido não está correto!: Esperado ${valorCalculadoArredondado}, encontrado ${valorAtualizadoArredondado}`);
-  
-      cy.log('✅ O Valor Atualizado está correto.');
+        const valorCalculadoTotal = valores.valorPagoTotal + valores.multaTotal + valores.jurosTotal + valores.despesasTotal;
+        const valorAtualizadoArredondado = Number(valores.valorAtualizadoTotal.toFixed(2));
+        const valorCalculadoArredondado = Number(valorCalculadoTotal.toFixed(2));
+
+        cy.log(`✅ Valor Pago Total: ${valores.valorPagoTotal}`);
+        cy.log(`✅ Multa Total: ${valores.multaTotal}`);
+        cy.log(`✅ Juros Total: ${valores.jurosTotal}`);
+        cy.log(`✅ Despesas Total: ${valores.despesasTotal}`);
+        cy.log(`✅ Valor Atualizado no Sistema: ${valorAtualizadoArredondado}`);
+        cy.log(`✅ Valor Calculado: ${valorCalculadoArredondado}`);
+        cy.log(`🔍 Diferença entre valores: ${Math.abs(valorAtualizadoArredondado - valorCalculadoArredondado)}`);
+
+        expect(Math.abs(valorAtualizadoArredondado - valorCalculadoArredondado)).to.be.at.most(0.02,
+            `❌ O Valor Atualizado exibido não está correto!: Esperado ${valorCalculadoArredondado}, encontrado ${valorAtualizadoArredondado}`);
+
+        cy.log('✅ O Valor Atualizado está correto.');
     });
-  }
-  
+}
 }
 
 export default LiquidacaoLote;

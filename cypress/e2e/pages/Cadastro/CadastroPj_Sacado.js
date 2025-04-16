@@ -19,7 +19,7 @@ class CadastroPJSacado{
         const cnpj = gerarCNPJ();
         const cnpjsacado= cnpj;
         cy.get('#mat-input-4').type(cnpj);
-        cy.writeFile('cypress/fixtures/cpf/cnpj_cedente.json',{cnpjsacado});
+        cy.writeFile('cypress/fixtures/cpf/cnpj_sacado.json',{cnpjsacado});
         cy.get('#btn-salvar').click();
         cy.get('#mat-input-16').type('Lucas Silva e Silva');
         cy.get('body').type('{esc}');
@@ -192,9 +192,9 @@ class CadastroPJSacado{
         //////////Painel Cliente/////////////
         cy.get('#item-menu-12').click();
         cy.get('#btn-add-contato > .ng-star-inserted').click();
-        cy.get('#input-cpf > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('176.481.448-75');
-        cy.get('#input-nome > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
-        cy.get('#input-email > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste@teste.com.br');
+        cy.get('#input-cpf > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('192.355.924-96');
+       // cy.get('#input-nome > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('Abel Luiz');
+       // cy.get('#input-email > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix').type('teste@teste.com.br');
         cy.get('#btn-add-empresa > .fa').click();
         cy.get('.wb-lg-3.ng-star-inserted').click();
         cy.contains('FIDC - RENAN FIDC SAAA').click();

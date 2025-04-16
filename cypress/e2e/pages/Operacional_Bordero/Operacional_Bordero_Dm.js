@@ -61,6 +61,7 @@ class OperacionalBordero {
         cy.get('#input-n-documento > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
             .type(`${numeroDocumentoGerado}`);
+
         cy.get('#input-valor > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
             .type('5000000');
@@ -86,6 +87,7 @@ class OperacionalBordero {
         cy.get(':nth-child(9) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
             .type(cnpj);
+        cy.writeFile('cypress/fixtures/bordero/dm.json', { cnpj });
         cy.get('.ui-float-label > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix')
             .should('exist')
             .type(cpf);
@@ -104,18 +106,18 @@ class OperacionalBordero {
         // cy.intercept('POST', `${baseUrlUtilizada}-api.wba.com.br:30082/api/v1/private/flow/get/recebiveis/paginados/bordero`).as('endPointTitulosGrig');
 
         cy.get('#btn-finalizar')
-          .should('be.visible')
-          .and('be.enabled')
-          .click();
-        
+            .should('be.visible')
+            .and('be.enabled')
+            .click();
+
         // // Aguarde um pouco para garantir que a requisição tenha chance de ser feita
         // cy.wait(1000); // Aguarda 1 segundo antes de esperar pela requisição
-        
+
         // // Aguarda a requisição interceptada
         // cy.wait('@endPointTitulosGrig', { timeout: 10000 }).then((interception) => {
         //   expect(interception.response.statusCode).to.eq(200);
         //   const quantidadeTitulosGridBordero = interception.response.body.qtdeTotal;
-        
+
         //   if (quantidadeTitulosGridBordero > 0) {
         //     cy.log('O teste passou: A quantidade de títulos é maior que 0');
         //     assert.isTrue(true, 'Títulos Salvos com Sucesso no Grid');
@@ -124,7 +126,7 @@ class OperacionalBordero {
         //     assert.isTrue(false, 'Erro no Salvamento do título no Grid');
         //   }
         // });
-        
+
         // cy.wait(3000);
         // cy.screenshot('Título_salvo_Com_Sucesso_Grid_Borderô_Step1');
     }
@@ -195,6 +197,17 @@ class OperacionalBordero {
         cy.screenshot('Borderô Finalizado - Step-5');
 
         cy.log('✅ BorderÔ de Duplicata Mercantil Finalizado com Sucesso.');
+
+        // Captura o código do borderô
+        cy.get('span.label-txt') // Seleciona o elemento <span> com a classe 'label-txt'
+            .invoke('text') // Obtém o texto do elemento
+            .then((text) => {
+                const codigoBordero = text.match(/Borderô (\d+)/)[1]; // Extrai o número do borderô
+                // Armazena o código em uma variável de ambiente
+                Cypress.env('codigoBordero', codigoBordero);
+                // Opcional: Armazena em um arquivo
+                cy.writeFile('cypress/fixtures/bordero/numeroDm.json', { codigoBordero });
+            });
 
     }
 }
